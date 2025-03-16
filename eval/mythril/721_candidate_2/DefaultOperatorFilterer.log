@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 5, in <module>
+    from mythril.interfaces.cli import main
+  File "/usr/local/lib/python3.10/site-packages/mythril/__init__.py", line 4, in <module>
+    import logging
+  File "/usr/local/lib/python3.10/logging/__init__.py", line 26, in <module>
+    import sys, os, time, io, re, traceback, warnings, weakref, collections.abc
+  File "/usr/local/lib/python3.10/traceback.py", line 5, in <module>
+    import linecache
+  File "/usr/local/lib/python3.10/linecache.py", line 11, in <module>
+    import tokenize
+KeyboardInterrupt

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 3, in <module>
+    import re
+  File "/usr/local/lib/python3.10/re.py", line 336, in <module>
+    import copyreg
+  File "<frozen importlib._bootstrap>", line 1024, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 170, in __enter__
+  File "<frozen importlib._bootstrap>", line 209, in _get_module_lock
+KeyboardInterrupt

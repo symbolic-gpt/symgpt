@@ -1,0 +1,8 @@
+'solc --version' running
+'solc ./benchmark/smallext/huobi.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/huobi.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/huobi.sol
+
+
+INFO:Slither:./benchmark/smallext/huobi.sol analyzed (4 contracts with 5 detectors), 0 result(s) found

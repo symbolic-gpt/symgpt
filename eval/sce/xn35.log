@@ -1,0 +1,55 @@
+'solc --version' running
+'solc ./benchmark/smallext/xn35.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/xn35.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/xn35.sol
+
+Warning: This declaration shadows an existing declaration.
+  --> benchmark/smallext/xn35.sol:90:49:
+   |
+90 |     function totalSupply() public view returns (uint256 totalSupply) {
+   |                                                 ^^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> benchmark/smallext/xn35.sol:90:5:
+   |
+90 |     function totalSupply() public view returns (uint256 totalSupply) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> benchmark/smallext/xn35.sol:58:5:
+   |
+58 |     constructor() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> benchmark/smallext/xn35.sol:86:5:
+   |
+86 |     constructor() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/xn35.sol:32:5:
+   |
+32 |     function mul(uint256 a, uint256 b) internal  view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/xn35.sol:38:5:
+   |
+38 |     function div(uint256 a, uint256 b) internal  view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/xn35.sol:43:5:
+   |
+43 |     function sub(uint256 a, uint256 b) internal  view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/xn35.sol:48:5:
+   |
+48 |     function add(uint256 a, uint256 b) internal  view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+INFO:Slither:./benchmark/smallext/xn35.sol analyzed (4 contracts with 5 detectors), 0 result(s) found

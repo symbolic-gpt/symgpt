@@ -1,0 +1,113 @@
+{
+    "functions": [
+        {
+            "def": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {",
+            "raw_rules": "\n    function supportsInterface(bytes4 interfaceID) external view returns (bool) {\n        return  interfaceID == 0x01ffc9a7 ||    // ERC-165 support (i.e. `bytes4(keccak256('supportsInterface(bytes4)'))`).\n                interfaceID == 0x4e2312e0;      // ERC-1155 `ERC1155TokenReceiver` support (i.e. `bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\")) ^ bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))`).\n    }\n",
+            "format": {
+                "name": "supportsInterface",
+                "arg_types": [
+                    {
+                        "name": "interfaceID",
+                        "type": "bytes4"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `supportsInterface(bytes4 interfaceID)` is designed to check if a contract implements certain interfaces, based on the provided `interfaceID`. The function returns a boolean value (`true` or `false`), indicating whether the contract supports the specified interface. Here's the breakdown of the interfaces it checks:\n\n1. **ERC-165 Support (0x01ffc9a7)**: This interface ID corresponds to the ERC-165 standard, which is used to determine if a contract implements an interface. Specifically, `0x01ffc9a7` is the result of `bytes4(keccak256('supportsInterface(bytes4)'))`. If the `interfaceID` matches this value, the function returns `true`, indicating that the contract supports ERC-165, which is a standard for checking the support of other interfaces.\n\n2. **ERC-1155 `ERC1155TokenReceiver` Support (0x4e2312e0)**: This interface ID is specific to the ERC-1155 standard, particularly for contracts that can handle incoming token transfers. The ID `0x4e2312e0` is derived from the XOR of the bytes4 hashes of the `onERC1155Received` and `onERC1155BatchReceived` functions, which are required for a contract to handle single and batch token transfers respectively. If the `interfaceID` matches `0x4e2312e0`, the function returns `true`, indicating that the contract can properly receive ERC-1155 tokens either individually or in batches.\n\nIn summary, the function checks if the contract supports either the ERC-165 standard or the ERC-1155 token receiver interface and returns `true` if it does, and `false` otherwise. This allows other contracts or services to verify the capabilities of the contract regarding interface support and token handling.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "interfaceID == 0x01ffc9a7"
+                    },
+                    {
+                        "ret_value": true,
+                        "if": "interfaceID == 0x4e2312e0"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `supportsInterface(bytes4 interfaceID)` is designed to check if a contract implements certain interfaces, based on the provided `interfaceID`. The function returns a boolean value (`true` or `false`), indicating whether the contract supports the specified interface. Here's the breakdown of the interfaces it checks:\n\n1. **ERC-165 Support (0x01ffc9a7)**: This interface ID corresponds to the ERC-165 standard, which is used to determine if a contract implements an interface. Specifically, `0x01ffc9a7` is the result of `bytes4(keccak256('supportsInterface(bytes4)'))`. If the `interfaceID` matches this value, the function returns `true`, indicating that the contract supports ERC-165, which is a standard for checking the support of other interfaces.\n\n2. **ERC-1155 `ERC1155TokenReceiver` Support (0x4e2312e0)**: This interface ID is specific to the ERC-1155 standard, particularly for contracts that can handle incoming token transfers. The ID `0x4e2312e0` is derived from the XOR of the bytes4 hashes of the `onERC1155Received` and `onERC1155BatchReceived` functions, which are required for a contract to handle single and batch token transfers respectively. If the `interfaceID` matches `0x4e2312e0`, the function returns `true`, indicating that the contract can properly receive ERC-1155 tokens either individually or in batches.\n\nIn summary, the function checks if the contract supports either the ERC-165 standard or the ERC-1155 token receiver interface and returns `true` if it does, and `false` otherwise. This allows other contracts or services to verify the capabilities of the contract regarding interface support and token handling.",
+                "return": "```json\n[\n    {\n        \"ret_value\": true,\n        \"if\": \"interfaceID == 0x01ffc9a7\"\n    },\n    {\n        \"ret_value\": true,\n        \"if\": \"interfaceID == 0x4e2312e0\"\n    }\n]\n```"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC165",
+    "rules": [
+        {
+            "rule": "The function `supportsInterface(bytes4 interfaceID)` is designed to check if a contract implements certain interfaces, based on the provided `interfaceID`. The function returns a boolean value (`true` or `false`), indicating whether the contract supports the specified interface. Here's the breakdown of the interfaces it checks:\n\n1. **ERC-165 Support (0x01ffc9a7)**: This interface ID corresponds to the ERC-165 standard, which is used to determine if a contract implements an interface. Specifically, `0x01ffc9a7` is the result of `bytes4(keccak256('supportsInterface(bytes4)'))`. If the `interfaceID` matches this value, the function returns `true`, indicating that the contract supports ERC-165, which is a standard for checking the support of other interfaces.\n\n2. **ERC-1155 `ERC1155TokenReceiver` Support (0x4e2312e0)**: This interface ID is specific to the ERC-1155 standard, particularly for contracts that can handle incoming token transfers. The ID `0x4e2312e0` is derived from the XOR of the bytes4 hashes of the `onERC1155Received` and `onERC1155BatchReceived` functions, which are required for a contract to handle single and batch token transfers respectively. If the `interfaceID` matches `0x4e2312e0`, the function returns `true`, indicating that the contract can properly receive ERC-1155 tokens either individually or in batches.\n\nIn summary, the function checks if the contract supports either the ERC-165 standard or the ERC-1155 token receiver interface and returns `true` if it does, and `false` otherwise. This allows other contracts or services to verify the capabilities of the contract regarding interface support and token handling.",
+            "type": "semantic_return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {",
+            "if": null
+        },
+        {
+            "rule": "return True if interfaceID == 0x01ffc9a7",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {",
+            "if": null,
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x01ffc9a7"
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided JSON schema, we need to define a `ReturnVerify` object that specifies the condition under which the function should return `True`. According to the rule, the function should return `True` if `interfaceID` (the function parameter) equals `0x01ffc9a7`. Here's how you can structure the JSON:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0x01ffc9a7\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\n### Explanation:\n1. **ReturnVerify**: This is the main object that specifies the verification rule.\n   - **type**: Specifies the type of the object, which is `ReturnVerify`.\n   - **ret_val**: Specifies the value that should be returned by the function when the condition is met. Here, it is a constant value `true`.\n     - **type**: Specifies that this is a `ConstantSelector`.\n     - **value**: The boolean value `true`, indicating the function should return `True`.\n   - **cond**: Specifies the condition under which the return value should be `true`.\n     - **type**: Specifies that this is a `CompCondition`.\n     - **left**: Specifies the left operand of the comparison, which is the first function parameter (`interfaceID`).\n       - **type**: Specifies that this is a `FuncParamSelector`.\n       - **index**: `0`, indicating the first parameter of the function.\n     - **right**: Specifies the right operand of the comparison, which is the constant `0x01ffc9a7`.\n       - **type**: Specifies that this is a `ConstantSelector`.\n       - **value**: The hexadecimal value `0x01ffc9a7`.\n     - **op**: Specifies the comparison operator, `eq` for equality.\n\nThis JSON configuration aligns with the provided JSON schema and defines the rule for verifying the function's behavior according to the specified condition."
+        },
+        {
+            "rule": "return True if interfaceID == 0x4e2312e0",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {",
+            "if": null,
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x4e2312e0"
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description, we need to create a JSON configuration that specifies the conditions under which the function `supportsInterface(bytes4 interfaceID)` should return `True`. The rule states that the function should return `True` if `interfaceID == 0x4e2312e0`. Here's the JSON configuration that represents this rule:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0x4e2312e0\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **ReturnVerify**: This is the main object that specifies the verification rule.\n- **ret_val**: This specifies the value that should be returned by the function (`true` in this case).\n- **cond**: This is the condition under which the return value should be `true`.\n  - **left**: This refers to the first parameter of the function (`interfaceID`), which is at index 0.\n  - **right**: This is a constant value `0x4e2312e0`, which `interfaceID` should equal for the function to return `true`.\n  - **op**: This specifies the operation to be used for comparison, which is `eq` (equals).\n- **type**: Each object specifies its type according to the schema definitions.\n\nThis JSON configuration should be used to verify that the function behaves as expected according to the rule provided."
+        }
+    ]
+}

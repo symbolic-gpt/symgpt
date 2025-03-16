@@ -1,0 +1,46 @@
+{
+    "sol_file": "benchmark/smallext/mkr.sol",
+    "contract": {
+        "DSToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function name() public view returns (string)",
+                "contract": "DSToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 0,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function symbol() public view returns (string)",
+                "contract": "DSToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "DSToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            }
+        ]
+    }
+}

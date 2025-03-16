@@ -1,0 +1,804 @@
+{
+    "results": [
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external throw if balance of holder for token `_id` is lower than the `_value` sent",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external throw if any other error",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) externalnot throw if `_to` is a smart contract (e.g. code size > 0)",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) externalnot throw if Caller must be approved to manage the tokens being transferred out of the `_from` account",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) externalemit '['TransferSingle']' if the balance change is reflected after the transfer",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) externalcall onERC1155Received if _to is a smart contract (e.g. code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external throw if length of `_ids` is not the same as length of `_values`",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external throw if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external throw if on any other error",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) externalnot throw if `_to` is a smart contract (e.g. code size > 0)",
+            "violated": true
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) externalnot throw if caller must be approved to manage the tokens being transferred out of the `_from` account",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) externalemit '['TransferSingle', 'TransferBatch']' if all the balance changes are reflected and the transfer conditions are met",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) externalcall ERC1155TokenReceiver if `_to` is a smart contract (e.g. code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):function setApprovalForAll(address _operator, bool _approved) externalemit '['ApprovalForAll']' if on success",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": true
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": true
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);emit 'TransferSingle'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);emit 'TransferBatch'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "paused():event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "addGameRole(address):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "removeGameRole(address):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "owner():event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply(uint256):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "exists(uint256):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "uri(uint256):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address,uint256):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOfBatch(address[],uint256[]):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,uint256,bytes):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "setURI(string):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "gameMint(address,uint256[],uint256[],bytes):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "gameBurn(address,uint256[],uint256[]):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "gameTransferFrom(address,address,uint256[],uint256[],bytes):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "gameSetApproval(address,address,bool):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyBatch(uint256[]):event URI(string _value, uint256 indexed _id);emit 'URI'",
+            "violated": false
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "sol_file": "benchmark/smallext/LUTOKEN.sol",
+    "contract": {
+        "LutToken": [
+            {
+                "erc": "20",
+                "type": "throw",
+                "rule": "not throw if Transfers of 0 values",
+                "contract": "LutToken",
+                "interface": "ERC20",
+                "fn_interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+                "rid": 7,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}
