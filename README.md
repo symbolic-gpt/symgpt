@@ -118,7 +118,7 @@ $ python3 -m venv .venv
 $ source .venv/bin/activate
 
 # Install the dependencies
-$ pip install -r python/requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ## SymGPT Usage
