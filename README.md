@@ -76,7 +76,7 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
-## Quick Start
+## Quick Start (Kick-the-Tires)
 These commands can quickly find out ERC violations mentioned in the paper figures!
 ### Audit Contract in Figure 1 
 
@@ -613,6 +613,8 @@ Lines 1110 - 1113, GPT 4 TP/FP/FN refers to the row 219, column Z, column AA, an
 SymGPT and SymGPT(GPT-4) results are identical, the results are mentioned in Google Sheet: [Table 6](https://docs.google.com/spreadsheets/d/1UmOngXtAwpeSHA3tmHeOLEC0DqH9NWnjhyRTlqcXqNc/edit?gid=1207380795#gid=1207380795), TP(157) refers to the TP at row 219, column K. Its FP/FN refers to the row 219, column L and column M.
 
 Figure 11 can be draw from `~/symgpt/scripts/figure11.ipynb`.
+
+Following are referenced scripts to run the results:
 
 SymGPT
 ```bash
