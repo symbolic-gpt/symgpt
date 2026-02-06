@@ -618,10 +618,15 @@ ECSD Auditing Service:
 The result is collected in Google Sheet: [Figure 11](https://docs.google.com/spreadsheets/d/1UmOngXtAwpeSHA3tmHeOLEC0DqH9NWnjhyRTlqcXqNc/edit?gid=1918933567#gid=1918933567). All following columns and rows are referenced from this table as well.
 
 Lines 1089 - 1090, Circle(1) Without Rule Extraction, TP/FP/FN refers to the row 219, column F, column G, and column H.
+
 Lines 1090 - 1903, Circle(2) Without Rule Translation, TP/FP/FN refers to the row 219, column J, column K, and column L.
+
 Lines 1093 - 1096, Circle(3) Without Constraint Generation, TP/FP/FN refers to the row 219, column N, column O, and column P.
+
 Lines 1096 - 1099, Circle(4) Without Symbolic Execution, TP/FP/FN refers to the row 219, column R, column S, and column T.
+
 Lines 1099 - 1110, GPT 5 TP/FP/FN refers to the row 219, column V, column W, and column X.
+
 Lines 1110 - 1113, GPT 4 TP/FP/FN refers to the row 219, column Z, column AA, and column AB.
 
 SymGPT and SymGPT(GPT-4) results are identical, the results are mentioned in Google Sheet: [Table 6](https://docs.google.com/spreadsheets/d/1UmOngXtAwpeSHA3tmHeOLEC0DqH9NWnjhyRTlqcXqNc/edit?gid=1207380795#gid=1207380795), TP(157) refers to the TP at row 219, column K. Its FP/FN refers to the row 219, column L and column M.
