@@ -6,7 +6,6 @@ import os
 def run_nftdefect(sols_dir:str): 
     sols_dir = os.path.abspath(sols_dir) 
     
-    # Rest of them are compiled but failed, so do not need pass cname anyway
     file2cname = {
         '1155_candidate_3.sol': "PGERC1155",
         '1155_candidate_5.sol': "SunflowerLandInventory"

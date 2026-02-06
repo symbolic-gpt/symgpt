@@ -77,6 +77,8 @@ $ pip install -r requirements.txt
 ```
 
 ## Quick Start (Kick-the-Tires)
+Make sure finish the project setup first!
+
 These commands can quickly find out ERC violations mentioned in the paper figures!
 ### Audit Contract in Figure 1 
 
@@ -550,15 +552,20 @@ $ ./run.sh
 ```
 NFTGuard:
 ```bash
+$ cd ~/symgpt
 # This tool requires Docker, this tool provides official docker image.
 # The script will automatically run the tool for each file in the baseline
-$ python3 ./run-nftguard.py
+$ python3 ./scripts/run-nftguard.py
+# This script will generate a console.log to indicate the result
+# The docker image is provided by them.
 ```
 Mythril:
 ```bash
+$ cd ~/symgpt
 # This tool requires Docker, this tool provides official docker image.
 # Output files are in the ./local/mythril 
 $ ./scripts/run-mythril.sh
+# The docker image is provided by them.
 ```
 ERCx:
 
