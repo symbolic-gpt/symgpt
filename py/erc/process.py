@@ -30,7 +30,6 @@ async def process_erc(erc_file:str, out_dir:str, cache_dir:str=None, preprocess_
         if preprocess_only:
             return
         client = AsyncOpenAI(
-            api_key=config.OPENAI_KEY
         )
         ppl_manager = ErcPipelineManager([
             ExtractRule(client, erc_str),
