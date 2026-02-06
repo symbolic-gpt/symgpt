@@ -17,7 +17,9 @@ over current smart contract analysis methods.
 
 ## Artifact Expectation
 
-The information of our study is released in an excel file/google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM.
+The information of our study is released in an google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM.
+
+
 
 ## Artifact Overview
 
@@ -279,6 +281,7 @@ $ ./x erc erc/ERC20 --out-dir ext_erc
 ```
 
 #### Output file
+- It is worth noting that in GPT-5, temperature can not be set to zero. So the results at "rule" section may vary.
 ```json
 {
     "functions": [ 
@@ -477,6 +480,7 @@ The engine refers to the line 791 at `~/symgpt/py/sol/sym.py`.
 ### 5.1 Effectiveness of SymGPT
 
 Script `~/symgpt/scripts/run-large.sh` can trigger the SymGPT on 4,000 contracts. This script may run over 12 hours, depends on the CPU and memory.
+To ease the difficulty of evaluation, we prepared the all the reported violations at the following google sheet.
 
 The result is collected in Google Sheet: [Table 5](https://docs.google.com/spreadsheets/d/1UmOngXtAwpeSHA3tmHeOLEC0DqH9NWnjhyRTlqcXqNc/edit?gid=1200431584#gid=1200431584). All following columns and rows are referenced from this table as well.
 
@@ -520,6 +524,9 @@ $ cd ~/symgpt
 $ source .venv/bin/activate
 # Output files are in the ./local/baseline
 $ ./scripts/run-baseline.sh
+
+# Notes: The number of violation might be more than 159 due to some violations will be reported multiple times.
+# For example, ERC20 missing event Transfer in a same function could be reported multiple times due to the multiple event emission rules.
 ```
 Slither
 ```bash
