@@ -17,8 +17,7 @@ over current smart contract analysis methods.
 
 ## Artifact Expectation
 
-The information of our study is released in an google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM.
-
+The information of our study is released in an google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM. The VM can be downloaded from https://doi.org/10.5281/zenodo.18502262. 
 
 
 ## Artifact Overview
@@ -66,8 +65,12 @@ $ sudo apt install -y python3-pip
 ```
 
 ### Project Setup
-- Make sure you have all the prerequistes installed before you proceed next
+- Make sure you have all the prerequistes installed before you proceed to next
 ```bash
+$ git clone https://github.com/symbolic-gpt/symgpt.git
+
+$ cd symgpt
+
 # Create Python virtual environment
 $ python3 -m venv .venv
 
@@ -485,7 +488,9 @@ To ease the difficulty of evaluation, we prepared the all the reported violation
 The result is collected in Google Sheet: [Table 5](https://docs.google.com/spreadsheets/d/1UmOngXtAwpeSHA3tmHeOLEC0DqH9NWnjhyRTlqcXqNc/edit?gid=1200431584#gid=1200431584). All following columns and rows are referenced from this table as well.
 
 Lines 803 - 804, " a large dataset of 4,000 unique contracts ", these contracts are located at `~/symgpt/benchmark/large`.
+
 Lines 823 - 825, "SymGPT detects 5,783 ERC rule violations while reporting only 122 false postivies..", 5,783 refers to row 5907, column G and 122 refers to row 5907, column H.
+
 Lines 830 - 831, "True Positives. Among the 5,783 detected ERC rule violations, 1,375 have a high security impact,
 3,720 have a medium security impact, and 688 have a low security impact." 1,375 refers to the column D, row 5909. 3,720 refers to the column D, row 5910. 688 refers to the column D, row 5911.
 
@@ -522,7 +527,8 @@ SymGPT
 $ cd ~/symgpt
 # Make sure in the virtual environment
 $ source .venv/bin/activate
-# Output files are in the ./local/baseline
+# Output files are in the ./local/baseline,  each xxx.sol should have a corresponding xxx.json file. 
+# JSON file content is demonstrated at the quick start.
 $ ./scripts/run-baseline.sh
 
 # Notes: The number of violation might be more than 159 due to some violations will be reported multiple times.
@@ -642,6 +648,7 @@ $ cd ~/symgpt
 $ source .venv/bin/activate
 # Output files are in the ./local/baseline
 $ ./scripts/run-baseline.sh
+# The result will be same style mentioned in section 5.2's SymGPT.
 ```
 
 SymGPT(GPT-4)
@@ -649,42 +656,85 @@ SymGPT(GPT-4)
 $ cd ~/symgpt
 # Make sure in the virtual environment
 $ source .venv/bin/activate
+# Replace with GPT-4's output
 $ mv erc/build erc/build_backup && mv erc/buildg4 erc/build
 # Output files are in the ./local/baseline
 $ ./scripts/run-baseline.sh
+# Recover the ERC file
 $ mv erc/build erc/buildg4  && mv erc/build_backup erc/build 
+# The result will be same style mentioned in section 5.2's SymGPT.
 ```
 
 W.O. E
 ```bash
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
-$ python scripts/woe.py
+$ python scripts/woe-prepare.py
+# The results will be at erc/ERCXX_out.
+# Each file is a JSON, which contains multiple rules.
+# User need to replace their JSON object of DSL to the corresponding erc/build/ERCXX.json's rule array section.
+$ ./scripts/run-woe.sh
+# The results will be in the local/woe with the same style of SymGPT mentioned in section 5.2.
 ```
+
 W.O. T
 ```bash
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
 $ python scripts/wot.py
+# The results of this step are a list of z3-like constraints for each baseline contracts.
+# each z3-like constraint is associate with a natural language rule.
 ```
+
+Example JSON result for each contract
+```json
+{
+    "erc": "<erc>",                      # <---- which ERC is used
+    "code": "<solidity source file>",    # <---- which source file is used
+    "rules": [
+        {
+            "rule": "<natural language rule>",      # <---- ERC's natural language rule
+            "constraints": "<z3-like constraints>"  # z3 constraints, like Transfer#emitted == false.
+        }
+    ]
+}
+```
+
 W.O. G
 ```bash
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
 $ python scripts/wog.py
+# The results will be in the local/wog with the similar styles of SymGPT mentioned above. But the content is different.
 ```
+Example JSON result for each contract
+```json
+{
+    "results": [
+        {
+            "rule": "balanceOf(address):function balanceOf(address _owner) external view returns (uint256) throw if _owner is the zero address",  # <---- function interface and rule
+            "violated": true    # <---- whether the LLM think the given contract is violated or not
+        },
+        ... (Ignored other elements for demonstration purpose)
+    ]
+}
+```
+
 W.O. S
 ```bash
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
 $ ./scripts/wos.sh
+# The result will be in local/wos with the similar styles of SymGPT mentioned in section 5.2.
 ```
+
 GPT-4
 ```bash
 # Note: manually change py/sol/sym.py:2287 from "model="gpt-5"" to model="gpt-4"
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
 $ ./scripts/run-gpt4.sh
+# The result will be local/gpt4 with the similar styles of SymGPT mentioned in section 5.2.
 ```
 
 GPT-5
@@ -692,6 +742,7 @@ GPT-5
 $ export OPENAI_API_KEY=xxx
 $ source .venv/bin/activate
 $ ./scripts/run-gpt5.sh
+# The result will be local/gpt5 with the similar styles of SymGPT mentioned in section 5.2.
 ```
 
 ### 5.4 Generality of SymGPT
@@ -703,6 +754,7 @@ $ cd ~/symgpt
 $ source .venv/bin/activate
 # Output files are in the ./local/sce
 $ ./scripts/run-erc3525.sh
+# The result will be local/erc3525 with the similar styles of SymGPT mentioned in section 5.2.
 ```
 
 Script to run for ERC4907:
@@ -712,5 +764,6 @@ $ cd ~/symgpt
 $ source .venv/bin/activate
 # Output files are in the ./local/sce
 $ ./scripts/run-erc4907.sh
+# The result will be local/erc4907 with the similar styles of SymGPT mentioned in section 5.2.
 ```
 

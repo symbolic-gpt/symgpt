@@ -11,4 +11,4 @@ fi
 --cname2ercs=xEuro:20 --cname2ercs=ZRXToken:20 --cname2ercs=IOSToken:20 \
 --cname2ercs=Egypt:20 --cname2ercs=WiT:20 --cname2ercs=GEIMCOIN:20 \
 --cname2ercs=BAToken:20 --cname2ercs=BITCOINSVGOLD:20 --cname2ercs=BNB:20 \
---out-dir local/wos --mode constraintsllmaudit
+--out-dir eval/woe

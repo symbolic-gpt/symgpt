@@ -74,7 +74,7 @@ async def main_ir_with_code():
     executed_rules = []
 
 
-    for code_file in glob("benchmark/smallext/*.sol"):
+    for code_file in glob("benchmark/baseline/*.sol"):
         with open(code_file, "r") as f:
             code = f.read()
         coroutines = []
@@ -88,7 +88,7 @@ async def main_ir_with_code():
         with open(erc_file, "r") as f:
             erc = json.load(f)
             
-        out_file = "local/rationality/wc/" + erc_file.split("/")[-1].split(".")[0] + "_" + code_file.split("/")[-1].split(".")[0]
+        out_file = "local/wot/" + erc_file.split("/")[-1].split(".")[0] + "_" + code_file.split("/")[-1].split(".")[0]
         
         if os.path.exists(out_file):
             print("Skipping", out_file)
