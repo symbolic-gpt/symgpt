@@ -1,0 +1,46 @@
+{
+    "sol_file": "benchmark/smallext/silkroad.sol",
+    "contract": {
+        "SilkToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transfer(address _to, uint256 _value) public returns (bool success)",
+                "contract": "SilkToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 5,
+                "severity": "medium",
+                "tags": [
+                    "incorrect_return"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+                "contract": "SilkToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "emit",
+                "rule": "emit '['Approval']' if function successfully executes",
+                "contract": "SilkToken",
+                "interface": "ERC20",
+                "fn_interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "rid": 18,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "sol_file": "benchmark/smallext/1155_candidate_1.sol",
+    "contract": {
+        "AssetContractShared": [
+            {
+                "erc": "1155",
+                "type": "call",
+                "rule": "call onERC1155BatchReceived if `_to` is a smart contract (e.g. code size > 0)",
+                "contract": "AssetContractShared",
+                "interface": "ERC1155",
+                "fn_interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+                "rid": 10,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/CMBToken.sol",
+    "contract": {
+        "CMBToken": [
+            {
+                "erc": "20",
+                "type": "throw",
+                "rule": " throw if the _from account has not deliberately authorized the sender of the message via some mechanism",
+                "contract": "CMBToken",
+                "interface": "ERC20",
+                "fn_interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "rid": 11,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "throw",
+                "rule": "not throw if Transfers of 0 values",
+                "contract": "CMBToken",
+                "interface": "ERC20",
+                "fn_interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "rid": 12,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

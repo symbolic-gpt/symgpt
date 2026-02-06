@@ -1,0 +1,207 @@
+{
+    "functions": [
+        {
+            "def": "function totalSupply() external view returns (uint256)",
+            "raw_rules": "    /// @notice Count NFTs tracked by this contract\n    /// @return A count of valid NFTs tracked by this contract, where each one of\n    ///  them has an assigned and queryable owner not equal to the zero address\n",
+            "format": {
+                "name": "totalSupply",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `totalSupply()` returns the total number of valid Non-Fungible Tokens (NFTs) that are currently tracked by the contract. Each NFT included in this count has a specific owner whose address is not the zero address, indicating that the NFT is owned and the owner is identifiable.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `totalSupply()` returns the total number of valid Non-Fungible Tokens (NFTs) that are currently tracked by the contract. Each NFT included in this count has a specific owner whose address is not the zero address, indicating that the NFT is owned and the owner is identifiable."
+            }
+        },
+        {
+            "def": "function tokenByIndex(uint256 _index) external view returns (uint256)",
+            "raw_rules": "\n    /// @notice Enumerate valid NFTs\n    /// @dev Throws if `_index` >= `totalSupply()`.\n    /// @param _index A counter less than `totalSupply()`\n    /// @return The token identifier for the `_index`th NFT,\n    ///  (sort order not specified)\n",
+            "format": {
+                "name": "tokenByIndex",
+                "arg_types": [
+                    {
+                        "name": "_index",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "_index >= totalSupply()",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": "The function `tokenByIndex(uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) based on its position in a list. The `_index` parameter is a numerical index that specifies the position of the NFT in this list, which must be less than the total number of NFTs available (as determined by the `totalSupply()` function). The specific order in which NFTs are indexed is not defined by this function, meaning the sequence or criteria used to list the NFTs might vary and is not specified in the documentation. The returned value is the ID of the NFT at the given index, which can be used to reference or interact with that specific NFT in subsequent operations or queries.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"_index >= totalSupply()\",\n        \"throw\": true\n    }\n]\n```",
+                "semantic_return": "The function `tokenByIndex(uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) based on its position in a list. The `_index` parameter is a numerical index that specifies the position of the NFT in this list, which must be less than the total number of NFTs available (as determined by the `totalSupply()` function). The specific order in which NFTs are indexed is not defined by this function, meaning the sequence or criteria used to list the NFTs might vary and is not specified in the documentation. The returned value is the ID of the NFT at the given index, which can be used to reference or interact with that specific NFT in subsequent operations or queries."
+            }
+        },
+        {
+            "def": "function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256)",
+            "raw_rules": "\n    /// @notice Enumerate NFTs assigned to an owner\n    /// @dev Throws if `_index` >= `balanceOf(_owner)` or if\n    ///  `_owner` is the zero address, representing invalid NFTs.\n    /// @param _owner An address where we are interested in NFTs owned by them\n    /// @param _index A counter less than `balanceOf(_owner)`\n    /// @return The token identifier for the `_index`th NFT assigned to `_owner`,\n    ///   (sort order not specified)\n",
+            "format": {
+                "name": "tokenOfOwnerByIndex",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_index",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "_index >= balanceOf(_owner)",
+                        "throw": true
+                    },
+                    {
+                        "if": "_owner is the zero address",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": "The function `tokenOfOwnerByIndex(address _owner, uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) that is owned by a specified address (`_owner`). The `_index` parameter specifies the position of the NFT in the list of all NFTs owned by `_owner`. The order in which NFTs are listed is not defined by this function. The returned token ID can be used to reference or interact with that specific NFT in other operations or queries within the system.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"_index >= balanceOf(_owner)\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"_owner is the zero address\",\n        \"throw\": true\n    }\n]\n```",
+                "semantic_return": "The function `tokenOfOwnerByIndex(address _owner, uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) that is owned by a specified address (`_owner`). The `_index` parameter specifies the position of the NFT in the list of all NFTs owned by `_owner`. The order in which NFTs are listed is not defined by this function. The returned token ID can be used to reference or interact with that specific NFT in other operations or queries within the system."
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC721Enumerable",
+    "rules": [
+        {
+            "rule": "The function `totalSupply()` returns the total number of valid Non-Fungible Tokens (NFTs) that are currently tracked by the contract. Each NFT included in this count has a specific owner whose address is not the zero address, indicating that the NFT is owned and the owner is identifiable.",
+            "type": "semantic_return",
+            "interface": "function totalSupply() external view returns (uint256)"
+        },
+        {
+            "rule": "The function `tokenByIndex(uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) based on its position in a list. The `_index` parameter is a numerical index that specifies the position of the NFT in this list, which must be less than the total number of NFTs available (as determined by the `totalSupply()` function). The specific order in which NFTs are indexed is not defined by this function, meaning the sequence or criteria used to list the NFTs might vary and is not specified in the documentation. The returned value is the ID of the NFT at the given index, which can be used to reference or interact with that specific NFT in subsequent operations or queries.",
+            "type": "semantic_return",
+            "interface": "function tokenByIndex(uint256 _index) external view returns (uint256)"
+        },
+        {
+            "rule": " throw if _index >= totalSupply()",
+            "type": "throw",
+            "interface": "function tokenByIndex(uint256 _index) external view returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "FnCallRetSelector",
+                            "fn_name": "totalSupply"
+                        },
+                        "op": "gte"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the function `tokenByIndex(uint256 _index)`, we need to ensure that the function throws an error if `_index` is greater than or equal to `totalSupply()`. The JSON schema provided defines various selectors and conditions that can be used to construct this verification rule.\n\nGiven the rule and the schema, we can construct a JSON object that uses a `ThrowVerify` type with a `CompCondition` to compare `_index` with the result of the `totalSupply()` function call. Here's how the JSON configuration would look:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"FnCallRetSelector\",\n                \"fn_name\": \"totalSupply\"\n            },\n            \"op\": \"gte\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n1. **ThrowVerify**: This is the main object that specifies the type of verification (throwing an error under certain conditions).\n2. **cond**: This is the condition under which the throw should happen.\n   - **CompCondition**: This specifies a comparison condition.\n   - **left**: This selects the function parameter `_index` (at index 0 of the function parameters).\n   - **right**: This selects the return value of the `totalSupply()` function.\n   - **op**: The operation `gte` stands for \"greater than or equal to\", which aligns with the rule that `_index` should not be greater than or equal to `totalSupply()`.\n3. **op**: Specifies that the operation should result in a \"throw\".\n\nThis JSON configuration should be used in a system that understands how to interpret these rules based on the schema provided, typically in smart contract testing or formal verification tools."
+        },
+        {
+            "rule": "The function `tokenOfOwnerByIndex(address _owner, uint256 _index)` returns the unique identifier (ID) of a non-fungible token (NFT) that is owned by a specified address (`_owner`). The `_index` parameter specifies the position of the NFT in the list of all NFTs owned by `_owner`. The order in which NFTs are listed is not defined by this function. The returned token ID can be used to reference or interact with that specific NFT in other operations or queries within the system.",
+            "type": "semantic_return",
+            "interface": "function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256)"
+        },
+        {
+            "rule": " throw if _index >= balanceOf(_owner)",
+            "type": "throw",
+            "interface": "function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "FnCallRetSelector",
+                            "fn_name": "balanceOf"
+                        },
+                        "op": "gte"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the function `tokenOfOwnerByIndex(address _owner, uint256 _index)`, we need to ensure that the function throws an error if `_index` is greater than or equal to `balanceOf(_owner)`. This involves comparing the function parameter `_index` with the result of the `balanceOf` function call for the `_owner` parameter.\n\nHere is the JSON configuration based on the provided schema:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"FnCallRetSelector\",\n                \"fn_name\": \"balanceOf\"\n            },\n            \"op\": \"gte\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n1. **ThrowVerify**: This object specifies that we are verifying a condition that should lead to a throw.\n2. **cond**: This is the condition that needs to be met for the throw to occur.\n   - **type**: \"CompCondition\" indicates that this is a comparison condition.\n   - **left**: This selects the second function parameter (`_index`), which is at index 1 (0-based index).\n   - **right**: This uses a function call return selector to get the return value of the `balanceOf` function when called with `_owner` as the argument.\n   - **op**: \"gte\" stands for \"greater than or equal to\", which matches the rule requirement that `_index` should not be greater than or equal to the balance.\n3. **op**: \"throw\" specifies that the condition should result in a throw if true.\n\nThis JSON configuration should be used to verify that the smart contract function `tokenOfOwnerByIndex` adheres to the specified rule, ensuring that it throws an error under the correct conditions to prevent out-of-bounds access on token indices."
+        },
+        {
+            "rule": " throw if _owner is the zero address",
+            "type": "throw",
+            "interface": "function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification, we need to specify a condition that checks if the `_owner` parameter of the function `tokenOfOwnerByIndex` is the zero address. If `_owner` is the zero address, the function should throw an error. \n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"0x0000000000000000000000000000000000000000\"\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that we are setting up a condition to verify when the function should throw an error.\n- **cond**: This is the condition that needs to be met for the function to throw.\n  - **type**: \"CompCondition\" indicates a comparison condition.\n  - **left**: This selects the first parameter of the function (`_owner`), which is at index 0.\n  - **right**: This is a constant selector that specifies the zero address (`0x0000000000000000000000000000000000000000`).\n  - **op**: \"eq\" specifies that the operation is an equality check.\n- **op**: \"throw\" specifies that the function should throw an error if the condition is true.\n\nThis configuration ensures that the function `tokenOfOwnerByIndex` will throw an error if the `_owner` parameter is the zero address, adhering to the specified rule."
+        }
+    ]
+}

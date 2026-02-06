@@ -1,0 +1,1 @@
+./x audit benchmark/large/*.sol --out-dir local/large

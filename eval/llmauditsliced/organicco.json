@@ -1,0 +1,6 @@
+{
+    "sol_file": "benchmark/smallext/organicco.sol",
+    "contract": {
+        "Organicco": []
+    }
+}

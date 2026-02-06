@@ -1,0 +1,764 @@
+{
+    "results": [
+        {
+            "rule": "balanceOf(address):function balanceOf(address _owner) external view returns (uint256) throw if _owner is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):function ownerOf(uint256 _tokenId) external view returns (address) throw if NFTs assigned to zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payablenot throw if `_to` is a smart contract (code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if the return value of `onERC721Received` is not `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payableemit '['Transfer']' if `msg.sender` is the current owner, an authorized operator, or the approved address for this NFT, `_from` is the current owner, `_to` is not the zero address, and `_tokenId` is a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payableemit '['Approval']' if the ownership of the NFT is transferred",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payablecall onERC721Received if `_to` is a smart contract (code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payablenot throw if `_to` is a smart contract (code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if the return value of `onERC721Received` is not `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Transfer']' if `_from` is the current owner, an authorized operator, or the approved address for this NFT, `_to` is not the zero address, `_tokenId` is a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Approval']' if the approved address for this NFT is reset (commonly to address(0))",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['ERC721Received']' if `_to` is a smart contract and `onERC721Received` is successfully called on `_to`",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payablecall onERC721Received if `_to` is a smart contract (code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Transfer']' if msg.sender is the current owner, an authorized operator, or the approved address for this NFT, `_from` is the current owner, `_to` is not the zero address, and `_tokenId` is a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _approved, uint256 _tokenId) external payable throw if `msg.sender` is not the current NFT owner and not an authorized operator of the current owner",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _approved, uint256 _tokenId) external payableemit '['Approval']' if `msg.sender` is the current NFT owner or an authorized operator of the current owner",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):function setApprovalForAll(address _operator, bool _approved) externalemit '['ApprovalForAll']' if always",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):function getApproved(uint256 _tokenId) external view returns (address) throw if _tokenId is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "counter():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getMySharedHaikus():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "counter():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getMySharedHaikus():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "counter():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getMySharedHaikus():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "constructor():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "counter():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "mintHaiku(string,string,string):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "shareHaiku(uint256,address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "getMySharedHaikus():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        }
+    ]
+}

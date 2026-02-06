@@ -1,0 +1,25 @@
+'solc --version' running
+'solc ./benchmark/smallext/aoa.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/aoa.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/aoa.sol
+
+Warning: This declaration shadows an existing declaration.
+   --> benchmark/smallext/aoa.sol:156:10:
+    |
+156 |         (bool success, ) = _spender.call(
+    |          ^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+   --> benchmark/smallext/aoa.sol:152:23:
+    |
+152 |     ) public returns (bool success) {
+    |                       ^^^^^^^^^^^^
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/aoa.sol:135:5:
+    |
+135 |     constructor(
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+INFO:Slither:./benchmark/smallext/aoa.sol analyzed (3 contracts with 5 detectors), 0 result(s) found

@@ -1,0 +1,11 @@
+'solc --version' running
+'solc ./benchmark/smallext/mxm.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/mxm.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/mxm.sol
+
+
+INFO:Detectors:
+TokenERC20 (benchmark/smallext/mxm.sol#16-205) has incorrect ERC20 function interface:TokenERC20.transfer(address,uint256) (benchmark/smallext/mxm.sol#83-86)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Slither:./benchmark/smallext/mxm.sol analyzed (2 contracts with 5 detectors), 1 result(s) found

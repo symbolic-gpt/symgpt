@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 5, in <module>
+    from mythril.interfaces.cli import main
+  File "/usr/local/lib/python3.10/site-packages/mythril/__init__.py", line 8, in <module>
+    from mythril.plugin.loader import MythrilPluginLoader
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/__init__.py", line 1, in <module>
+    from mythril.plugin.interface import MythrilPlugin, MythrilCLIPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/interface.py", line 2, in <module>
+    from mythril.laser.plugin.builder import PluginBuilder as LaserPluginBuilder
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/builder.py", line 1, in <module>
+    from mythril.laser.plugin.interface import LaserPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/interface.py", line 1, in <module>
+    from mythril.laser.ethereum.svm import LaserEVM
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/ethereum/svm.py", line 10, in <module>
+    from mythril.analysis.potential_issues import check_potential_issues
+  File "/usr/local/lib/python3.10/site-packages/mythril/analysis/potential_issues.py", line 1, in <module>
+    from mythril.analysis.report import Issue
+  File "/usr/local/lib/python3.10/site-packages/mythril/analysis/report.py", line 9, in <module>
+    from eth_abi import decode
+  File "/usr/local/lib/python3.10/site-packages/eth_abi/__init__.py", line 15, in <module>
+    from eth_abi.abi import (  # NOQA
+  File "/usr/local/lib/python3.10/site-packages/eth_abi/abi.py", line 1, in <module>
+    from eth_abi.codec import (
+  File "/usr/local/lib/python3.10/site-packages/eth_abi/codec.py", line 7, in <module>
+    from eth_typing.abi import (
+  File "/usr/local/lib/python3.10/site-packages/eth_typing/__init__.py", line 48, in <module>
+    from .networks import (
+  File "/usr/local/lib/python3.10/site-packages/eth_typing/networks.py", line 6, in <module>
+    class ChainId(IntEnum):
+  File "/usr/local/lib/python3.10/site-packages/eth_typing/networks.py", line 714, in ChainId
+    CHI = 10200
+  File "/usr/local/lib/python3.10/enum.py", line 132, in __setitem__
+    elif key in self._member_names:
+KeyboardInterrupt

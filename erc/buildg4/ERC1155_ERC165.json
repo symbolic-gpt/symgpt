@@ -1,0 +1,94 @@
+{
+    "functions": [
+        {
+            "def": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {",
+            "raw_rules": "\n    function supportsInterface(bytes4 interfaceID) external view returns (bool) {\n        return  interfaceID == 0x01ffc9a7 ||    // ERC-165 support (i.e. `bytes4(keccak256('supportsInterface(bytes4)'))`).\n                interfaceID == 0x4e2312e0;      // ERC-1155 `ERC1155TokenReceiver` support (i.e. `bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\")) ^ bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))`).\n    }\n",
+            "format": {
+                "name": "supportsInterface",
+                "arg_types": [
+                    {
+                        "name": "interfaceID",
+                        "type": "bytes4"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "interfaceID == 0x01ffc9a7 (ERC-165)",
+                        "throw": false
+                    },
+                    {
+                        "if": "interfaceID == 0x4e2312e0 (ERC-1155 ERC1155TokenReceiver)",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": "It returns whether the contract claims to support a given interface ID.\n\n- Returns true only if interfaceID is:\n  - 0x01ffc9a7: ERC\u2011165 (supportsInterface)\n  - 0x4e2312e0: ERC\u20111155 token receiver (onERC1155Received and onERC1155BatchReceived)\n- Returns false for any other interface ID.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "interfaceID == 0x01ffc9a7"
+                    },
+                    {
+                        "ret_value": true,
+                        "if": "interfaceID == 0x4e2312e0"
+                    },
+                    {
+                        "ret_value": false,
+                        "if": "interfaceID != 0x01ffc9a7 and interfaceID != 0x4e2312e0"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"interfaceID == 0x01ffc9a7 (ERC-165)\",\n    \"throw\": false\n  },\n  {\n    \"if\": \"interfaceID == 0x4e2312e0 (ERC-1155 ERC1155TokenReceiver)\",\n    \"throw\": false\n  }\n]",
+                "semantic_return": "It returns whether the contract claims to support a given interface ID.\n\n- Returns true only if interfaceID is:\n  - 0x01ffc9a7: ERC\u2011165 (supportsInterface)\n  - 0x4e2312e0: ERC\u20111155 token receiver (onERC1155Received and onERC1155BatchReceived)\n- Returns false for any other interface ID.",
+                "return": "[\n  {\n    \"ret_value\": true,\n    \"if\": \"interfaceID == 0x01ffc9a7\"\n  },\n  {\n    \"ret_value\": true,\n    \"if\": \"interfaceID == 0x4e2312e0\"\n  },\n  {\n    \"ret_value\": false,\n    \"if\": \"interfaceID != 0x01ffc9a7 and interfaceID != 0x4e2312e0\"\n  }\n]"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC165",
+    "rules": [
+        {
+            "rule": "It returns whether the contract claims to support a given interface ID.\n\n- Returns true only if interfaceID is:\n  - 0x01ffc9a7: ERC\u2011165 (supportsInterface)\n  - 0x4e2312e0: ERC\u20111155 token receiver (onERC1155Received and onERC1155BatchReceived)\n- Returns false for any other interface ID.",
+            "type": "semantic_return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        },
+        {
+            "rule": "not throw if interfaceID == 0x01ffc9a7 (ERC-165)",
+            "type": "throw",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        },
+        {
+            "rule": "not throw if interfaceID == 0x4e2312e0 (ERC-1155 ERC1155TokenReceiver)",
+            "type": "throw",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        },
+        {
+            "rule": "return True if interfaceID == 0x01ffc9a7",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        },
+        {
+            "rule": "return True if interfaceID == 0x4e2312e0",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        },
+        {
+            "rule": "return False if interfaceID != 0x01ffc9a7 and interfaceID != 0x4e2312e0",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool) {"
+        }
+    ]
+}

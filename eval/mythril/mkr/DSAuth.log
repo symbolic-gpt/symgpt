@@ -1,0 +1,43 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: MAIN
+Function name: setOwner(address)
+PC address: 844
+Estimated Gas Usage: 12519 - 69553
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: setAuthority(address), txdata: 0x7a9e5e4b0000000000000000000000000101010101010101010101010101010101010101, decoded_data: ('0x0101010101010101010101010101010101010101',), value: 0x0
+Caller: [SOMEGUY], function: setOwner(address), txdata: 0x13af40350000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: MAIN
+Function name: setAuthority(address)
+PC address: 844
+Estimated Gas Usage: 12580 - 69614
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: setAuthority(address), txdata: 0x7a9e5e4b0000000000000000000000000101010101010101010101010101010101010101, decoded_data: ('0x0101010101010101010101010101010101010101',), value: 0x0
+Caller: [SOMEGUY], function: setAuthority(address), txdata: 0x7a9e5e4b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+

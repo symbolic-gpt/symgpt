@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 5, in <module>
+    from mythril.interfaces.cli import main
+  File "/usr/local/lib/python3.10/site-packages/mythril/__init__.py", line 8, in <module>
+    from mythril.plugin.loader import MythrilPluginLoader
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/__init__.py", line 1, in <module>
+    from mythril.plugin.interface import MythrilPlugin, MythrilCLIPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/interface.py", line 2, in <module>
+    from mythril.laser.plugin.builder import PluginBuilder as LaserPluginBuilder
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/builder.py", line 1, in <module>
+    from mythril.laser.plugin.interface import LaserPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/interface.py", line 1, in <module>
+    from mythril.laser.ethereum.svm import LaserEVM
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/ethereum/svm.py", line 10, in <module>
+    from mythril.analysis.potential_issues import check_potential_issues
+  File "/usr/local/lib/python3.10/site-packages/mythril/analysis/potential_issues.py", line 1, in <module>
+    from mythril.analysis.report import Issue
+  File "/usr/local/lib/python3.10/site-packages/mythril/analysis/report.py", line 18, in <module>
+    from mythril.solidity.soliditycontract import SolidityContract
+  File "/usr/local/lib/python3.10/site-packages/mythril/solidity/soliditycontract.py", line 7, in <module>
+    from mythril.ethereum.evmcontract import EVMContract
+  File "/usr/local/lib/python3.10/site-packages/mythril/ethereum/evmcontract.py", line 8, in <module>
+    from mythril.disassembler.disassembly import Disassembly
+  File "/usr/local/lib/python3.10/site-packages/mythril/disassembler/disassembly.py", line 2, in <module>
+    from mythril.ethereum import util
+  File "/usr/local/lib/python3.10/site-packages/mythril/ethereum/util.py", line 14, in <module>
+    from requests.exceptions import ConnectionError
+  File "/usr/local/lib/python3.10/site-packages/requests/__init__.py", line 45, in <module>
+    from .exceptions import RequestsDependencyWarning
+  File "/usr/local/lib/python3.10/site-packages/requests/exceptions.py", line 9, in <module>
+    from .compat import JSONDecodeError as CompatJSONDecodeError
+  File "/usr/local/lib/python3.10/site-packages/requests/compat.py", line 47, in <module>
+    from http import cookiejar as cookielib
+  File "/usr/local/lib/python3.10/http/cookiejar.py", line 36, in <module>
+    import urllib.parse, urllib.request
+KeyboardInterrupt
+
+got 3 SIGTERM/SIGINTs, forcefully exiting

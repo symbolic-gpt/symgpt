@@ -1,0 +1,85 @@
+{
+    "sol_file": "benchmark/smallext/EZOToken.sol",
+    "contract": {
+        "EZOToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 6,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 7,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function allowance(address _owner, address _spender) public view returns (uint256 remaining)",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 8,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "throw",
+                "rule": " throw if the message caller's account balance does not have enough tokens to spend",
+                "contract": "EZOToken",
+                "interface": "ERC20",
+                "fn_interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+                "rid": 6,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

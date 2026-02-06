@@ -1,0 +1,8 @@
+'solc --version' running
+'solc ./benchmark/smallext/1155_candidate_2.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+INFO:Detectors:
+Capsule.extract(address) (benchmark/smallext/1155_candidate_2.sol#1282-1292) sends eth to arbitrary user
+	Dangerous calls:
+	- address(_admin.getTreasury()).transfer(address(this).balance) (benchmark/smallext/1155_candidate_2.sol#1286)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Slither:./benchmark/smallext/1155_candidate_2.sol analyzed (14 contracts with 5 detectors), 1 result(s) found

@@ -1,0 +1,360 @@
+{
+    "results": [
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success) throw if the message caller's account balance does not have enough tokens to spend",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if transfer is called",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) throw if the _from account has not deliberately authorized the sender of the message via some mechanism",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers _value amount of tokens from address _from to address _to",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)allowance is reset to _value",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)emit '['Approval']' if function successfully executes",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAndCall(address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burnFrom(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(uint256,string,string):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "mintToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "freezeAccount(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrices(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "startPreSales(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "stopPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTaiAMT(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getBalanceTAI():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getSalesPrice():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getLeftPreSalesAMT():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalBuyBack(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAndCall(address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burnFrom(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(uint256,string,string):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "mintToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "freezeAccount(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrices(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "startPreSales(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "stopPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTaiAMT(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getBalanceTAI():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getSalesPrice():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getLeftPreSalesAMT():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "procNormalSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "procNormalBuyBack(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAndCall(address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burnFrom(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(uint256,string,string):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mintToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "freezeAccount(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrices(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "startPreSales(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "stopPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTaiAMT(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getBalanceTAI():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getSalesPrice():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getLeftPreSalesAMT():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procPreSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalSales():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalBuyBack(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "approveAndCall(address,uint256,bytes):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "burn(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "burnFrom(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(uint256,string,string):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "mintToken(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "freezeAccount(address,bool):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "setPrices(uint256,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "startPreSales(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "stopPreSales():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "getTaiAMT(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getBalanceTAI():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getSalesPrice():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getLeftPreSalesAMT():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "procPreSales():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalSales():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "procNormalBuyBack(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        }
+    ]
+}

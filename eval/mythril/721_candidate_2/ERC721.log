@@ -1,0 +1,8 @@
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site.py", line 73, in <module>
+    import os
+KeyboardInterrupt
+
+got 3 SIGTERM/SIGINTs, forcefully exiting

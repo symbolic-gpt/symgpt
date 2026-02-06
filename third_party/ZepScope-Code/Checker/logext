@@ -1,0 +1,658 @@
+Installing solc '0.8.20'...
+Version '0.8.20' installed.
+'solc --version' running
+'solc smallext/721_candidate_1.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/721_candidate_1.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> smallext/721_candidate_1.sol
+
+Warning: Function state mutability can be restricted to pure
+   --> smallext/721_candidate_1.sol:194:5:
+    |
+194 |     function implementsERC721()
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+
+NonFungibleToken.balanceOf(address) (smallext/721_candidate_1.sol#106-113)
+lack def check: 
+['NEQ', ['owner', 'address_1'], ['address(0)'], '#Low#ERROR_MSG:ERC721: address zero is not a valid owner'] in caller: NonFungibleToken.balanceOf(address)
+
+
+NonFungibleToken.ownerOf(uint256) (smallext/721_candidate_1.sol#115-122)
+lack def check: 
+['NEQ', ['_ownerOf(tokenId)', '_owners@tokenId', 'owner'], ['address(0)'], '#Low#ERROR_MSG:ERC721: invalid token ID'] in caller: NonFungibleToken.ownerOf(uint256)
+
+
+NonFungibleToken.approve(address,uint256) (smallext/721_candidate_1.sol#133-146)
+lack def check: 
+['NEQ', ['to', 'address_1'], ['ownerOf(tokenId)', 'owner'], '#Low#ERROR_MSG:ERC721: approval to current owner'] ['Lack Addess(0) Check'] in caller: NonFungibleToken.approve(address,uint256)
+
+
+NonFungibleToken.transferFrom(address,address,uint256) (smallext/721_candidate_1.sol#148-161)
+lack def check: 
+['Lack Addess(0) Check'] in caller: NonFungibleToken.transferFrom(address,address,uint256)
+
+
+NonFungibleToken.tokenOfOwnerByIndex(address,uint256) (smallext/721_candidate_1.sol#177-184)
+lack def check: 
+['LT', ['uint256_1', 'index'], ['balanceOf(owner)'], '#Low#ERROR_MSG:ERC721Enumerable: owner index out of bounds'] ['NEQ', ['owner', 'address_1'], ['address(0)'], '#Low#ERROR_MSG:ERC721: address zero is not a valid owner'] in caller: NonFungibleToken.tokenOfOwnerByIndex(address,uint256)
+
+
+NonFungibleToken._approve(address,uint256) (smallext/721_candidate_1.sol#229-233)
+lack def check: 
+['Lack Addess(0) Check'] in caller: NonFungibleToken.approve(address,uint256)
+
+
+Reference: Check API usage of OpenZeppelin
+smallext/721_candidate_1.sol analyzed (3 contracts with 2 detectors), 6 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+'solc --version' running
+'solc smallext/721_candidate_2.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/721_candidate_2.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/721_candidate_2.sol:1256:1:
+     |
+1256 | pragma solidity 0.8.13;
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/721_candidate_2.sol:1256:1:
+     |
+1256 | pragma solidity 0.8.13;
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in smallext/721_candidate_2.sol
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/721_candidate_2.sol:1256:1:
+     |
+1256 | pragma solidity 0.8.13;
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+'solc --version' running
+'solc smallext/721_candidate_3.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/721_candidate_3.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> smallext/721_candidate_3.sol
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> smallext/721_candidate_3.sol:481:3:
+    |
+481 |   constructor(address _storeAddress) public {
+    |   ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+    --> smallext/721_candidate_3.sol:1180:3:
+     |
+1180 |   function supportsInterface(
+     |   ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Contract code size is 25152 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+    --> smallext/721_candidate_3.sol:1563:1:
+     |
+1563 | contract LicenseSale is LicenseOwnership {
+     | ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Contract code size is 25762 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+    --> smallext/721_candidate_3.sol:1830:1:
+     |
+1830 | contract LicenseCore is LicenseSale {
+     | ^ (Relevant source part starts here and spans across multiple lines).
+
+
+
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_3.sol#5)
+Reference:  
+smallext/721_candidate_3.sol analyzed (17 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+'solc --version' running
+'solc smallext/721_candidate_4.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/721_candidate_4.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+  --> smallext/721_candidate_4.sol:42:1:
+   |
+42 | pragma solidity ^0.5.0;
+   | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+  --> smallext/721_candidate_4.sol:42:1:
+   |
+42 | pragma solidity ^0.5.0;
+   | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in smallext/721_candidate_4.sol
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+  --> smallext/721_candidate_4.sol:42:1:
+   |
+42 | pragma solidity ^0.5.0;
+   | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+'solc --version' running
+'solc smallext/721_candidate_5.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#9)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#37)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#174)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#205)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#234)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#265)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#683)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#729)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#825)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#853)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1018)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1503)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1534)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1708)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1716)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1724)
+	Pragma confirmed better, here is pragma solidity^0.8.20. ^0.8.20 (smallext/721_candidate_5.sol#1746)
+Reference:  
+smallext/721_candidate_5.sol analyzed (18 contracts with 2 detectors), 17 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+'solc --version' running
+'solc smallext/1155_candidate_1.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/1155_candidate_1.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/1155_candidate_1.sol:1191:1:
+     |
+1191 | pragma solidity 0.8.4;
+     | ^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/1155_candidate_1.sol:1191:1:
+     |
+1191 | pragma solidity 0.8.4;
+     | ^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in smallext/1155_candidate_1.sol
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+    --> smallext/1155_candidate_1.sol:1191:1:
+     |
+1191 | pragma solidity 0.8.4;
+     | ^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+'solc --version' running
+'solc smallext/1155_candidate_2.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#30)
+	Pragma confirmed better, here is pragma solidity^0.8.1. ^0.8.1 (smallext/1155_candidate_2.sol#115)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#362)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#390)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#421)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#481)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#602)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_2.sol#626)
+Reference:  
+smallext/1155_candidate_2.sol analyzed (14 contracts with 2 detectors), 8 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+'solc --version' running
+'solc smallext/1155_candidate_3.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/1155_candidate_3.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> smallext/1155_candidate_3.sol
+
+Warning: Contract code size is 26485 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+    --> smallext/1155_candidate_3.sol:3030:1:
+     |
+3030 | contract PGERC1155 is ERC1155, AccessControl, Ownable, ReentrancyGuard {
+     | ^ (Relevant source part starts here and spans across multiple lines).
+
+
+
+	Pragma confirmed better, here is pragma solidity>=0.4.22<0.9.0. >=0.4.22<0.9.0 (smallext/1155_candidate_3.sol#8)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1544)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1609)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1678)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1768)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1794)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#1867)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2086)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2113)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2143)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2355)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2409)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2535)
+	Pragma confirmed better, here is pragma solidity^0.8.0. ^0.8.0 (smallext/1155_candidate_3.sol#2558)
+	Pragma confirmed better, here is pragma solidity^0.8.9. ^0.8.9 (smallext/1155_candidate_3.sol#3011)
+Reference:  
+smallext/1155_candidate_3.sol analyzed (15 contracts with 2 detectors), 15 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+'solc --version' running
+'solc smallext/1155_candidate_4.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/smallext' running
+Compilation warnings/errors on smallext/1155_candidate_4.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+ --> smallext/1155_candidate_4.sol:9:1:
+  |
+9 | pragma solidity ^0.6.0;
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+ --> smallext/1155_candidate_4.sol:9:1:
+  |
+9 | pragma solidity ^0.6.0;
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in smallext/1155_candidate_4.sol
+Traceback (most recent call last):
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/.local/lib/python3.10/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+ --> smallext/1155_candidate_4.sol:9:1:
+  |
+9 | pragma solidity ^0.6.0;
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all

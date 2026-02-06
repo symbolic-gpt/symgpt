@@ -1,0 +1,20 @@
+{
+    "sol_file": "benchmark/smallext/gencoin.sol",
+    "contract": {
+        "GEIMCOIN": [
+            {
+                "erc": "20",
+                "type": "emit",
+                "rule": "emit '['Approval']' if function successfully executes",
+                "contract": "GEIMCOIN",
+                "interface": "ERC20",
+                "fn_interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "rid": 18,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

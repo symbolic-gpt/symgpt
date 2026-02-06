@@ -1,0 +1,152 @@
+{
+    "functions": [
+        {
+            "def": "function name() external view returns (string _name)",
+            "raw_rules": "    /// @notice A descriptive name for a collection of NFTs in this contract\n",
+            "format": {
+                "name": "name",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "_name",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `name()` in this context is a string that provides a descriptive name for a collection of NFTs (Non-Fungible Tokens) managed by the smart contract. This name is used to identify the collection and can be displayed in user interfaces or used for reference purposes.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `name()` in this context is a string that provides a descriptive name for a collection of NFTs (Non-Fungible Tokens) managed by the smart contract. This name is used to identify the collection and can be displayed in user interfaces or used for reference purposes.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function symbol() external view returns (string _symbol)",
+            "raw_rules": "\n    /// @notice An abbreviated name for NFTs in this contract\n",
+            "format": {
+                "name": "symbol",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "_symbol",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `symbol()` when called on this contract represents the abbreviated name or symbol of the Non-Fungible Tokens (NFTs) managed by the contract. This symbol is typically a short, easily recognizable string used to identify the tokens in a similar way to how stocks have ticker symbols. For example, for a collection of digital art NFTs, the symbol might be something like \"ART\". This symbol helps users and applications quickly reference and differentiate this specific collection of NFTs from others on the blockchain.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `symbol()` when called on this contract represents the abbreviated name or symbol of the Non-Fungible Tokens (NFTs) managed by the contract. This symbol is typically a short, easily recognizable string used to identify the tokens in a similar way to how stocks have ticker symbols. For example, for a collection of digital art NFTs, the symbol might be something like \"ART\". This symbol helps users and applications quickly reference and differentiate this specific collection of NFTs from others on the blockchain.",
+                "return": "Based on the provided information and the description for the function \"function symbol() external view returns (string _symbol)\", there are no specific rules or conditions mentioned that dictate a specific return value under certain conditions. The description only provides a general notice about the function's purpose, which is to provide an abbreviated name for NFTs in the contract.\n\nSince there are no conditions or rules specified that affect the return value, the JSON array should be empty. Here is the appropriate JSON response:\n\n```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function tokenURI(uint256 _tokenId) external view returns (string)",
+            "raw_rules": "\n    /// @notice A distinct Uniform Resource Identifier (URI) for a given asset.\n    /// @dev Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC\n    ///  3986. The URI may point to a JSON file that conforms to the \"ERC721\n    ///  Metadata JSON Schema\".\n",
+            "format": {
+                "name": "tokenURI",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "_tokenId is not a valid NFT",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": "The return value of the function `tokenURI(uint256 _tokenId)` is a string that represents a Uniform Resource Identifier (URI). This URI uniquely identifies a digital asset associated with a specific token ID in a non-fungible token (NFT) system. The URI typically points to a location where additional metadata about the NFT is stored, often in the form of a JSON file that conforms to the ERC721 Metadata JSON Schema. This metadata can include details such as the name, description, and image associated with the NFT, and is crucial for applications to present relevant information about the NFT to users.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"_tokenId is not a valid NFT\",\n        \"throw\": true\n    }\n]\n```",
+                "semantic_return": "The return value of the function `tokenURI(uint256 _tokenId)` is a string that represents a Uniform Resource Identifier (URI). This URI uniquely identifies a digital asset associated with a specific token ID in a non-fungible token (NFT) system. The URI typically points to a location where additional metadata about the NFT is stored, often in the form of a JSON file that conforms to the ERC721 Metadata JSON Schema. This metadata can include details such as the name, description, and image associated with the NFT, and is crucial for applications to present relevant information about the NFT to users.",
+                "return": "```json\n[]\n```"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC721Metadata",
+    "rules": [
+        {
+            "rule": "The return value of the function `name()` in this context is a string that provides a descriptive name for a collection of NFTs (Non-Fungible Tokens) managed by the smart contract. This name is used to identify the collection and can be displayed in user interfaces or used for reference purposes.",
+            "type": "semantic_return",
+            "interface": "function name() external view returns (string _name)"
+        },
+        {
+            "rule": "The return value of the function `symbol()` when called on this contract represents the abbreviated name or symbol of the Non-Fungible Tokens (NFTs) managed by the contract. This symbol is typically a short, easily recognizable string used to identify the tokens in a similar way to how stocks have ticker symbols. For example, for a collection of digital art NFTs, the symbol might be something like \"ART\". This symbol helps users and applications quickly reference and differentiate this specific collection of NFTs from others on the blockchain.",
+            "type": "semantic_return",
+            "interface": "function symbol() external view returns (string _symbol)"
+        },
+        {
+            "rule": "The return value of the function `tokenURI(uint256 _tokenId)` is a string that represents a Uniform Resource Identifier (URI). This URI uniquely identifies a digital asset associated with a specific token ID in a non-fungible token (NFT) system. The URI typically points to a location where additional metadata about the NFT is stored, often in the form of a JSON file that conforms to the ERC721 Metadata JSON Schema. This metadata can include details such as the name, description, and image associated with the NFT, and is crucial for applications to present relevant information about the NFT to users.",
+            "type": "semantic_return",
+            "interface": "function tokenURI(uint256 _tokenId) external view returns (string)"
+        },
+        {
+            "rule": " throw if _tokenId is not a valid NFT",
+            "type": "throw",
+            "interface": "function tokenURI(uint256 _tokenId) external view returns (string)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "ownerOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification, we need to define a condition that checks if the `_tokenId` is valid. A common way to verify the validity of a token ID in an ERC-721 contract is to check if it has an owner, which can be determined using the `ownerOf` function. If the `ownerOf` function returns a non-zero address, the token ID is valid.\n\nGiven the schema and the possible anchor functions, we will use the `ownerOf` function's state variable `_owners` to check if the `_tokenId` maps to a non-zero address. This will be our condition for throwing an error if the token ID is not valid.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"ownerOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"0x0000000000000000000000000000000000000000\"\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that we are setting up a condition to potentially throw an error.\n- **cond**: This is the condition under which the throw will occur.\n  - **CompCondition**: This specifies a comparison condition.\n  - **left**: This selects the value from the state variable `_owners` using the `ownerOf` function. It uses the token ID (`_tokenId`) passed to the function as the key.\n  - **right**: This is a constant selector that specifies the zero address. In Ethereum, the zero address (`0x0000000000000000000000000000000000000000`) typically indicates that no valid address is set.\n  - **op**: The operation `eq` stands for \"equals\". The condition checks if the owner address is equal to the zero address.\n- **op**: The operation for the verification is `throw`, meaning that if the condition is true (i.e., if the owner address is the zero address), the function should throw an error, indicating that the `_tokenId` is not valid."
+        }
+    ]
+}

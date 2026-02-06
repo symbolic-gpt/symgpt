@@ -1,0 +1,29 @@
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap_external>", line 1122, in set_data
+  File "<frozen importlib._bootstrap_external>", line 191, in _write_atomic
+PermissionError: [Errno 13] Permission denied: '/usr/local/lib/python3.10/importlib/__pycache__/__init__.cpython-310.pyc.133890635489456'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site.py", line 627, in <module>
+    main()
+  File "/usr/local/lib/python3.10/site.py", line 614, in main
+    known_paths = addsitepackages(known_paths)
+  File "/usr/local/lib/python3.10/site.py", line 397, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/usr/local/lib/python3.10/site.py", line 236, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/usr/local/lib/python3.10/site.py", line 195, in addpackage
+    exec(line)
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1029, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1097, in _cache_bytecode
+  File "<frozen importlib._bootstrap_external>", line 1122, in set_data
+KeyboardInterrupt

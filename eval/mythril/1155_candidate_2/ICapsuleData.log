@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 3, in <module>
+    import re
+  File "/usr/local/lib/python3.10/re.py", line 124, in <module>
+    import enum
+KeyboardInterrupt

@@ -1,0 +1,11 @@
+'solc --version' running
+'solc ./benchmark/smallext/kether.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/kether.sol:
+Warning: "selfdestruct" has been deprecated. The underlying opcode will eventually undergo breaking changes, and its use is not recommended.
+    --> benchmark/smallext/kether.sol:1284:5:
+     |
+1284 |     selfdestruct(payable(target));
+     |     ^^^^^^^^^^^^
+
+
+INFO:Slither:./benchmark/smallext/kether.sol analyzed (16 contracts with 5 detectors), 0 result(s) found

@@ -1,0 +1,19 @@
+'solc --version' running
+'solc ./benchmark/smallext/KINGSGLOBAL.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/KINGSGLOBAL.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/KINGSGLOBAL.sol
+
+Warning: This declaration shadows an existing declaration.
+   --> benchmark/smallext/KINGSGLOBAL.sol:157:10:
+    |
+157 |         (bool success, ) = _spender.call(
+    |          ^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+   --> benchmark/smallext/KINGSGLOBAL.sol:153:23:
+    |
+153 |     ) public returns (bool success) {
+    |                       ^^^^^^^^^^^^
+
+
+INFO:Slither:./benchmark/smallext/KINGSGLOBAL.sol analyzed (3 contracts with 5 detectors), 0 result(s) found

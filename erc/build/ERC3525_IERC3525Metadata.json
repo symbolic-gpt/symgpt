@@ -1,0 +1,83 @@
+{
+    "functions": [
+        {
+            "def": "function contractURI() external view returns (string memory)",
+            "raw_rules": "    IERC3525 /* , IERC721Metadata */\n{\n    /**\n     * @notice Returns the Uniform Resource Identifier (URI) for the current ERC-3525 contract.\n     * @dev This function SHOULD return the URI for this contract in JSON format, starting with\n     *  header `data:application/json;`.\n     *  See https://eips.ethereum.org/EIPS/eip-3525 for the JSON schema for contract URI.\n     * @return The JSON formatted URI of the current ERC-3525 contract\n     */\n",
+            "format": {
+                "name": "contractURI",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "memory",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The `contractURI()` function in the context of an ERC-3525 contract is designed to return a string that provides a Uniform Resource Identifier (URI) for the contract itself. This URI is expected to be formatted in JSON and should begin with the header `data:application/json;`. The purpose of this URI is to offer a standardized way to access metadata about the contract, which can include various details such as the contract's name, description, and other relevant attributes.\n\nThe JSON format for the URI should adhere to a specific schema outlined in the ERC-3525 specification, ensuring that it provides comprehensive and useful information in a structured manner. This metadata can be utilized by applications and services that interact with the contract, enabling them to present detailed and accurate information about the contract to users or to facilitate other functionalities based on the contract's metadata.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The `contractURI()` function in the context of an ERC-3525 contract is designed to return a string that provides a Uniform Resource Identifier (URI) for the contract itself. This URI is expected to be formatted in JSON and should begin with the header `data:application/json;`. The purpose of this URI is to offer a standardized way to access metadata about the contract, which can include various details such as the contract's name, description, and other relevant attributes.\n\nThe JSON format for the URI should adhere to a specific schema outlined in the ERC-3525 specification, ensuring that it provides comprehensive and useful information in a structured manner. This metadata can be utilized by applications and services that interact with the contract, enabling them to present detailed and accurate information about the contract to users or to facilitate other functionalities based on the contract's metadata.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function slotURI(uint256 _slot) external view returns (string memory)",
+            "raw_rules": "\n    /**\n     * @notice Returns the Uniform Resource Identifier (URI) for the specified slot.\n     * @dev This function SHOULD return the URI for `_slot` in JSON format, starting with header\n     *  `data:application/json;`.\n     *  See https://eips.ethereum.org/EIPS/eip-3525 for the JSON schema for slot URI.\n     * @return The JSON formatted URI of `_slot`\n     */\n",
+            "format": {
+                "name": "slotURI",
+                "arg_types": [
+                    {
+                        "name": "_slot",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "memory",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `slotURI(uint256 _slot)` is designed to return a string that represents the Uniform Resource Identifier (URI) for a given slot, identified by the parameter `_slot`. This URI is expected to be in JSON format and should begin with the header `data:application/json;`. The purpose of this URI is to provide a standardized way to access a JSON representation of the data associated with the specified slot. This JSON format and the structure of the data it contains are defined according to a specific schema outlined in the referenced EIP (Ethereum Improvement Proposal) document, EIP-3525. The returned URI thus serves as a direct link to access the structured data of the slot in a readable and programmatically accessible format.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `slotURI(uint256 _slot)` is designed to return a string that represents the Uniform Resource Identifier (URI) for a given slot, identified by the parameter `_slot`. This URI is expected to be in JSON format and should begin with the header `data:application/json;`. The purpose of this URI is to provide a standardized way to access a JSON representation of the data associated with the specified slot. This JSON format and the structure of the data it contains are defined according to a specific schema outlined in the referenced EIP (Ethereum Improvement Proposal) document, EIP-3525. The returned URI thus serves as a direct link to access the structured data of the slot in a readable and programmatically accessible format.",
+                "return": "```json\n[]\n```"
+            }
+        }
+    ],
+    "events": [],
+    "name": "IERC3525Metadata",
+    "rules": [
+        {
+            "rule": "The `contractURI()` function in the context of an ERC-3525 contract is designed to return a string that provides a Uniform Resource Identifier (URI) for the contract itself. This URI is expected to be formatted in JSON and should begin with the header `data:application/json;`. The purpose of this URI is to offer a standardized way to access metadata about the contract, which can include various details such as the contract's name, description, and other relevant attributes.\n\nThe JSON format for the URI should adhere to a specific schema outlined in the ERC-3525 specification, ensuring that it provides comprehensive and useful information in a structured manner. This metadata can be utilized by applications and services that interact with the contract, enabling them to present detailed and accurate information about the contract to users or to facilitate other functionalities based on the contract's metadata.",
+            "type": "semantic_return",
+            "interface": "function contractURI() external view returns (string memory)"
+        },
+        {
+            "rule": "The function `slotURI(uint256 _slot)` is designed to return a string that represents the Uniform Resource Identifier (URI) for a given slot, identified by the parameter `_slot`. This URI is expected to be in JSON format and should begin with the header `data:application/json;`. The purpose of this URI is to provide a standardized way to access a JSON representation of the data associated with the specified slot. This JSON format and the structure of the data it contains are defined according to a specific schema outlined in the referenced EIP (Ethereum Improvement Proposal) document, EIP-3525. The returned URI thus serves as a direct link to access the structured data of the slot in a readable and programmatically accessible format.",
+            "type": "semantic_return",
+            "interface": "function slotURI(uint256 _slot) external view returns (string memory)"
+        }
+    ]
+}

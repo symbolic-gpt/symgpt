@@ -1,0 +1,6 @@
+1. totalSupply. Its state variable looks like:
+uint256 private constant _tTotal = 100000000 * 10**_decimals;
+2. balanceOf. Its state variable looks like:
+mapping (address => uint256) private _balances;
+3. allowance. Its state variable looks like:
+mapping (address => mapping (address => uint256)) private _allowances;

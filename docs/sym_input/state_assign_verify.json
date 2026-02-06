@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FuncParamSelector": {
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "type": {
+          "const": "FuncParamSelector"
+        }
+      },
+      "required": [
+        "index",
+        "type"
+      ]
+    },
+    "NoneValueSelector": {
+      "properties": {
+        "type": {
+          "const": "NoneValueSelector"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "MsgSenderSelector": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "MsgSenderSelector"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "StateVarSelector": {
+      "properties": {
+        "anchor_fn": {
+          "type": "string"
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/FuncParamSelector"
+              },
+              {
+                "$ref": "#/definitions/MsgSenderSelector"
+              }
+            ]
+          },
+          "minItems": 1
+        },
+        "type": {
+          "const": "StateVarSelector"
+        }
+      },
+      "required": [
+        "anchor_fn",
+        "type"
+      ]
+    },
+    "WrittenCondition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "WrittenCondition"
+        },
+        "value": {
+          "$ref": "#/definitions/StateVarSelector"
+        },
+        "change_type": {
+          "type": "string",
+          "enum": [
+            "increase",
+            "decrease",
+            "change"
+          ],
+          "default": "change"
+        },
+        "written_cnt": {
+          "type": "string",
+          "enum": [
+            "one"
+          ],
+          "default": null,
+          "description": "The number of times the state variable is written to. If state variable is related to balance and written count is one and change type is increase,  this infers token creation"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "StateAssignVerify": {
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/StateVarSelector"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NoneValueSelector"
+            },
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            }
+          ]
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "overwrite"
+          ]
+        },
+        "cond": {
+          "$ref": "#/definitions/WrittenCondition"
+        },
+        "type": {
+          "const": "StateAssignVerify"
+        }
+      },
+      "required": [
+        "state",
+        "value",
+        "op",
+        "type"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "StateAssignVerify": {
+      "$ref": "#/definitions/StateAssignVerify"
+    }
+  },
+  "required": [
+    "StateAssignVerify"
+  ]
+}

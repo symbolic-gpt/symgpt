@@ -1,0 +1,94 @@
+{
+    "functions": [
+        {
+            "def": "function supportsInterface(bytes4 interfaceID) external view returns (bool)",
+            "raw_rules": "    /// @notice Query if a contract implements an interface\n    /// @param interfaceID The interface identifier, as specified in ERC-165\n    /// @dev Interface identification is specified in ERC-165. This function\n    ///  uses less than 30,000 gas.\n    /// @return `true` if the contract implements `interfaceID` and\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\n",
+            "format": {
+                "name": "supportsInterface",
+                "arg_types": [
+                    {
+                        "name": "interfaceID",
+                        "type": "bytes4"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "interfaceID is 0xffffffff",
+                        "throw": false
+                    },
+                    {
+                        "if": "the contract does not implement the provided interfaceID",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": "- true: The contract implements the interface identified by the given bytes4 and the ID is not 0xffffffff.\n- false: The contract does not implement that interface, or the ID equals 0xffffffff.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "the contract implements interfaceID and interfaceID != 0xffffffff"
+                    },
+                    {
+                        "ret_value": false,
+                        "if": "interfaceID == 0xffffffff"
+                    },
+                    {
+                        "ret_value": false,
+                        "if": "the contract does not implement interfaceID"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"interfaceID is 0xffffffff\",\n    \"throw\": false\n  },\n  {\n    \"if\": \"the contract does not implement the provided interfaceID\",\n    \"throw\": false\n  }\n]",
+                "semantic_return": "- true: The contract implements the interface identified by the given bytes4 and the ID is not 0xffffffff.\n- false: The contract does not implement that interface, or the ID equals 0xffffffff.",
+                "return": "[\n  {\n    \"ret_value\": true,\n    \"if\": \"the contract implements interfaceID and interfaceID != 0xffffffff\"\n  },\n  {\n    \"ret_value\": false,\n    \"if\": \"interfaceID == 0xffffffff\"\n  },\n  {\n    \"ret_value\": false,\n    \"if\": \"the contract does not implement interfaceID\"\n  }\n]"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC165",
+    "rules": [
+        {
+            "rule": "- true: The contract implements the interface identified by the given bytes4 and the ID is not 0xffffffff.\n- false: The contract does not implement that interface, or the ID equals 0xffffffff.",
+            "type": "semantic_return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "not throw if interfaceID is 0xffffffff",
+            "type": "throw",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "not throw if the contract does not implement the provided interfaceID",
+            "type": "throw",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "return True if the contract implements interfaceID and interfaceID != 0xffffffff",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "return False if interfaceID == 0xffffffff",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "return False if the contract does not implement interfaceID",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        }
+    ]
+}

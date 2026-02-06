@@ -1,0 +1,76 @@
+{
+    "functions": [
+        {
+            "def": "function uri(uint256 _id) external view returns (string memory)",
+            "raw_rules": "    /**\n        @notice A distinct Uniform Resource Identifier (URI) for a given token.\n        @dev URIs are defined in RFC 3986.\n        The URI MUST point to a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".        \n        @return URI string\n    */\n",
+            "format": {
+                "name": "uri",
+                "arg_types": [
+                    {
+                        "name": "_id",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "memory",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "returned URI is not a valid RFC 3986 URI",
+                        "throw": false
+                    },
+                    {
+                        "if": "returned URI does not point to a JSON file that conforms to the ERC-1155 Metadata URI JSON Schema",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": "A URI string (RFC 3986 compliant) that points to the JSON metadata file for the specified token ID, formatted according to the ERC\u20111155 Metadata URI JSON Schema.",
+                "return": [
+                    {
+                        "ret_value": "URI string that points to a JSON file conforming to the ERC-1155 Metadata URI JSON Schema"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"returned URI is not a valid RFC 3986 URI\",\n    \"throw\": false\n  },\n  {\n    \"if\": \"returned URI does not point to a JSON file that conforms to the ERC-1155 Metadata URI JSON Schema\",\n    \"throw\": false\n  }\n]",
+                "semantic_return": "A URI string (RFC 3986 compliant) that points to the JSON metadata file for the specified token ID, formatted according to the ERC\u20111155 Metadata URI JSON Schema.",
+                "return": "[\n  {\n    \"ret_value\": \"URI string that points to a JSON file conforming to the ERC-1155 Metadata URI JSON Schema\"\n  }\n]"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC1155Metadata_URI",
+    "rules": [
+        {
+            "rule": "A URI string (RFC 3986 compliant) that points to the JSON metadata file for the specified token ID, formatted according to the ERC\u20111155 Metadata URI JSON Schema.",
+            "type": "semantic_return",
+            "interface": "function uri(uint256 _id) external view returns (string memory)"
+        },
+        {
+            "rule": "not throw if returned URI is not a valid RFC 3986 URI",
+            "type": "throw",
+            "interface": "function uri(uint256 _id) external view returns (string memory)"
+        },
+        {
+            "rule": "not throw if returned URI does not point to a JSON file that conforms to the ERC-1155 Metadata URI JSON Schema",
+            "type": "throw",
+            "interface": "function uri(uint256 _id) external view returns (string memory)"
+        },
+        {
+            "rule": "return URI string that points to a JSON file conforming to the ERC-1155 Metadata URI JSON Schema ",
+            "type": "return",
+            "interface": "function uri(uint256 _id) external view returns (string memory)"
+        }
+    ]
+}

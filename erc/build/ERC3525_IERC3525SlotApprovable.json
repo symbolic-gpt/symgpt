@@ -1,0 +1,412 @@
+{
+    "functions": [
+        {
+            "def": "function setApprovalForSlot(address _owner,uint256 _slot,address _operator,bool _approved) external payable",
+            "raw_rules": "\n    /**\n     * @notice Approve or disapprove an operator to manage all of `_owner`'s tokens with the\n     *  specified slot.\n     * @dev Caller SHOULD be `_owner` or an operator who has been authorized through\n     *  `setApprovalForAll`.\n     *  MUST emit ApprovalSlot event.\n     * @param _owner The address that owns the ERC-3525 tokens\n     * @param _slot The slot of tokens being queried approval of\n     * @param _operator The address for whom to query approval\n     * @param _approved Identify if `_operator` would be approved or disapproved\n     */\n",
+            "format": {
+                "name": "setApprovalForSlot",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_slot",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_approved",
+                        "type": "bool"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": true,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "Caller is not _owner or an authorized operator",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "ApprovalSlot"
+                        ],
+                        "if": "function is called"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "ApprovalSlot",
+                        "if": "setApprovalForSlot is called",
+                        "arg_rules": []
+                    }
+                ],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"Caller is not _owner or an authorized operator\",\n        \"throw\": true\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"ApprovalSlot\"],\n        \"if\": \"function is called\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "```json\n[\n    {\n        \"call\": \"ApprovalSlot\",\n        \"if\": \"setApprovalForSlot is called\",\n        \"arg_rules\": []\n    }\n]\n```",
+                "order": "The provided function description and the request for listing conditions that need to be in order based on the function parameters do not explicitly mention any array type parameters or any specific ordering requirements tied to an array or list. The function parameters (`_owner`, `_slot`, `_operator`, `_approved`) are individual values and not arrays. The description also does not specify any order that these parameters must follow beyond their use in the function logic.\n\nGiven this, there are no conditions that fit the requested format of needing to follow the order of a function parameter of type array. Therefore, the JSON array would be empty as follows:\n\n```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function isApprovedForSlot(address _owner,uint256 _slot,address _operator) external view returns (bool)",
+            "raw_rules": "        address _owner,\n        uint256 _slot,\n        address _operator,\n        bool _approved\n    ) external payable;\n\n    /**\n     * @notice Query if `_operator` is authorized to manage all of `_owner`'s tokens with the\n     *  specified slot.\n     * @param _owner The address that owns the ERC-3525 tokens\n     * @param _slot The slot of tokens being queried approval of\n     * @param _operator The address for whom to query approval\n     * @return True if `_operator` is authorized to manage all of `_owner`'s tokens with `_slot`,\n     *  false otherwise.\n     */\n",
+            "format": {
+                "name": "isApprovedForSlot",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_slot",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `isApprovedForSlot(address _owner, uint256 _slot, address _operator)` indicates whether the specified `_operator` is authorized to manage all of the ERC-3525 tokens owned by `_owner` that are categorized under the specified `_slot`. If the function returns `true`, it means that `_operator` has the necessary permissions to manage all of `_owner`'s tokens within that particular slot. Conversely, if the function returns `false`, `_operator` does not have the authorization to manage those tokens.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "`_operator` is authorized to manage all of `_owner`'s tokens with the specified `_slot`"
+                    },
+                    {
+                        "ret_value": false,
+                        "if": "`_operator` is not authorized to manage all of `_owner`'s tokens with the specified `_slot`"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `isApprovedForSlot(address _owner, uint256 _slot, address _operator)` indicates whether the specified `_operator` is authorized to manage all of the ERC-3525 tokens owned by `_owner` that are categorized under the specified `_slot`. If the function returns `true`, it means that `_operator` has the necessary permissions to manage all of `_owner`'s tokens within that particular slot. Conversely, if the function returns `false`, `_operator` does not have the authorization to manage those tokens.",
+                "return": "```json\n[\n    {\n        \"ret_value\": true,\n        \"if\": \"`_operator` is authorized to manage all of `_owner`'s tokens with the specified `_slot`\"\n    },\n    {\n        \"ret_value\": false,\n        \"if\": \"`_operator` is not authorized to manage all of `_owner`'s tokens with the specified `_slot`\"\n    }\n]\n```"
+            }
+        }
+    ],
+    "events": [
+        {
+            "def": "event ApprovalForSlot(address indexed _owner, uint256 indexed _slot, address indexed _operator, bool _approved);",
+            "raw_rules": "    /**\n     * @dev MUST emit when an operator is approved or disapproved to manage all of `_owner`'s\n     *  tokens with the same slot.\n     * @param _owner The address whose tokens are approved\n     * @param _slot The slot to approve, all of `_owner`'s tokens with this slot are approved\n     * @param _operator The operator being approved or disapproved\n     * @param _approved Identify if `_operator` is approved or disapproved\n     */\n",
+            "format": {
+                "name": "ApprovalForSlot",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_slot",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_approved",
+                        "type": "bool",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "an operator is approved or disapproved to manage all of `_owner`'s tokens with the same slot",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "The argument `_owner` MUST be the address whose tokens are approved"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "The argument `_slot` MUST be the slot to approve, all of `_owner`'s tokens with this slot are approved"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "The argument `_operator` MUST be the operator being approved or disapproved"
+                            },
+                            {
+                                "arg": 3,
+                                "rule": "The argument `_approved` MUST identify if `_operator` is approved or disapproved"
+                            }
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"an operator is approved or disapproved to manage all of `_owner`'s tokens with the same slot\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"The argument `_owner` MUST be the address whose tokens are approved\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"The argument `_slot` MUST be the slot to approve, all of `_owner`'s tokens with this slot are approved\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"The argument `_operator` MUST be the operator being approved or disapproved\"\n            },\n            {\n                \"arg\": 3,\n                \"rule\": \"The argument `_approved` MUST identify if `_operator` is approved or disapproved\"\n            }\n        ]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        }
+    ],
+    "name": "IERC3525SlotApprovable",
+    "rules": [
+        {
+            "rule": " throw if Caller is not _owner or an authorized operator",
+            "type": "throw",
+            "interface": "function setApprovalForSlot(address _owner,uint256 _slot,address _operator,bool _approved) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "op": "throw",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "and",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "op": "not_eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FnCallRetSelector",
+                                    "fn_name": "isAuthorizedOperator"
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": false
+                                },
+                                "op": "eq"
+                            }
+                        ]
+                    }
+                }
+            },
+            "sym_debug": "To create a JSON configuration for the rule verification based on the provided schema, we need to define a `ThrowVerify` object that checks if the caller of the function `setApprovalForSlot` is either the `_owner` or an authorized operator. The function signature indicates that `_owner` is the first parameter (index 0) of the function.\n\nHere's the JSON configuration for the rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"op\": \"throw\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"and\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"op\": \"not_eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FnCallRetSelector\",\n                        \"fn_name\": \"isAuthorizedOperator\"\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": false\n                    },\n                    \"op\": \"eq\"\n                }\n            ]\n        }\n    }\n}\n```\n\nExplanation:\n1. **LogicCondition**: This uses the logical \"and\" operator to combine two conditions. The function should throw if both conditions are true:\n   - The caller is not the `_owner`.\n   - The caller is not an authorized operator.\n\n2. **CompCondition** for `_owner`:\n   - **left**: Uses `MsgSenderSelector` to get the address of the message sender (the caller of the function).\n   - **right**: Uses `FuncParamSelector` with `index: 0` to select the first function parameter, which is `_owner`.\n   - **op**: \"not_eq\" checks if the left and right values are not equal.\n\n3. **CompCondition** for authorized operator:\n   - **left**: Uses `FnCallRetSelector` to get the return value of the hypothetical function `isAuthorizedOperator`, which should determine if the caller is an authorized operator.\n   - **right**: Uses `ConstantSelector` with a boolean `false` value.\n   - **op**: \"eq\" checks if the function `isAuthorizedOperator` returns `false`.\n\nThis configuration ensures that the function will throw an error if the caller is neither the `_owner` nor an authorized operator, adhering to the specified rule. Note that the actual implementation of `isAuthorizedOperator` would need to be defined in the smart contract to use this configuration effectively."
+        },
+        {
+            "rule": "emit '['ApprovalSlot']' if function is called",
+            "type": "emit",
+            "interface": "function setApprovalForSlot(address _owner,uint256 _slot,address _operator,bool _approved) external payable",
+            "sym": {
+                "EmitVerify": {
+                    "event": "ApprovalSlot",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setApprovalForSlot",
+                            "keys": []
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "Based on the rule provided (\"emit 'ApprovalSlot' if function is called\") and the JSON schema, we need to create a JSON configuration that specifies the conditions under which the 'ApprovalSlot' event should be emitted when the function `setApprovalForSlot` is called. Since the rule does not specify any conditions on the arguments or state variables, the JSON will primarily focus on the function call itself.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"ApprovalSlot\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"setApprovalForSlot\",\n                \"keys\": []\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **EmitVerify**: This is the main object that specifies the verification of the event emission.\n- **event**: Specifies the name of the event to be emitted, which is 'ApprovalSlot'.\n- **sv_cond**: Specifies the condition under which the event should be emitted. Here, it uses a `WrittenCondition` linked to a `StateVarSelector`. The `StateVarSelector` does not specify any particular state variable (`keys` array is empty) but is anchored to the function `setApprovalForSlot`, indicating that the condition is simply the call to this function.\n- **type**: Specifies the type of verification object, which is `EmitVerify`.\n\nThis configuration assumes that the mere calling of the function `setApprovalForSlot` should trigger the emission of the 'ApprovalSlot' event, without any additional conditions on arguments or state variables."
+        },
+        {
+            "rule": "call ApprovalSlot if setApprovalForSlot is called",
+            "type": "call",
+            "interface": "function setApprovalForSlot(address _owner,uint256 _slot,address _operator,bool _approved) external payable",
+            "sym": {
+                "callVerify": {
+                    "callee": "ApprovalSlot",
+                    "on": {
+                        "index": 0,
+                        "type": "FuncParamSelector"
+                    },
+                    "cond": "is_contract",
+                    "type": "CallVerify"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule that states \"call ApprovalSlot if setApprovalForSlot is called,\" we need to create a JSON configuration that specifies the verification of a function call to `ApprovalSlot` whenever `setApprovalForSlot` is invoked. Since the rule does not specify any conditions on the arguments of `ApprovalSlot`, we will not include `arg_verifiers`.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"callVerify\": {\n        \"callee\": \"ApprovalSlot\",\n        \"on\": {\n            \"index\": 0,\n            \"type\": \"FuncParamSelector\"\n        },\n        \"cond\": \"is_contract\",\n        \"type\": \"CallVerify\"\n    }\n}\n```\n\nExplanation:\n- **callee**: Specifies the function that must be called, which is `ApprovalSlot`.\n- **on**: Uses a `FuncParamSelector` to indicate that the callee (i.e., `ApprovalSlot`) should be called on the address provided as the first parameter (`_owner`) of the `setApprovalForSlot` function.\n- **cond**: Specifies the condition `is_contract`, which means the address provided as the first parameter must be a contract.\n- **type**: Indicates that this is a `CallVerify` type of verification.\n\nThis configuration ensures that whenever `setApprovalForSlot` is called, it checks that `ApprovalSlot` is also called on the `_owner` address, provided that `_owner` is a contract."
+        },
+        {
+            "rule": "The return value of the function `isApprovedForSlot(address _owner, uint256 _slot, address _operator)` indicates whether the specified `_operator` is authorized to manage all of the ERC-3525 tokens owned by `_owner` that are categorized under the specified `_slot`. If the function returns `true`, it means that `_operator` has the necessary permissions to manage all of `_owner`'s tokens within that particular slot. Conversely, if the function returns `false`, `_operator` does not have the authorization to manage those tokens.",
+            "type": "semantic_return",
+            "interface": "function isApprovedForSlot(address _owner,uint256 _slot,address _operator) external view returns (bool)"
+        },
+        {
+            "rule": "return True if `_operator` is authorized to manage all of `_owner`'s tokens with the specified `_slot`",
+            "type": "return",
+            "interface": "function isApprovedForSlot(address _owner,uint256 _slot,address _operator) external view returns (bool)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule specified, we need to create a `ReturnVerify` object that checks if the `_operator` is authorized to manage all of `_owner`'s tokens with the specified `_slot`. The rule states that the function should return `True` if `_operator` is authorized, which implies a condition that checks for this authorization.\n\nSince the rule does not specify how the authorization is determined, we will assume that there is a condition that can be checked to verify this authorization. However, without specific details on how this authorization is stored or verified within the system, we can only create a hypothetical condition. For the purpose of this example, let's assume there is a function or a state that can be queried to determine if `_operator` is authorized for `_owner`'s tokens for a specific `_slot`.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- `ReturnVerify` specifies the verification for the return value of the function.\n- `ret_val` is set to a `ConstantSelector` with a value of `true`, indicating that the function should return `True` when the condition is met.\n- `cond` is a `CompCondition` that compares two function parameters. In this example, it checks if the `_operator` (parameter at index 2) is equal to `_owner` (parameter at index 0). This is a placeholder condition due to lack of specific details on how authorization is checked. In a real-world scenario, this condition would need to be replaced with the actual logic used to verify if `_operator` is authorized for `_owner`'s tokens in `_slot`.\n\nNote: The actual implementation of the condition (`cond`) will depend on the specific details of how authorization is managed in the system. This example assumes a simple equality check for demonstration purposes."
+        },
+        {
+            "rule": "return False if `_operator` is not authorized to manage all of `_owner`'s tokens with the specified `_slot`",
+            "type": "return",
+            "interface": "function isApprovedForSlot(address _owner,uint256 _slot,address _operator) external view returns (bool)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": false
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "op": "not_eq",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "authorized_operator_address"
+                        }
+                    }
+                }
+            },
+            "sym_debug": "Based on the rule provided and the JSON schema definitions, we need to create a JSON configuration that specifies the conditions under which the function `isApprovedForSlot` should return `False`. The rule states that the function should return `False` if `_operator` is not authorized to manage all of `_owner`'s tokens with the specified `_slot`. \n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": false\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"op\": \"not_eq\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"authorized_operator_address\"  // This value should be replaced with the actual authorized operator address or logic to determine authorization\n            }\n        }\n    }\n}\n```\n\n### Explanation:\n1. **ReturnVerify**: This is the main object that specifies the condition for returning a specific value.\n   - **type**: Specifies the type of the object, which is `ReturnVerify`.\n   - **ret_val**: Specifies the value that should be returned when the condition is met. Here, it is `false`.\n   - **cond**: Specifies the condition under which the return value should be applied.\n\n2. **ret_val**:\n   - **type**: Specifies that this is a constant value selector.\n   - **value**: The value to return, which is `false` as per the rule.\n\n3. **cond**:\n   - **type**: Specifies that this is a comparison condition.\n   - **op**: The operation to perform in the condition, which is `not_eq` (not equal).\n   - **left**: The left operand of the condition, which is the `_operator` parameter of the function (index 2).\n   - **right**: The right operand of the condition. This should ideally be a mechanism to check if the `_operator` is authorized. For simplicity, it's represented as a constant value here, but in a real implementation, this would likely involve a more complex check or a reference to authorized operators.\n\nNote: The value `\"authorized_operator_address\"` is a placeholder and should be replaced with actual logic or data that represents authorized operators. This could involve a dynamic check or a reference to a list or mapping of authorized operators depending on the implementation details of the smart contract."
+        },
+        {
+            "rule": "emit 'ApprovalForSlot'",
+            "type": "emit",
+            "interface": "event ApprovalForSlot(address indexed _owner, uint256 indexed _slot, address indexed _operator, bool _approved);",
+            "if": {
+                "if": "an operator is approved or disapproved to manage all of `_owner`'s tokens with the same slot",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "The argument `_owner` MUST be the address whose tokens are approved"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "The argument `_slot` MUST be the slot to approve, all of `_owner`'s tokens with this slot are approved"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "The argument `_operator` MUST be the operator being approved or disapproved"
+                    },
+                    {
+                        "arg": 3,
+                        "rule": "The argument `_approved` MUST identify if `_operator` is approved or disapproved"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "ApprovalForSlot",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setApprovalForAll",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "arg_verifiers": [
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 1,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 2
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 3,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 3
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "Based on the provided schema and the rule description for the `ApprovalForSlot` event, we need to create a JSON configuration that verifies the conditions under which this event should be emitted. The rule specifies that the event should be emitted when an operator is approved or disapproved to manage all of `_owner`'s tokens with the same slot. Additionally, there are specific requirements for each argument of the event.\n\nHere is the JSON configuration for verifying the rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"ApprovalForSlot\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"setApprovalForAll\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"arg_verifiers\": [\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 2\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 3,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 3\n                    }\n                }\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- **EmitVerify**: This is the main object that specifies the verification of the event emission.\n- **event**: Specifies the name of the event to verify.\n- **sv_cond**: Specifies the condition under which the state variable is written. It uses a `StateVarSelector` to link the condition to the function `setApprovalForAll` and the relevant parameters.\n- **arg_verifiers**: An array of verifications for each argument of the event. Each `ArgVerify` specifies:\n  - **arg_index**: The index of the argument in the event.\n  - **expected_value**: The expected value of the argument, which in this case is directly linked to the corresponding event parameter index.\n\nThis configuration ensures that the `ApprovalForSlot` event is emitted correctly according to the specified rules and conditions."
+        }
+    ]
+}

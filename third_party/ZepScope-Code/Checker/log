@@ -1,0 +1,2233 @@
+Installing solc '0.4.19'...
+Version '0.4.19' installed.
+'solc --version' running
+'solc small/aoa.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.19. ^0.4.19 (small/aoa.sol#5)
+Reference:  
+small/aoa.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.24'...
+Version '0.4.24' installed.
+'solc --version' running
+'solc small/axpire.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.24. ^0.4.24 (small/axpire.sol#5)
+Reference:  
+small/axpire.sol analyzed (8 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.10'...
+Version '0.4.10' installed.
+'solc --version' running
+'solc small/battoken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.10. ^0.4.10 ()
+Reference:  
+small/battoken.sol analyzed (4 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.4'...
+Version '0.4.4' installed.
+'solc --version' running
+'solc small/bitcoinsvgold.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on small/bitcoinsvgold.sol:
+small/bitcoinsvgold.sol:139:9: Error: Undeclared identifier.
+        require(balances[fundsWallet] >= amount);
+        ^-----^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/bitcoinsvgold.sol:139:9: Error: Undeclared identifier.
+        require(balances[fundsWallet] >= amount);
+        ^-----^
+
+None
+Error in small/bitcoinsvgold.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/bitcoinsvgold.sol:139:9: Error: Undeclared identifier.
+        require(balances[fundsWallet] >= amount);
+        ^-----^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.8'...
+Version '0.4.8' installed.
+'solc --version' running
+'solc small/bnb.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on small/bnb.sol:
+small/bnb.sol:150:9: Error: Member "transfer" not found or not visible after argument-dependent lookup in address
+        owner.transfer(amount);
+        ^------------^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/bnb.sol:150:9: Error: Member "transfer" not found or not visible after argument-dependent lookup in address
+        owner.transfer(amount);
+        ^------------^
+
+None
+Error in small/bnb.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/bnb.sol:150:9: Error: Member "transfer" not found or not visible after argument-dependent lookup in address
+        owner.transfer(amount);
+        ^------------^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.11'...
+Version '0.4.11' installed.
+'solc --version' running
+'solc small/CMBToken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.11. ^0.4.11 (small/CMBToken.sol#5)
+Reference:  
+small/CMBToken.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.13'...
+Version '0.4.13' installed.
+'solc --version' running
+'solc small/dai.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/dai.sol:
+small/dai.sol:26:43: Error: Expected token LBrace got reserved keyword 'Pure'
+    function add(uint x, uint y) internal pure returns (uint z) {
+                                          ^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/dai.sol:26:43: Error: Expected token LBrace got reserved keyword 'Pure'
+    function add(uint x, uint y) internal pure returns (uint z) {
+                                          ^
+
+None
+Error in small/dai.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/dai.sol:26:43: Error: Expected token LBrace got reserved keyword 'Pure'
+    function add(uint x, uint y) internal pure returns (uint z) {
+                                          ^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.22'...
+Version '0.4.22' installed.
+'solc --version' running
+'solc small/egypt.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+Egypt._transfer(address,address,uint256) (small/egypt.sol#62-78)
+lack caller check: 
+['MsgSender', ['msg.sender'], '#High#Para Need to be MsgSender'] ['Allowance checked in function but may underflow'] ['EQ', ['receiver.onFlashLoan(msg.sender,token,amount,fee,data)'], ['_RETURN_VALUE', 'bytes32'], '#High#ERROR_MSG:ERC20FlashMint: invalid return value'] ['GTE', ['_balances@from', 'fromBalance', '_balances@account', 'accountBalance'], ['amount', 'fee', 'flashFee(token,amount)', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: burn amount exceeds balance'] in caller: Egypt.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: Egypt.transfer(address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: Egypt.transferFrom(address,address,uint256)
+
+
+Egypt.transfer(address,uint256) (small/egypt.sol#88-94)
+lack def check: 
+['GTE', ['_balances@from', '_balances@owner', '_balances@account', '_balances@_msgSender()', 'fromBalance', '_balances@msgsender'], ['amount', 'delta', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: Egypt.transfer(address,uint256)
+
+
+Egypt.approve(address,uint256) (small/egypt.sol#124-131)
+lack def check: 
+['Lack Addess(0) Check: Not Clear'] in caller: Egypt.approve(address,uint256)
+
+
+Egypt.transferFrom(address,address,uint256) (small/egypt.sol#105-114)
+lack def check: 
+['Allowance checked in function but may underflow'] ['GTE', ['_balances@from', 'fromBalance', '_balances@owner'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: Egypt.transferFrom(address,address,uint256)
+
+
+Reference: Check API usage of OpenZeppelin
+
+	Pragma confirmed better, here is pragma solidity>=0.4.22<0.6.0. >=0.4.22<0.6.0 (small/egypt.sol#1)
+Reference:  
+small/egypt.sol analyzed (2 contracts with 2 detectors), 5 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.5.9'...
+Version '0.5.9' installed.
+'solc --version' running
+'solc small/EZOToken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/EZOToken.sol:
+small/EZOToken.sol:32:34: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function safeMull(uint256 a, uint256 b) internal pure returns (uint256) {
+                                 ^-------^
+small/EZOToken.sol:48:34: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function safeDivv(uint256 a, uint256 b) internal pure returns (uint256) {
+                                 ^-------^
+small/EZOToken.sol:317:13: Warning: Unused local variable.
+            uint256 senderBalance = 0;
+            ^-------------------^
+
+small/EZOToken.sol analyzed (8 contracts with 2 detectors), 0 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.25'...
+Version '0.4.25' installed.
+'solc --version' running
+'solc small/gencoin.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/gencoin.sol:
+small/gencoin.sol:125:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function GEIMCOIN() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:170:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+small/gencoin.sol:59:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(msg.sender, _to, _value);
+            ^-------------------------------^
+small/gencoin.sol:79:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(_from, _to, _value);
+            ^--------------------------^
+small/gencoin.sol:92:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/gencoin.sol:143:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(fundsWallet, msg.sender, amount);
+        ^---------------------------------------^
+small/gencoin.sol:155:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/gencoin.sol:161:25: Warning: "sha3" has been deprecated in favour of "keccak256"
+                        sha3("receiveApproval(address,uint256,address,bytes)")
+                        ^----------------------------------------------------^
+small/gencoin.sol:9:5: Warning: No visibility specified. Defaulting to "public". 
+    function totalSupply() constant returns (uint256 supply) {}
+    ^---------------------------------------------------------^
+small/gencoin.sol:9:46: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function totalSupply() constant returns (uint256 supply) {}
+                                             ^------------^
+small/gencoin.sol:13:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+    ^----------------------------------------------------------------------^
+small/gencoin.sol:13:24: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+                       ^------------^
+small/gencoin.sol:13:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+                                                         ^-------------^
+small/gencoin.sol:19:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+    ^----------------------------------------------------------------------^
+small/gencoin.sol:19:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                      ^---------^
+small/gencoin.sol:19:36: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                                   ^------------^
+small/gencoin.sol:19:61: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                                                            ^----------^
+small/gencoin.sol:26:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:27:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _from,
+        ^-----------^
+small/gencoin.sol:28:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _to,
+        ^---------^
+small/gencoin.sol:29:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        uint256 _value
+        ^------------^
+small/gencoin.sol:30:16: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) returns (bool success) {}
+               ^----------^
+small/gencoin.sol:36:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+    ^--------------------------------------------------------------------------^
+small/gencoin.sol:36:22: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                     ^--------------^
+small/gencoin.sol:36:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                                       ^------------^
+small/gencoin.sol:36:65: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                                                                ^----------^
+small/gencoin.sol:41:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:42:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _owner,
+        ^------------^
+small/gencoin.sol:43:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _spender
+        ^--------------^
+small/gencoin.sol:44:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) constant returns (uint256 remaining) {}
+                        ^---------------^
+small/gencoin.sol:55:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address _to, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:66:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:86:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf(address _owner) constant returns (uint256 balance) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:90:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve(address _spender, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:96:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:125:5: Warning: No visibility specified. Defaulting to "public". 
+    function GEIMCOIN() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:135:5: Warning: No visibility specified. Defaulting to "public". 
+    function() payable {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:149:5: Warning: No visibility specified. Defaulting to "public". 
+    function approveAndCall(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:9:5: Warning: Function state mutability can be restricted to pure
+    function totalSupply() constant returns (uint256 supply) {}
+    ^---------------------------------------------------------^
+small/gencoin.sol:13:5: Warning: Function state mutability can be restricted to pure
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+    ^----------------------------------------------------------------------^
+small/gencoin.sol:19:5: Warning: Function state mutability can be restricted to pure
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+    ^----------------------------------------------------------------------^
+small/gencoin.sol:26:5: Warning: Function state mutability can be restricted to pure
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/gencoin.sol:36:5: Warning: Function state mutability can be restricted to pure
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+    ^--------------------------------------------------------------------------^
+small/gencoin.sol:41:5: Warning: Function state mutability can be restricted to pure
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+	Pragma confirmed better, here is pragma solidity^0.4.25. ^0.4.25 (small/gencoin.sol#5)
+Reference:  
+small/gencoin.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.19'...
+Version '0.4.19' installed.
+'solc --version' running
+'solc small/huobi.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/huobi.sol:
+small/huobi.sol:9:5: Warning: No visibility specified. Defaulting to "public".
+    function totalSupply() constant returns (uint supply) {}
+    ^------------------------------------------------------^
+small/huobi.sol:13:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint balance) {}
+    ^-------------------------------------------------------------------^
+small/huobi.sol:19:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint _value) returns (bool success) {}
+    ^-------------------------------------------------------------------^
+small/huobi.sol:26:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/huobi.sol:36:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint _value) returns (bool success) {}
+    ^-----------------------------------------------------------------------^
+small/huobi.sol:41:5: Warning: No visibility specified. Defaulting to "public".
+    function allowance(
+    ^
+Spanning multiple lines.
+small/huobi.sol:55:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint _value) returns (bool) {
+    ^
+Spanning multiple lines.
+small/huobi.sol:70:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/huobi.sol:90:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint) {
+    ^
+Spanning multiple lines.
+small/huobi.sol:94:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint _value) returns (bool) {
+    ^
+Spanning multiple lines.
+small/huobi.sol:100:5: Warning: No visibility specified. Defaulting to "public".
+    function allowance(
+    ^
+Spanning multiple lines.
+small/huobi.sol:150:5: Warning: No visibility specified. Defaulting to "public".
+    function HBToken() {
+    ^
+Spanning multiple lines.
+small/huobi.sol:9:46: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function totalSupply() constant returns (uint supply) {}
+                                             ^---------^
+small/huobi.sol:13:24: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                       ^------------^
+small/huobi.sol:13:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                                                         ^----------^
+small/huobi.sol:19:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                      ^---------^
+small/huobi.sol:19:36: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                   ^---------^
+small/huobi.sol:19:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                                         ^----------^
+small/huobi.sol:27:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _from,
+        ^-----------^
+small/huobi.sol:28:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _to,
+        ^---------^
+small/huobi.sol:29:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        uint _value
+        ^---------^
+small/huobi.sol:30:16: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) returns (bool success) {}
+               ^----------^
+small/huobi.sol:36:22: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                     ^--------------^
+small/huobi.sol:36:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                       ^---------^
+small/huobi.sol:36:62: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                                             ^----------^
+small/huobi.sol:42:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _owner,
+        ^------------^
+small/huobi.sol:43:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _spender
+        ^--------------^
+small/huobi.sol:44:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) constant returns (uint remaining) {}
+                        ^------------^
+small/huobi.sol:9:5: Warning: Function state mutability can be restricted to pure
+    function totalSupply() constant returns (uint supply) {}
+    ^------------------------------------------------------^
+small/huobi.sol:13:5: Warning: Function state mutability can be restricted to pure
+    function balanceOf(address _owner) constant returns (uint balance) {}
+    ^-------------------------------------------------------------------^
+small/huobi.sol:19:5: Warning: Function state mutability can be restricted to pure
+    function transfer(address _to, uint _value) returns (bool success) {}
+    ^-------------------------------------------------------------------^
+small/huobi.sol:26:5: Warning: Function state mutability can be restricted to pure
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/huobi.sol:36:5: Warning: Function state mutability can be restricted to pure
+    function approve(address _spender, uint _value) returns (bool success) {}
+    ^-----------------------------------------------------------------------^
+small/huobi.sol:41:5: Warning: Function state mutability can be restricted to pure
+    function allowance(
+    ^
+Spanning multiple lines.
+
+small/huobi.sol analyzed (4 contracts with 2 detectors), 0 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.6.12'...
+Version '0.6.12' installed.
+'solc --version' running
+'solc small/husky.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.6.12. ^0.6.12 (small/husky.sol#74)
+Reference:  
+small/husky.sol analyzed (6 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.6'...
+Version '0.4.6' installed.
+'solc --version' running
+'solc small/idex.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.6. ^0.4.6 ()
+Reference:  
+small/idex.sol analyzed (2 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.19'...
+Version '0.4.19' installed.
+'solc --version' running
+'solc small/iostoken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/iostoken.sol:
+small/iostoken.sol:27:5: Warning: No visibility specified. Defaulting to "public".
+    function totalSupply() constant returns (uint supply) {}
+    ^------------------------------------------------------^
+small/iostoken.sol:31:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint balance) {}
+    ^-------------------------------------------------------------------^
+small/iostoken.sol:37:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint _value) returns (bool success) {}
+    ^-------------------------------------------------------------------^
+small/iostoken.sol:44:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/iostoken.sol:54:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint _value) returns (bool success) {}
+    ^-----------------------------------------------------------------------^
+small/iostoken.sol:59:5: Warning: No visibility specified. Defaulting to "public".
+    function allowance(
+    ^
+Spanning multiple lines.
+small/iostoken.sol:73:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint _value) returns (bool) {
+    ^
+Spanning multiple lines.
+small/iostoken.sol:88:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/iostoken.sol:108:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint) {
+    ^
+Spanning multiple lines.
+small/iostoken.sol:112:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint _value) returns (bool) {
+    ^
+Spanning multiple lines.
+small/iostoken.sol:118:5: Warning: No visibility specified. Defaulting to "public".
+    function allowance(
+    ^
+Spanning multiple lines.
+small/iostoken.sol:168:5: Warning: No visibility specified. Defaulting to "public".
+    function IOSToken() {
+    ^
+Spanning multiple lines.
+small/iostoken.sol:27:46: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function totalSupply() constant returns (uint supply) {}
+                                             ^---------^
+small/iostoken.sol:31:24: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                       ^------------^
+small/iostoken.sol:31:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                                                         ^----------^
+small/iostoken.sol:37:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                      ^---------^
+small/iostoken.sol:37:36: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                   ^---------^
+small/iostoken.sol:37:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                                         ^----------^
+small/iostoken.sol:45:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _from,
+        ^-----------^
+small/iostoken.sol:46:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _to,
+        ^---------^
+small/iostoken.sol:47:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        uint _value
+        ^---------^
+small/iostoken.sol:48:16: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) returns (bool success) {}
+               ^----------^
+small/iostoken.sol:54:22: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                     ^--------------^
+small/iostoken.sol:54:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                       ^---------^
+small/iostoken.sol:54:62: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                                             ^----------^
+small/iostoken.sol:60:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _owner,
+        ^------------^
+small/iostoken.sol:61:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _spender
+        ^--------------^
+small/iostoken.sol:62:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) constant returns (uint remaining) {}
+                        ^------------^
+small/iostoken.sol:27:5: Warning: Function state mutability can be restricted to pure
+    function totalSupply() constant returns (uint supply) {}
+    ^------------------------------------------------------^
+small/iostoken.sol:31:5: Warning: Function state mutability can be restricted to pure
+    function balanceOf(address _owner) constant returns (uint balance) {}
+    ^-------------------------------------------------------------------^
+small/iostoken.sol:37:5: Warning: Function state mutability can be restricted to pure
+    function transfer(address _to, uint _value) returns (bool success) {}
+    ^-------------------------------------------------------------------^
+small/iostoken.sol:44:5: Warning: Function state mutability can be restricted to pure
+    function transferFrom(
+    ^
+Spanning multiple lines.
+small/iostoken.sol:54:5: Warning: Function state mutability can be restricted to pure
+    function approve(address _spender, uint _value) returns (bool success) {}
+    ^-----------------------------------------------------------------------^
+small/iostoken.sol:59:5: Warning: Function state mutability can be restricted to pure
+    function allowance(
+    ^
+Spanning multiple lines.
+
+small/iostoken.sol analyzed (4 contracts with 2 detectors), 0 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.22'...
+Version '0.4.22' installed.
+'solc --version' running
+'solc small/jntr.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+small/jntr.sol analyzed (4 contracts with 2 detectors), 0 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.21'...
+Version '0.4.21' installed.
+'solc --version' running
+'solc small/KIMEX.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.21. ^0.4.21 (small/KIMEX.sol#1)
+Reference:  
+small/KIMEX.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.25'...
+Version '0.4.25' installed.
+'solc --version' running
+'solc small/KINGSGLOBAL.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/KINGSGLOBAL.sol:
+small/KINGSGLOBAL.sol:125:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function KINGSGLOBAL() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:170:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+small/KINGSGLOBAL.sol:59:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(msg.sender, _to, _value);
+            ^-------------------------------^
+small/KINGSGLOBAL.sol:79:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(_from, _to, _value);
+            ^--------------------------^
+small/KINGSGLOBAL.sol:92:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/KINGSGLOBAL.sol:143:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(fundsWallet, msg.sender, amount);
+        ^---------------------------------------^
+small/KINGSGLOBAL.sol:155:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/KINGSGLOBAL.sol:161:25: Warning: "sha3" has been deprecated in favour of "keccak256"
+                        sha3("receiveApproval(address,uint256,address,bytes)")
+                        ^----------------------------------------------------^
+small/KINGSGLOBAL.sol:9:5: Warning: No visibility specified. Defaulting to "public". 
+    function totalSupply() constant returns (uint256 supply) {}
+    ^---------------------------------------------------------^
+small/KINGSGLOBAL.sol:9:46: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function totalSupply() constant returns (uint256 supply) {}
+                                             ^------------^
+small/KINGSGLOBAL.sol:13:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+    ^----------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:13:24: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+                       ^------------^
+small/KINGSGLOBAL.sol:13:58: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+                                                         ^-------------^
+small/KINGSGLOBAL.sol:19:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+    ^----------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:19:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                      ^---------^
+small/KINGSGLOBAL.sol:19:36: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                                   ^------------^
+small/KINGSGLOBAL.sol:19:61: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+                                                            ^----------^
+small/KINGSGLOBAL.sol:26:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:27:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _from,
+        ^-----------^
+small/KINGSGLOBAL.sol:28:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _to,
+        ^---------^
+small/KINGSGLOBAL.sol:29:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        uint256 _value
+        ^------------^
+small/KINGSGLOBAL.sol:30:16: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) returns (bool success) {}
+               ^----------^
+small/KINGSGLOBAL.sol:36:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+    ^--------------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:36:22: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                     ^--------------^
+small/KINGSGLOBAL.sol:36:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                                       ^------------^
+small/KINGSGLOBAL.sol:36:65: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+                                                                ^----------^
+small/KINGSGLOBAL.sol:41:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:42:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _owner,
+        ^------------^
+small/KINGSGLOBAL.sol:43:9: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+        address _spender
+        ^--------------^
+small/KINGSGLOBAL.sol:44:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    ) constant returns (uint256 remaining) {}
+                        ^---------------^
+small/KINGSGLOBAL.sol:55:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address _to, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:66:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:86:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf(address _owner) constant returns (uint256 balance) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:90:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve(address _spender, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:96:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:125:5: Warning: No visibility specified. Defaulting to "public". 
+    function KINGSGLOBAL() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:135:5: Warning: No visibility specified. Defaulting to "public". 
+    function() payable {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:149:5: Warning: No visibility specified. Defaulting to "public". 
+    function approveAndCall(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:9:5: Warning: Function state mutability can be restricted to pure
+    function totalSupply() constant returns (uint256 supply) {}
+    ^---------------------------------------------------------^
+small/KINGSGLOBAL.sol:13:5: Warning: Function state mutability can be restricted to pure
+    function balanceOf(address _owner) constant returns (uint256 balance) {}
+    ^----------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:19:5: Warning: Function state mutability can be restricted to pure
+    function transfer(address _to, uint256 _value) returns (bool success) {}
+    ^----------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:26:5: Warning: Function state mutability can be restricted to pure
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/KINGSGLOBAL.sol:36:5: Warning: Function state mutability can be restricted to pure
+    function approve(address _spender, uint256 _value) returns (bool success) {}
+    ^--------------------------------------------------------------------------^
+small/KINGSGLOBAL.sol:41:5: Warning: Function state mutability can be restricted to pure
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+	Pragma confirmed better, here is pragma solidity^0.4.25. ^0.4.25 (small/KINGSGLOBAL.sol#5)
+Reference:  
+small/KINGSGLOBAL.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.13'...
+Version '0.4.13' installed.
+'solc --version' running
+'solc small/KuCoin.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.13. ^0.4.13 (small/KuCoin.sol#5)
+Reference:  
+small/KuCoin.sol analyzed (1 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.22'...
+Version '0.4.22' installed.
+'solc --version' running
+'solc small/LUTOKEN.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity>=0.4.22<0.6.0. >=0.4.22<0.6.0 (small/LUTOKEN.sol#1)
+Reference:  
+small/LUTOKEN.sol analyzed (13 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.15'...
+Version '0.4.15' installed.
+'solc --version' running
+'solc small/mkr.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/mkr.sol:
+small/mkr.sol:31:14: Error: Expected token LBrace got 'View'
+    ) public view returns (bool);
+             ^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/mkr.sol:31:14: Error: Expected token LBrace got 'View'
+    ) public view returns (bool);
+             ^
+
+None
+Error in small/mkr.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/mkr.sol:31:14: Error: Expected token LBrace got 'View'
+    ) public view returns (bool);
+             ^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.16'...
+Version '0.4.16' installed.
+'solc --version' running
+'solc small/mxm.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+TokenERC20._transfer(address,address,uint256) (small/mxm.sol#57-73)
+lack caller check: 
+['MsgSender', ['msg.sender'], '#High#Para Need to be MsgSender'] ['Allowance checked in function but may underflow'] ['EQ', ['receiver.onFlashLoan(msg.sender,token,amount,fee,data)'], ['_RETURN_VALUE', 'bytes32'], '#High#ERROR_MSG:ERC20FlashMint: invalid return value'] ['GTE', ['_balances@from', 'fromBalance', '_balances@account', 'accountBalance'], ['amount', 'fee', 'flashFee(token,amount)', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: burn amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.transfer(address,uint256) (small/mxm.sol#83-86)
+lack def check: 
+['GTE', ['_balances@from', '_balances@owner', '_balances@account', '_balances@_msgSender()', 'fromBalance', '_balances@msgsender'], ['amount', 'delta', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+
+TokenERC20.transferFrom(address,address,uint256) (small/mxm.sol#117-127)
+lack def check: 
+['Allowance checked in function but may underflow'] ['GTE', ['_balances@from', 'fromBalance', '_balances@owner'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.approve(address,uint256) (small/mxm.sol#137-144)
+lack def check: 
+['Lack Addess(0) Check: Not Clear'] in caller: TokenERC20.approve(address,uint256)
+
+
+Reference: Check API usage of OpenZeppelin
+
+	Pragma confirmed better, here is pragma solidity^0.4.16. ^0.4.16 (small/mxm.sol#5)
+Reference:  
+small/mxm.sol analyzed (2 contracts with 2 detectors), 5 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.16'...
+Version '0.4.16' installed.
+'solc --version' running
+'solc small/mxm.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+TokenERC20._transfer(address,address,uint256) (small/mxm.sol#57-73)
+lack caller check: 
+['MsgSender', ['msg.sender'], '#High#Para Need to be MsgSender'] ['Allowance checked in function but may underflow'] ['EQ', ['receiver.onFlashLoan(msg.sender,token,amount,fee,data)'], ['_RETURN_VALUE', 'bytes32'], '#High#ERROR_MSG:ERC20FlashMint: invalid return value'] ['GTE', ['_balances@from', 'fromBalance', '_balances@account', 'accountBalance'], ['amount', 'fee', 'flashFee(token,amount)', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: burn amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.transfer(address,uint256) (small/mxm.sol#83-86)
+lack def check: 
+['GTE', ['_balances@from', '_balances@owner', '_balances@account', '_balances@_msgSender()', 'fromBalance', '_balances@msgsender'], ['amount', 'delta', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+
+TokenERC20.transferFrom(address,address,uint256) (small/mxm.sol#117-127)
+lack def check: 
+['Allowance checked in function but may underflow'] ['GTE', ['_balances@from', 'fromBalance', '_balances@owner'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.approve(address,uint256) (small/mxm.sol#137-144)
+lack def check: 
+['Lack Addess(0) Check: Not Clear'] in caller: TokenERC20.approve(address,uint256)
+
+
+Reference: Check API usage of OpenZeppelin
+
+	Pragma confirmed better, here is pragma solidity^0.4.16. ^0.4.16 (small/mxm.sol#5)
+Reference:  
+small/mxm.sol analyzed (2 contracts with 2 detectors), 5 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.11'...
+Version '0.4.11' installed.
+'solc --version' running
+'solc small/omg.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.4.11. ^0.4.11 (small/omg.sol#5)
+Reference:  
+small/omg.sol analyzed (11 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.0'...
+Version '0.4.0' installed.
+'solc --version' running
+'solc small/organicco.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on small/organicco.sol:
+small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+None
+Error in small/organicco.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.0'...
+Version '0.4.0' installed.
+'solc --version' running
+'solc small/organicco.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on small/organicco.sol:
+small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+None
+Error in small/organicco.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation small/organicco.sol:7:1: Error: Expected import directive or contract definition.
+interface ERC20 {
+^
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.8.0'...
+Version '0.8.0' installed.
+'solc --version' running
+'solc small/pandai.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/pandai.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.0+commit.c7dfd78e.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+   --> small/pandai.sol:598:1:
+    |
+598 | pragma solidity ^0.8.9;
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.0+commit.c7dfd78e.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+   --> small/pandai.sol:598:1:
+    |
+598 | pragma solidity ^0.8.9;
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in small/pandai.sol
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 575, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 835, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/home/szx5097/code/ZepScope-Code/Checker/falcon/__main__.py", line 87, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 646, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 131, in __init__
+    self._compile(**kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 553, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 149, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 278, in _get_targets_json
+    return _run_solc(
+  File "/home/szx5097/code/ZepScope-Code/Checker/.venv/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 579, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.0+commit.c7dfd78e.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+   --> small/pandai.sol:598:1:
+    |
+598 | pragma solidity ^0.8.9;
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+Installing solc '0.4.23'...
+Version '0.4.23' installed.
+'solc --version' running
+'solc small/PKG.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/PKG.sol:
+small/PKG.sol:119:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function CustomToken() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/PKG.sol:31:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _value);
+        ^--------------------------^
+small/PKG.sol:54:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/PKG.sol:66:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Burn(msg.sender, _value);
+        ^----------------------^
+small/PKG.sol:79:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Burn(_from, _value);
+        ^-----------------^
+small/PKG.sol:108:9: Warning: Invoking events without "emit" prefix is deprecated.
+        ICO(msg.sender, msg.value, tokenValue);
+        ^------------------------------------^
+small/PKG.sol:112:27: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+        uint256 balance = this.balance;
+                          ^----------^
+small/PKG.sol:114:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Withdraw(msg.sender, icoHolder, balance);
+        ^--------------------------------------^
+small/PKG.sol:121:19: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x8cd103c2164D04D071F4014Ac7b3Aa42D8FA596C'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        balanceOf[0x8cd103c2164d04d071f4014ac7b3aa42d8fa596c] = totalSupply;
+                  ^----------------------------------------^
+small/PKG.sol:127:21: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x8cd103c2164D04D071F4014Ac7b3Aa42D8FA596C'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        icoSender = 0x8cd103c2164d04d071f4014ac7b3aa42d8fa596c;
+                    ^----------------------------------------^
+small/PKG.sol:128:21: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x8cd103c2164D04D071F4014Ac7b3Aa42D8FA596C'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        icoHolder = 0x8cd103c2164d04d071f4014ac7b3aa42d8fa596c;
+                    ^----------------------------------------^
+small/PKG.sol:111:5: Warning: No visibility specified. Defaulting to "public". 
+    function withdraw() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+BaseToken._transfer(address,address,uint256) (small/PKG.sol#23-32)
+lack caller check: 
+['MsgSender', ['msg.sender'], '#High#Para Need to be MsgSender'] ['Allowance checked in function but may underflow'] ['EQ', ['receiver.onFlashLoan(msg.sender,token,amount,fee,data)'], ['_RETURN_VALUE', 'bytes32'], '#High#ERROR_MSG:ERC20FlashMint: invalid return value'] ['GTE', ['_balances@from', 'fromBalance', '_balances@account', 'accountBalance'], ['amount', 'fee', 'flashFee(token,amount)', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: burn amount exceeds balance'] in caller: BaseToken.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: BaseToken.transfer(address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: BaseToken.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: ICOToken.fallback()
+
+
+BaseToken.approve(address,uint256) (small/PKG.sol#49-56)
+lack def check: 
+['Lack Addess(0) Check: Not Clear'] in caller: BaseToken.approve(address,uint256)
+
+
+BaseToken.transferFrom(address,address,uint256) (small/PKG.sol#38-47)
+lack def check: 
+['Allowance checked in function but may underflow'] ['GTE', ['_balances@from', 'fromBalance', '_balances@owner'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: BaseToken.transferFrom(address,address,uint256)
+
+
+BaseToken.transfer(address,uint256) (small/PKG.sol#34-36)
+lack def check: 
+['GTE', ['_balances@from', '_balances@owner', '_balances@account', '_balances@_msgSender()', 'fromBalance', '_balances@msgsender'], ['amount', 'delta', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: BaseToken.transfer(address,uint256)
+
+
+Reference: Check API usage of OpenZeppelin
+
+	Pragma confirmed better, here is pragma solidity^0.4.23. ^0.4.23 (small/PKG.sol#5)
+Reference:  
+small/PKG.sol analyzed (4 contracts with 2 detectors), 5 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.16'...
+Version '0.4.16' installed.
+'solc --version' running
+'solc small/silkroad.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+TokenERC20._transfer(address,address,uint256) (small/silkroad.sol#70-86)
+lack caller check: 
+['MsgSender', ['msg.sender'], '#High#Para Need to be MsgSender'] ['Allowance checked in function but may underflow'] ['EQ', ['receiver.onFlashLoan(msg.sender,token,amount,fee,data)'], ['_RETURN_VALUE', 'bytes32'], '#High#ERROR_MSG:ERC20FlashMint: invalid return value'] ['GTE', ['_balances@from', 'fromBalance', '_balances@account', 'accountBalance'], ['amount', 'fee', 'flashFee(token,amount)', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: burn amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.transfer(address,uint256) (small/silkroad.sol#96-98)
+lack def check: 
+['GTE', ['_balances@from', '_balances@owner', '_balances@account', '_balances@_msgSender()', 'fromBalance', '_balances@msgsender'], ['amount', 'delta', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transfer(address,uint256)
+
+
+TokenERC20.transferFrom(address,address,uint256) (small/silkroad.sol#109-118)
+lack def check: 
+['Allowance checked in function but may underflow'] ['GTE', ['_balances@from', 'fromBalance', '_balances@owner'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: TokenERC20.transferFrom(address,address,uint256)
+
+
+TokenERC20.approve(address,uint256) (small/silkroad.sol#128-134)
+lack def check: 
+['Lack Addess(0) Check: Not Clear'] in caller: TokenERC20.approve(address,uint256)
+
+
+SilkToken._transfer(address,address,uint256) (small/silkroad.sol#219-228)
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: SilkToken.procPreSales()
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: SilkToken.procNormalSales()
+
+lack def check: 
+['GTE', ['_balances@from', 'fromBalance'], ['amount', 'uint256_1'], '#Medium#ERROR_MSG:ERC20: transfer amount exceeds balance'] in caller: SilkToken.procNormalBuyBack(address)
+
+
+Reference: Check API usage of OpenZeppelin
+
+	Pragma confirmed better, here is pragma solidity^0.4.16. ^0.4.16 (small/silkroad.sol#5)
+Reference:  
+small/silkroad.sol analyzed (4 contracts with 2 detectors), 6 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.5.3'...
+Version '0.5.3' installed.
+'solc --version' running
+'solc small/wit.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity^0.5.3. ^0.5.3 (small/wit.sol#1)
+Reference:  
+small/wit.sol analyzed (4 contracts with 2 detectors), 1 result(s) found   
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.5.7'...
+Version '0.5.7' installed.
+'solc --version' running
+'solc small/xeuro.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+
+	Pragma confirmed better, here is pragma solidity>=0.5.7<0.6.0. >=0.5.7<0.6.0 (small/xeuro.sol#5)
+Reference:  
+small/xeuro.sol analyzed (3 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+after for recrusion
+Installing solc '0.4.25'...
+Version '0.4.25' installed.
+'solc --version' running
+'solc small/xn35.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/xn35.sol:
+small/xn35.sol:4:46: Warning: This declaration shadows an existing declaration.
+    function totalSupply() constant returns (uint256 totalSupply);
+                                             ^-----------------^
+small/xn35.sol:4:5: The shadowed declaration is here:
+    function totalSupply() constant returns (uint256 totalSupply);
+    ^------------------------------------------------------------^
+
+small/xn35.sol:90:46: Warning: This declaration shadows an existing declaration.
+    function totalSupply() constant returns (uint256 totalSupply) {
+                                             ^-----------------^
+small/xn35.sol:90:5: The shadowed declaration is here:
+    function totalSupply() constant returns (uint256 totalSupply) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+small/xn35.sol:4:5: Warning: Functions in interfaces should be declared external.
+    function totalSupply() constant returns (uint256 totalSupply);
+    ^------------------------------------------------------------^
+small/xn35.sol:6:5: Warning: Functions in interfaces should be declared external.
+    function balanceOf(address _owner) constant returns (uint256 balance);
+    ^--------------------------------------------------------------------^
+small/xn35.sol:8:5: Warning: Functions in interfaces should be declared external.
+    function transfer(address _to, uint256 _value) returns (bool success);
+    ^--------------------------------------------------------------------^
+small/xn35.sol:10:5: Warning: Functions in interfaces should be declared external.
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:16:5: Warning: Functions in interfaces should be declared external.
+    function approve(address _spender, uint256 _value) returns (bool success);
+    ^------------------------------------------------------------------------^
+small/xn35.sol:18:5: Warning: Functions in interfaces should be declared external.
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:103:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(msg.sender, _to, _value);
+        ^-------------------------------^
+small/xn35.sol:120:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _value);
+        ^--------------------------^
+small/xn35.sol:126:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+small/xn35.sol:4:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function totalSupply() constant returns (uint256 totalSupply);
+    ^------------------------------------------------------------^
+small/xn35.sol:6:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function balanceOf(address _owner) constant returns (uint256 balance);
+    ^--------------------------------------------------------------------^
+small/xn35.sol:8:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function transfer(address _to, uint256 _value) returns (bool success);
+    ^--------------------------------------------------------------------^
+small/xn35.sol:10:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:16:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function approve(address _spender, uint256 _value) returns (bool success);
+    ^------------------------------------------------------------------------^
+small/xn35.sol:18:5: Warning: No visibility specified. Defaulting to "public". In interfaces it defaults to external.
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:67:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferOwnership(address newOwner) onlyOwner {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:90:5: Warning: No visibility specified. Defaulting to "public". 
+    function totalSupply() constant returns (uint256 totalSupply) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:94:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf(address _owner) constant returns (uint256 balance) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:98:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address _to, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:107:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:124:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve(address _spender, uint256 _value) returns (bool success) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:130:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance(
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:32:5: Warning: Function state mutability can be restricted to pure
+    function mul(uint256 a, uint256 b) internal constant returns (uint256) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:38:5: Warning: Function state mutability can be restricted to pure
+    function div(uint256 a, uint256 b) internal constant returns (uint256) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:43:5: Warning: Function state mutability can be restricted to pure
+    function sub(uint256 a, uint256 b) internal constant returns (uint256) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+small/xn35.sol:48:5: Warning: Function state mutability can be restricted to pure
+    function add(uint256 a, uint256 b) internal constant returns (uint256) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+	Pragma confirmed better, here is pragma solidity^0.4.25. ^0.4.25 (small/xn35.sol#1)
+Reference:  
+small/xn35.sol analyzed (4 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion
+Installing solc '0.4.11'...
+Version '0.4.11' installed.
+'solc --version' running
+'solc small/zrx.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc --allow-paths .,/home/szx5097/code/ZepScope-Code/Checker/small' running
+Compilation warnings/errors on small/zrx.sol:
+small/zrx.sol:27:46: Warning: Unused local variable
+    function totalSupply() constant returns (uint supply) {}
+                                             ^---------^
+small/zrx.sol:31:24: Warning: Unused local variable
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                       ^------------^
+small/zrx.sol:31:58: Warning: Unused local variable
+    function balanceOf(address _owner) constant returns (uint balance) {}
+                                                         ^----------^
+small/zrx.sol:37:23: Warning: Unused local variable
+    function transfer(address _to, uint _value) returns (bool success) {}
+                      ^---------^
+small/zrx.sol:37:36: Warning: Unused local variable
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                   ^---------^
+small/zrx.sol:37:58: Warning: Unused local variable
+    function transfer(address _to, uint _value) returns (bool success) {}
+                                                         ^----------^
+small/zrx.sol:45:9: Warning: Unused local variable
+        address _from,
+        ^-----------^
+small/zrx.sol:46:9: Warning: Unused local variable
+        address _to,
+        ^---------^
+small/zrx.sol:47:9: Warning: Unused local variable
+        uint _value
+        ^---------^
+small/zrx.sol:48:16: Warning: Unused local variable
+    ) returns (bool success) {}
+               ^----------^
+small/zrx.sol:54:22: Warning: Unused local variable
+    function approve(address _spender, uint _value) returns (bool success) {}
+                     ^--------------^
+small/zrx.sol:54:40: Warning: Unused local variable
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                       ^---------^
+small/zrx.sol:54:62: Warning: Unused local variable
+    function approve(address _spender, uint _value) returns (bool success) {}
+                                                             ^----------^
+small/zrx.sol:60:9: Warning: Unused local variable
+        address _owner,
+        ^------------^
+small/zrx.sol:61:9: Warning: Unused local variable
+        address _spender
+        ^--------------^
+small/zrx.sol:62:25: Warning: Unused local variable
+    ) constant returns (uint remaining) {}
+                        ^------------^
+
+
+	Pragma confirmed better, here is pragma solidity^0.4.11. ^0.4.11 (small/zrx.sol#23)
+Reference:  
+small/zrx.sol analyzed (4 contracts with 2 detectors), 1 result(s) found
+before get_detectors_and_printers
+before main_impl
+parse_args
+set_colorization_enabled
+before outputting_json
+before choose_printers
+before getLevelName
+before for
+before StreamHandler
+before FormatterCryticCompile
+before getLogger
+try1
+before compile_all
+after compile all
+before: for compilation in compilations:
+begin to process ast
+run process
+check register
+check printer_cls
+begin run detectors
+An error occurred: No module named 'ot'
+after for recrusion

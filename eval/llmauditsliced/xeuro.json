@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/xeuro.sol",
+    "contract": {
+        "xEuro": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "contract": "xEuro",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 7,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+                "contract": "xEuro",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            }
+        ]
+    }
+}

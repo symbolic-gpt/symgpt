@@ -1,0 +1,6 @@
+{
+    "sol_file": "benchmark/smallext/egypt.sol",
+    "contract": {
+        "Egypt": []
+    }
+}

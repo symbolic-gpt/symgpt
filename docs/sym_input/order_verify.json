@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "EventEmitRecordSelector": {
+            "properties": {
+                "event": {
+                    "type": "string"
+                },
+                "arg_idx": {
+                    "type": "integer"
+                },
+                "type": {
+                    "const": "EventEmitRecordSelector"
+                }
+            },
+            "required": [
+                "event",
+                "arg_idx",
+                "type"
+            ]
+        },
+        "WrittenRecordSelector": {
+            "properties": {
+                "sv": {
+                    "$ref": "#/definitions/StateVarSelector"
+                },
+                "arg_index": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "sv",
+                "arg_index"
+            ]
+        },
+        "StateVarSelector": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "const": "StateVarSelector"
+                },
+                "anchor_fn": {
+                    "type": "string"
+                },
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/FuncParamSelector"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "default": []
+                }
+            },
+            "required": [
+                "type",
+                "anchor_fn"
+            ]
+        },
+        "FuncParamSelector": {
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "type": {
+                    "const": "FuncParamSelector"
+                }
+            },
+            "required": [
+                "index",
+                "type"
+            ]
+        },
+        "OrderVerify": {
+            "properties": {
+                "target": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/EventEmitRecordSelector"
+                        },
+                        {
+                            "$ref": "#/definitions/WrittenRecordSelector"
+                        }
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "const": "OrderVerify"
+                },
+                "ordered_by": {
+                    "$ref": "#/definitions/StateVarSelector"
+                }
+            },
+            "required": [
+                "target",
+                "type",
+                "ordered_by"
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "OrderVerify": {
+            "$ref": "#/definitions/OrderVerify"
+        }
+    }
+}

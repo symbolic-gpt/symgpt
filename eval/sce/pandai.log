@@ -1,0 +1,3 @@
+'solc --version' running
+'solc ./benchmark/smallext/pandai.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+INFO:Slither:./benchmark/smallext/pandai.sol analyzed (6 contracts with 5 detectors), 0 result(s) found
