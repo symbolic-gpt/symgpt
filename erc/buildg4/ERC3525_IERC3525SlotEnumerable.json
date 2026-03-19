@@ -1,0 +1,159 @@
+{
+    "functions": [
+        {
+            "def": "function slotCount() external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the total amount of slots stored by the contract.\n     * @return The total amount of slots\n     */\n",
+            "format": {
+                "name": "slotCount",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `slotCount()` when called, returns the total number of slots that are currently stored by the contract. Each slot represents a unit of storage or data held by the contract, and the return value indicates the cumulative count of all such slots.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `slotCount()` when called, returns the total number of slots that are currently stored by the contract. Each slot represents a unit of storage or data held by the contract, and the return value indicates the cumulative count of all such slots."
+            }
+        },
+        {
+            "def": "function slotByIndex(uint256 _index) external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the slot at the specified index of all slots stored by the contract.\n     * @param _index The index in the slot list\n     * @return The slot at `index` of all slots.\n     */\n",
+            "format": {
+                "name": "slotByIndex",
+                "arg_types": [
+                    {
+                        "name": "_index",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `slotByIndex(uint256 _index)` is designed to retrieve a specific slot based on its index from a list of slots managed by the contract. When you call this function and provide an index (`_index`), it returns the slot value that is stored at that particular index in the list. The return value is a `uint256`, which is a type of unsigned integer commonly used in Solidity for storing numerical data. This function is useful for accessing individual slots directly by their position in the stored list.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `slotByIndex(uint256 _index)` is designed to retrieve a specific slot based on its index from a list of slots managed by the contract. When you call this function and provide an index (`_index`), it returns the slot value that is stored at that particular index in the list. The return value is a `uint256`, which is a type of unsigned integer commonly used in Solidity for storing numerical data. This function is useful for accessing individual slots directly by their position in the stored list."
+            }
+        },
+        {
+            "def": "function tokenSupplyInSlot(uint256 _slot) external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the total amount of tokens with the same slot.\n     * @param _slot The slot to query token supply for\n     * @return The total amount of tokens with the specified `_slot`\n     */\n",
+            "format": {
+                "name": "tokenSupplyInSlot",
+                "arg_types": [
+                    {
+                        "name": "_slot",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `tokenSupplyInSlot(uint256 _slot)` represents the total number of tokens that are categorized under a specific slot, identified by the parameter `_slot`. This function provides a count of how many tokens share the same slot classification or attribute within a system, allowing users to understand the distribution or allocation of tokens based on their slot categorization.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `tokenSupplyInSlot(uint256 _slot)` represents the total number of tokens that are categorized under a specific slot, identified by the parameter `_slot`. This function provides a count of how many tokens share the same slot classification or attribute within a system, allowing users to understand the distribution or allocation of tokens based on their slot categorization."
+            }
+        },
+        {
+            "def": "function tokenInSlotByIndex(uint256 _slot, uint256 _index) external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the token at the specified index of all tokens with the same slot.\n     * @param _slot The slot to query tokens with\n     * @param _index The index in the token list of the slot\n     * @return The token ID at `_index` of all tokens with `_slot`\n     */\n",
+            "format": {
+                "name": "tokenInSlotByIndex",
+                "arg_types": [
+                    {
+                        "name": "_slot",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_index",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `tokenInSlotByIndex(uint256 _slot, uint256 _index)` returns the unique identifier (ID) of a token. This token is located at a specific position, denoted by `_index`, within a list of all tokens that are categorized under a particular category or group, referred to as `_slot`. Essentially, this function allows you to retrieve the ID of a token based on its position in a predefined group of tokens.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `tokenInSlotByIndex(uint256 _slot, uint256 _index)` returns the unique identifier (ID) of a token. This token is located at a specific position, denoted by `_index`, within a list of all tokens that are categorized under a particular category or group, referred to as `_slot`. Essentially, this function allows you to retrieve the ID of a token based on its position in a predefined group of tokens."
+            }
+        }
+    ],
+    "events": [],
+    "name": "IERC3525SlotEnumerable",
+    "rules": [
+        {
+            "rule": "The function `slotCount()` when called, returns the total number of slots that are currently stored by the contract. Each slot represents a unit of storage or data held by the contract, and the return value indicates the cumulative count of all such slots.",
+            "type": "semantic_return",
+            "interface": "function slotCount() external view returns (uint256)"
+        },
+        {
+            "rule": "The function `slotByIndex(uint256 _index)` is designed to retrieve a specific slot based on its index from a list of slots managed by the contract. When you call this function and provide an index (`_index`), it returns the slot value that is stored at that particular index in the list. The return value is a `uint256`, which is a type of unsigned integer commonly used in Solidity for storing numerical data. This function is useful for accessing individual slots directly by their position in the stored list.",
+            "type": "semantic_return",
+            "interface": "function slotByIndex(uint256 _index) external view returns (uint256)"
+        },
+        {
+            "rule": "The return value of the function `tokenSupplyInSlot(uint256 _slot)` represents the total number of tokens that are categorized under a specific slot, identified by the parameter `_slot`. This function provides a count of how many tokens share the same slot classification or attribute within a system, allowing users to understand the distribution or allocation of tokens based on their slot categorization.",
+            "type": "semantic_return",
+            "interface": "function tokenSupplyInSlot(uint256 _slot) external view returns (uint256)"
+        },
+        {
+            "rule": "The function `tokenInSlotByIndex(uint256 _slot, uint256 _index)` returns the unique identifier (ID) of a token. This token is located at a specific position, denoted by `_index`, within a list of all tokens that are categorized under a particular category or group, referred to as `_slot`. Essentially, this function allows you to retrieve the ID of a token based on its position in a predefined group of tokens.",
+            "type": "semantic_return",
+            "interface": "function tokenInSlotByIndex(uint256 _slot, uint256 _index) external view returns (uint256)"
+        }
+    ]
+}

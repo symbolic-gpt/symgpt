@@ -1,7 +1,7 @@
 pragma solidity ^0.8.0;
-
-
 // SPDX-License-Identifier: MIT
+
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
 /**
  * @dev Interface of the ERC165 standard, as defined in the
@@ -24,7 +24,7 @@ interface IERC165 {
     function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/IERC721.sol)
 /**
  * @dev Required interface of an ERC721 compliant contract.
@@ -163,7 +163,7 @@ interface IERC721 is IERC165 {
     function isApprovedForAll(address owner, address operator) external view returns (bool);
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/IERC721Receiver.sol)
 /**
  * @title ERC721 token receiver interface
@@ -188,7 +188,7 @@ interface IERC721Receiver {
     ) external returns (bytes4);
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (token/ERC721/extensions/IERC721Metadata.sol)
 /**
  * @title ERC-721 Non-Fungible Token Standard, optional metadata extension
@@ -211,7 +211,7 @@ interface IERC721Metadata is IERC721 {
     function tokenURI(uint256 tokenId) external view returns (string memory);
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol)
 /**
  * @dev Collection of functions related to the address type
@@ -431,7 +431,7 @@ library Address {
     }
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 /**
  * @dev Provides information about the current execution context, including the
@@ -453,7 +453,7 @@ abstract contract Context {
     }
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/Strings.sol)
 /**
  * @dev String operations.
@@ -518,7 +518,7 @@ library Strings {
     }
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)
 /**
  * @dev Implementation of the {IERC165} interface.
@@ -543,7 +543,7 @@ abstract contract ERC165 is IERC165 {
     }
 }
 
-// SPDX-License-Identifier: MIT
+
 // OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/ERC721.sol)
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including
@@ -980,7 +980,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     ) internal virtual {}
 }
 
-// SPDX-License-Identifier: MIT
+
 interface IERC4907 {
     // Logged when the user of a token assigns a new user or updates expires
     /// @notice Emitted when the `user` of an NFT or the `expires` of the `user` is changed
@@ -1002,7 +1002,7 @@ interface IERC4907 {
     function userExpires(uint256 tokenId) external view returns(uint256);
 }
 
-// SPDX-License-Identifier: MIT
+
 contract ERC4907 is ERC721, IERC4907 {
     struct UserInfo 
     {
@@ -1057,7 +1057,7 @@ contract ERC4907 is ERC721, IERC4907 {
     }
 }
 
-// SPDX-License-Identifier: MIT
+
 contract ERC4907Demo is ERC4907 {
     uint256 curId = 1;
 

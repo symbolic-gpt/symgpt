@@ -1,0 +1,1440 @@
+{
+    "functions": [
+        {
+            "def": "function valueDecimals() external view returns (uint8)",
+            "raw_rules": "\n    /**\n     * @notice Get the number of decimals the token uses for value - e.g. 6, means the user\n     *  representation of the value of a token can be calculated by dividing it by 1,000,000.\n     *  Considering the compatibility with third-party wallets, this function is defined as\n     *  `valueDecimals()` instead of `decimals()` to avoid conflict with ERC-20 tokens.\n     * @return The number of decimals for value\n     */\n",
+            "format": {
+                "name": "valueDecimals",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint8"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `valueDecimals()` returns a value that represents the number of decimal places used by a token to define its smallest unit. This number indicates how many places to the right of the decimal point you should consider when converting the token's smallest unit (often referred to as its \"atomic\" unit) to its standard unit for user representation.\n\nFor example, if the function returns 6, it means that to find the actual value of the token as perceived by users, you should divide the token amount by 1,000,000 (10^6). This division adjusts from a smaller, more granular unit used internally (perhaps for precision or technical reasons) to a more understandable, user-friendly format. This is particularly useful for displaying token values in interfaces where users expect to see values in a format similar to traditional currencies, which typically use two decimal places.\n\nThe renaming of the function to `valueDecimals()` from the more commonly used `decimals()` in ERC-20 tokens is to avoid conflicts in systems where both types of tokens might be used, ensuring that each token type can be handled appropriately according to its specific decimal handling rules.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `valueDecimals()` returns a value that represents the number of decimal places used by a token to define its smallest unit. This number indicates how many places to the right of the decimal point you should consider when converting the token's smallest unit (often referred to as its \"atomic\" unit) to its standard unit for user representation.\n\nFor example, if the function returns 6, it means that to find the actual value of the token as perceived by users, you should divide the token amount by 1,000,000 (10^6). This division adjusts from a smaller, more granular unit used internally (perhaps for precision or technical reasons) to a more understandable, user-friendly format. This is particularly useful for displaying token values in interfaces where users expect to see values in a format similar to traditional currencies, which typically use two decimal places.\n\nThe renaming of the function to `valueDecimals()` from the more commonly used `decimals()` in ERC-20 tokens is to avoid conflicts in systems where both types of tokens might be used, ensuring that each token type can be handled appropriately according to its specific decimal handling rules.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function balanceOf(uint256 _tokenId) external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the value of a token.\n     * @param _tokenId The token for which to query the balance\n     * @return The value of `_tokenId`\n     */\n",
+            "format": {
+                "name": "balanceOf",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `balanceOf(uint256 _tokenId)` when called, returns the value associated with a specific token identified by `_tokenId`. This value represents the quantity or balance of that particular token held in an account or a contract. Essentially, it tells you how much of that token is owned or controlled as specified by the token ID provided in the input.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `balanceOf(uint256 _tokenId)` when called, returns the value associated with a specific token identified by `_tokenId`. This value represents the quantity or balance of that particular token held in an account or a contract. Essentially, it tells you how much of that token is owned or controlled as specified by the token ID provided in the input."
+            }
+        },
+        {
+            "def": "function slotOf(uint256 _tokenId) external view returns (uint256)",
+            "raw_rules": "\n    /**\n     * @notice Get the slot of a token.\n     * @param _tokenId The identifier for a token\n     * @return The slot of the token\n     */\n",
+            "format": {
+                "name": "slotOf",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `slotOf(uint256 _tokenId)` is designed to return the \"slot\" of a token, where the \"slot\" refers to a specific location or position identifier associated with the given token identified by `_tokenId`. This could be used in contexts where tokens are organized or categorized into different slots or positions, such as in a storage system, a mapping, or any structured arrangement. The return value, therefore, provides information about where or how the token is positioned or classified within a larger system or framework.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "Based on the provided rules and the function signature \"function slotOf(uint256 _tokenId) external view returns (uint256)\", there is no explicit condition mentioned in the rules that directly applies to this function. The rules provided in the comment do not specify any conditions under which an error should be thrown or any specific checks that need to be performed for the function `slotOf`.\n\nTherefore, the JSON array indicating conditions that need to be thrown or checked would be empty, as follows:\n\n```json\n[]\n```\n\nThis indicates that there are no specific throw or check conditions provided in the rules for the `slotOf` function based on the given information.",
+                "semantic_return": "The function `slotOf(uint256 _tokenId)` is designed to return the \"slot\" of a token, where the \"slot\" refers to a specific location or position identifier associated with the given token identified by `_tokenId`. This could be used in contexts where tokens are organized or categorized into different slots or positions, such as in a storage system, a mapping, or any structured arrangement. The return value, therefore, provides information about where or how the token is positioned or classified within a larger system or framework."
+            }
+        },
+        {
+            "def": "function approve(uint256 _tokenId,address _operator,uint256 _value) external payable",
+            "raw_rules": "\n    /**\n     * @notice Allow an operator to manage the value of a token, up to the `_value`.\n     * @dev MUST revert unless caller is the current owner, an authorized operator, or the approved\n     *  address for `_tokenId`.\n     *  MUST emit the ApprovalValue event.\n     * @param _tokenId The token to approve\n     * @param _operator The operator to be approved\n     * @param _value The maximum value of `_toTokenId` that `_operator` is allowed to manage\n     */\n",
+            "format": {
+                "name": "approve",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": true,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "caller is not the current owner, an authorized operator, or the approved address for `_tokenId`",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "ApprovalValue"
+                        ],
+                        "if": "caller is the current owner, an authorized operator, or the approved address for `_tokenId`"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "ApprovalValue",
+                        "if": "MUST emit the ApprovalValue event",
+                        "arg_rules": []
+                    }
+                ],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"caller is not the current owner, an authorized operator, or the approved address for `_tokenId`\",\n        \"throw\": true\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"ApprovalValue\"],\n        \"if\": \"caller is the current owner, an authorized operator, or the approved address for `_tokenId`\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "```json\n[\n    {\n        \"call\": \"ApprovalValue\",\n        \"if\": \"MUST emit the ApprovalValue event\",\n        \"arg_rules\": []\n    }\n]\n```",
+                "order": "The provided function description and the request for \"order\" rules do not explicitly mention any conditions that need to be in a specific order based on an array parameter or any other sequence-based parameter. The function parameters (`_tokenId`, `_operator`, `_value`) are not of a type that implies an inherent order (such as an array or list), and the description does not specify any order dependency among these parameters or actions.\n\nTherefore, the correct response, given the format and the information provided, would be an empty JSON array, as there are no order conditions specified in the description:\n\n```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function allowance(uint256 _tokenId, address _operator) external view returns (uint256)",
+            "raw_rules": "        uint256 _tokenId,\n        address _operator,\n        uint256 _value\n    ) external payable;\n\n    /**\n     * @notice Get the maximum value of a token that an operator is allowed to manage.\n     * @param _tokenId The token for which to query the allowance\n     * @param _operator The address of an operator\n     * @return The current approval value of `_tokenId` that `_operator` is allowed to manage\n     */\n",
+            "format": {
+                "name": "allowance",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `allowance(uint256 _tokenId, address _operator)` is designed to return the maximum value or amount of a specific token, identified by `_tokenId`, that an operator, identified by `_operator`, is authorized to manage or handle. This value represents the current approval limit set for the operator regarding the specified token. Essentially, it tells you how much of the token the operator can deal with on behalf of the token owner, up to the returned limit.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `allowance(uint256 _tokenId, address _operator)` is designed to return the maximum value or amount of a specific token, identified by `_tokenId`, that an operator, identified by `_operator`, is authorized to manage or handle. This value represents the current approval limit set for the operator regarding the specified token. Essentially, it tells you how much of the token the operator can deal with on behalf of the token owner, up to the returned limit."
+            }
+        },
+        {
+            "def": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "raw_rules": "\n    /**\n     * @notice Transfer value from a specified token to another specified token with the same slot.\n     * @dev Caller MUST be the current owner, an authorized operator or an operator who has been\n     *  approved the whole `_fromTokenId` or part of it.\n     *  MUST revert if `_fromTokenId` or `_toTokenId` is zero token id or does not exist.\n     *  MUST revert if slots of `_fromTokenId` and `_toTokenId` do not match.\n     *  MUST revert if `_value` exceeds the balance of `_fromTokenId` or its allowance to the\n     *  operator.\n     *  MUST emit `TransferValue` event.\n     * @param _fromTokenId The token to transfer value from\n     * @param _toTokenId The token to transfer value to\n     * @param _value The transferred value\n     */\n",
+            "format": {
+                "name": "transferFrom",
+                "arg_types": [
+                    {
+                        "name": "_fromTokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_toTokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": true,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "_fromTokenId is zero token id or does not exist",
+                        "throw": true
+                    },
+                    {
+                        "if": "_toTokenId is zero token id or does not exist",
+                        "throw": true
+                    },
+                    {
+                        "if": "slots of _fromTokenId and _toTokenId do not match",
+                        "throw": true
+                    },
+                    {
+                        "if": "_value exceeds the balance of _fromTokenId or its allowance to the operator",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "TransferValue"
+                        ],
+                        "if": "function is called successfully without reverting"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "TransferValue",
+                        "if": "value is transferred from one token to another",
+                        "arg_rules": []
+                    },
+                    {
+                        "call": "Transfer",
+                        "if": "value is transferred from a token to an address",
+                        "arg_rules": []
+                    },
+                    {
+                        "call": "TransferValue",
+                        "if": "value is transferred from a token to an address",
+                        "arg_rules": []
+                    }
+                ],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"_fromTokenId is zero token id or does not exist\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"_toTokenId is zero token id or does not exist\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"slots of _fromTokenId and _toTokenId do not match\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"_value exceeds the balance of _fromTokenId or its allowance to the operator\",\n        \"throw\": true\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"TransferValue\"],\n        \"if\": \"function is called successfully without reverting\"\n    }\n]\n```",
+                "assign": "```json\n[]\n```",
+                "call": "```json\n[\n    {\n        \"call\": \"TransferValue\",\n        \"if\": \"value is transferred from one token to another\",\n        \"arg_rules\": []\n    },\n    {\n        \"call\": \"Transfer\",\n        \"if\": \"value is transferred from a token to an address\",\n        \"arg_rules\": []\n    },\n    {\n        \"call\": \"TransferValue\",\n        \"if\": \"value is transferred from a token to an address\",\n        \"arg_rules\": []\n    }\n]\n```",
+                "order": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)",
+            "raw_rules": "        uint256 _fromTokenId,\n        uint256 _toTokenId,\n        uint256 _value\n    ) external payable;\n\n\n    /**\n     * @notice Transfer value from a specified token to an address. The caller should confirm that\n     *  `_to` is capable of receiving ERC-3525 tokens.\n     * @dev This function MUST create a new ERC-3525 token with the same slot for `_to`, \n     *  or find an existing token with the same slot owned by `_to`, to receive the transferred value.\n     *  MUST revert if `_fromTokenId` is zero token id or does not exist.\n     *  MUST revert if `_to` is zero address.\n     *  MUST revert if `_value` exceeds the balance of `_fromTokenId` or its allowance to the\n     *  operator.\n     *  MUST emit `Transfer` and `TransferValue` events.\n     * @param _fromTokenId The token to transfer value from\n     * @param _to The address to transfer value to\n     * @param _value The transferred value\n     * @return ID of the token which receives the transferred value\n     */\n",
+            "format": {
+                "name": "transferFrom",
+                "arg_types": [
+                    {
+                        "name": "_fromTokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": true,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "`_fromTokenId` is zero token id or does not exist",
+                        "throw": true
+                    },
+                    {
+                        "if": "`_to` is zero address",
+                        "throw": true
+                    },
+                    {
+                        "if": "`_value` exceeds the balance of `_fromTokenId` or its allowance to the operator",
+                        "throw": true
+                    }
+                ],
+                "semantic_return": "The return value of the function `transferFrom(uint256 _fromTokenId, address _to, uint256 _value)` represents the identifier (ID) of the ERC-3525 token that receives the transferred value. This token ID corresponds to either a newly created token or an existing token that already belongs to the recipient (`_to`) and shares the same slot as the token from which the value is being transferred (`_fromTokenId`). The function ensures that the recipient receives the specified value (`_value`) in a token that is compatible in terms of its slot characteristics with the originating token.",
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "Transfer",
+                            "TransferValue"
+                        ],
+                        "if": "`_fromTokenId` is not zero, exists, `_to` is not zero address, and `_value` does not exceed the balance of `_fromTokenId` or its allowance to the operator"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "TransferValue",
+                        "if": "value is transferred from one token to another",
+                        "arg_rules": []
+                    },
+                    {
+                        "call": "Transfer",
+                        "if": "value is transferred from a token to an address",
+                        "arg_rules": []
+                    },
+                    {
+                        "call": "TransferValue",
+                        "if": "value is transferred from a token to an address",
+                        "arg_rules": []
+                    }
+                ],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"`_fromTokenId` is zero token id or does not exist\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"`_to` is zero address\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"`_value` exceeds the balance of `_fromTokenId` or its allowance to the operator\",\n        \"throw\": true\n    }\n]\n```",
+                "semantic_return": "The return value of the function `transferFrom(uint256 _fromTokenId, address _to, uint256 _value)` represents the identifier (ID) of the ERC-3525 token that receives the transferred value. This token ID corresponds to either a newly created token or an existing token that already belongs to the recipient (`_to`) and shares the same slot as the token from which the value is being transferred (`_fromTokenId`). The function ensures that the recipient receives the specified value (`_value`) in a token that is compatible in terms of its slot characteristics with the originating token.",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"Transfer\", \"TransferValue\"],\n        \"if\": \"`_fromTokenId` is not zero, exists, `_to` is not zero address, and `_value` does not exceed the balance of `_fromTokenId` or its allowance to the operator\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "```json\n[\n    {\n        \"call\": \"TransferValue\",\n        \"if\": \"value is transferred from one token to another\",\n        \"arg_rules\": []\n    },\n    {\n        \"call\": \"Transfer\",\n        \"if\": \"value is transferred from a token to an address\",\n        \"arg_rules\": []\n    },\n    {\n        \"call\": \"TransferValue\",\n        \"if\": \"value is transferred from a token to an address\",\n        \"arg_rules\": []\n    }\n]\n```",
+                "order": "The provided function description for `transferFrom(uint256 _fromTokenId, address _to, uint256 _value)` does not explicitly specify any conditions that must follow a specific order based on an array or list parameter. The conditions mentioned are primarily checks (reverts) and event emissions, but they do not depend on the ordering of elements within an array or list parameter.\n\nTherefore, the JSON array indicating conditions that need to be in order based on the description provided would be empty, as there are no such conditions specified:\n\n```json\n[]\n```"
+            }
+        }
+    ],
+    "events": [
+        {
+            "def": "event TransferValue(uint256 indexed _fromTokenId, uint256 indexed _toTokenId, uint256 _value);",
+            "raw_rules": "    /**\n     * @dev MUST emit when value of a token is transferred to another token with the same slot,\n     *  including zero value transfers (_value == 0) as well as transfers when tokens are created\n     *  (`_fromTokenId` == 0) or destroyed (`_toTokenId` == 0).\n     * @param _fromTokenId The token id to transfer value from\n     * @param _toTokenId The token id to transfer value to\n     * @param _value The transferred value\n     */\n",
+            "format": {
+                "name": "TransferValue",
+                "arg_types": [
+                    {
+                        "name": "_fromTokenId",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_toTokenId",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "value of a token is transferred to another token with the same slot",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "The token id to transfer value from"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "The token id to transfer value to"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "The transferred value"
+                            }
+                        ]
+                    },
+                    {
+                        "if": "including zero value transfers (_value == 0)"
+                    },
+                    {
+                        "if": "transfers when tokens are created (`_fromTokenId` == 0)"
+                    },
+                    {
+                        "if": "transfers when tokens are destroyed (`_toTokenId` == 0)"
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"value of a token is transferred to another token with the same slot\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"The token id to transfer value from\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"The token id to transfer value to\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"The transferred value\"\n            }\n        ]\n    },\n    {\n        \"if\": \"including zero value transfers (_value == 0)\"\n    },\n    {\n        \"if\": \"transfers when tokens are created (`_fromTokenId` == 0)\"\n    },\n    {\n        \"if\": \"transfers when tokens are destroyed (`_toTokenId` == 0)\"\n    }\n]\n```",
+                "assign": "[]"
+            }
+        },
+        {
+            "def": "event ApprovalValue(uint256 indexed _tokenId, address indexed _operator, uint256 _value);",
+            "raw_rules": "\n    /**\n     * @dev MUST emit when the approval value of a token is set or changed.\n     * @param _tokenId The token to approve\n     * @param _operator The operator to approve for\n     * @param _value The maximum value that `_operator` is allowed to manage\n     */\n",
+            "format": {
+                "name": "ApprovalValue",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "the approval value of a token is set or changed",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "The token to approve"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "The operator to approve for"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "The maximum value that `_operator` is allowed to manage"
+                            }
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"the approval value of a token is set or changed\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"The token to approve\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"The operator to approve for\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"The maximum value that `_operator` is allowed to manage\"\n            }\n        ]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        },
+        {
+            "def": "event SlotChanged(uint256 indexed _tokenId, uint256 indexed _oldSlot, uint256 indexed _newSlot);",
+            "raw_rules": "    \n    /**\n     * @dev MUST emit when the slot of a token is set or changed.\n     * @param _tokenId The token of which slot is set or changed\n     * @param _oldSlot The previous slot of the token\n     * @param _newSlot The updated slot of the token\n     */ \n",
+            "format": {
+                "name": "SlotChanged",
+                "arg_types": [
+                    {
+                        "name": "_tokenId",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_oldSlot",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_newSlot",
+                        "type": "uint256",
+                        "indexed": true
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "the slot of a token is set or changed",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "MUST be the token of which slot is set or changed"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "MUST be the previous slot of the token"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "MUST be the updated slot of the token"
+                            }
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"the slot of a token is set or changed\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"MUST be the token of which slot is set or changed\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be the previous slot of the token\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"MUST be the updated slot of the token\"\n            }\n        ]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        }
+    ],
+    "name": "IERC3525",
+    "rules": [
+        {
+            "rule": "The function `valueDecimals()` returns a value that represents the number of decimal places used by a token to define its smallest unit. This number indicates how many places to the right of the decimal point you should consider when converting the token's smallest unit (often referred to as its \"atomic\" unit) to its standard unit for user representation.\n\nFor example, if the function returns 6, it means that to find the actual value of the token as perceived by users, you should divide the token amount by 1,000,000 (10^6). This division adjusts from a smaller, more granular unit used internally (perhaps for precision or technical reasons) to a more understandable, user-friendly format. This is particularly useful for displaying token values in interfaces where users expect to see values in a format similar to traditional currencies, which typically use two decimal places.\n\nThe renaming of the function to `valueDecimals()` from the more commonly used `decimals()` in ERC-20 tokens is to avoid conflicts in systems where both types of tokens might be used, ensuring that each token type can be handled appropriately according to its specific decimal handling rules.",
+            "type": "semantic_return",
+            "interface": "function valueDecimals() external view returns (uint8)"
+        },
+        {
+            "rule": "The function `balanceOf(uint256 _tokenId)` when called, returns the value associated with a specific token identified by `_tokenId`. This value represents the quantity or balance of that particular token held in an account or a contract. Essentially, it tells you how much of that token is owned or controlled as specified by the token ID provided in the input.",
+            "type": "semantic_return",
+            "interface": "function balanceOf(uint256 _tokenId) external view returns (uint256)"
+        },
+        {
+            "rule": "The function `slotOf(uint256 _tokenId)` is designed to return the \"slot\" of a token, where the \"slot\" refers to a specific location or position identifier associated with the given token identified by `_tokenId`. This could be used in contexts where tokens are organized or categorized into different slots or positions, such as in a storage system, a mapping, or any structured arrangement. The return value, therefore, provides information about where or how the token is positioned or classified within a larger system or framework.",
+            "type": "semantic_return",
+            "interface": "function slotOf(uint256 _tokenId) external view returns (uint256)"
+        },
+        {
+            "rule": " throw if caller is not the current owner, an authorized operator, or the approved address for `_tokenId`",
+            "type": "throw",
+            "interface": "function approve(uint256 _tokenId,address _operator,uint256 _value) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "and",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "ownerOf",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "not_eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getApproved",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "not_eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "isOperatorFor",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        },
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 1
+                                        }
+                                    ]
+                                },
+                                "op": "not_eq"
+                            }
+                        ]
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "Based on the rule provided for the function `approve(uint256 _tokenId, address _operator, uint256 _value)`, which states that the function should throw if the caller is not the current owner, an authorized operator, or the approved address for `_tokenId`, we can construct the JSON schema for rule verification as follows:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"and\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"ownerOf\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"not_eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getApproved\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"not_eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"isOperatorFor\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 1\n                            }\n                        ]\n                    },\n                    \"op\": \"not_eq\"\n                }\n            ]\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- The `ThrowVerify` object specifies that the function should throw based on the condition specified in `cond`.\n- The `LogicCondition` uses the logical operator `and` to combine multiple comparison conditions (`CompCondition`).\n- Each `CompCondition` checks if the message sender (`MsgSenderSelector`) is not equal (`not_eq`) to:\n  - The owner of the token (`ownerOf` function with `_tokenId` as the key).\n  - The approved address for the token (`getApproved` function with `_tokenId` as the key).\n  - An authorized operator for the token (`isOperatorFor` function with `_tokenId` and `_operator` as the keys).\n- If all these conditions are true (i.e., the sender is neither the owner, nor the approved address, nor an authorized operator), the function should throw."
+        },
+        {
+            "rule": "emit '['ApprovalValue']' if caller is the current owner, an authorized operator, or the approved address for `_tokenId`",
+            "type": "emit",
+            "interface": "function approve(uint256 _tokenId,address _operator,uint256 _value) external payable",
+            "sym": {
+                "EmitVerify": {
+                    "event": "ApprovalValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "approve",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "or",
+                        "conds": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "ownerOf",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getApproved",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "isAuthorizedOperator",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        },
+                                        {
+                                            "type": "MsgSenderSelector"
+                                        }
+                                    ]
+                                },
+                                "op": "eq"
+                            }
+                        ]
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "Based on the rule provided and the JSON schema definitions, we need to create a JSON configuration that specifies the conditions under which the 'ApprovalValue' event should be emitted. The rule states that the event should be emitted if the caller is the current owner, an authorized operator, or the approved address for `_tokenId`. Here's the JSON configuration for this rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"ApprovalValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"approve\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"or\",\n            \"conds\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"ownerOf\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getApproved\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"isAuthorizedOperator\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"MsgSenderSelector\"\n                            }\n                        ]\n                    },\n                    \"op\": \"eq\"\n                }\n            ]\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the event name 'ApprovalValue' that should be emitted.\n- **sv_cond**: Specifies a condition related to state variable changes. Here, it's used to ensure that the function `approve` is called with the correct `_tokenId` as an argument.\n- **cond**: A logical condition that combines three comparison conditions using an \"or\" operator:\n  - The first condition checks if the message sender (`MsgSenderSelector`) is equal to the owner of the token (`ownerOf` function).\n  - The second condition checks if the message sender is the approved address for the token (`getApproved` function).\n  - The third condition checks if the message sender is an authorized operator for the token (`isAuthorizedOperator` function).\n- **type**: Specifies that this is an 'EmitVerify' type configuration.\n\nThis configuration ensures that the 'ApprovalValue' event is emitted under the specified conditions, aligning with the rule provided."
+        },
+
+        {
+            "rule": "The function `allowance(uint256 _tokenId, address _operator)` is designed to return the maximum value or amount of a specific token, identified by `_tokenId`, that an operator, identified by `_operator`, is authorized to manage or handle. This value represents the current approval limit set for the operator regarding the specified token. Essentially, it tells you how much of the token the operator can deal with on behalf of the token owner, up to the returned limit.",
+            "type": "semantic_return",
+            "interface": "function allowance(uint256 _tokenId, address _operator) external view returns (uint256)"
+        },
+        {
+            "rule": " throw if _fromTokenId is zero token id or does not exist",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": 0
+                                },
+                                "op": "eq"
+                            }
+                        ],
+                        "op": "or"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "Based on the rule provided and the JSON schema definitions, we need to create a JSON configuration that specifies the conditions under which the `transferFrom` function should throw an error. The rule states that the function should throw if `_fromTokenId` is zero or does not exist.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    },\n                    \"op\": \"eq\"\n                }\n            ],\n            \"op\": \"or\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that we are defining a condition under which the function should throw an error.\n- **cond**: This is a logical condition that combines one or more comparison conditions.\n- **LogicCondition**: This specifies that the condition is a logical combination (in this case, using \"or\", though only one condition is present).\n- **CompCondition**: This is a comparison condition.\n- **FuncParamSelector**: This selects the first function parameter (`_fromTokenId`), which is at index 0.\n- **ConstantSelector**: This specifies a constant value of 0.\n- **op**: The operation \"eq\" stands for \"equals\", meaning the condition checks if `_fromTokenId` equals 0.\n\nThis configuration will ensure that the `transferFrom` function throws an error if `_fromTokenId` is zero. Note that checking for the existence of `_fromTokenId` typically requires additional context about how token IDs are managed within the contract, which might involve state variable checks or other mechanisms not detailed here."
+        },
+        {
+            "rule": " throw if _toTokenId is zero token id or does not exist",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule that the function `transferFrom` should throw if `_toTokenId` is zero or does not exist, we can construct a JSON configuration for rule verification. The rule specifically targets the parameter `_toTokenId` (which is the second parameter of the function, hence index 1). The rule can be expressed as a logical condition where the function should throw if `_toTokenId` is zero.\n\nHere is the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that a condition should lead to a throw.\n- **cond**: This is the condition under which the throw should occur.\n  - **CompCondition**: Specifies a comparison condition.\n  - **left**: Refers to the function parameter `_toTokenId` using a `FuncParamSelector` with an index of 1 (since it's the second parameter).\n  - **right**: Uses a `ConstantSelector` to specify the constant value `0`.\n  - **op**: The operation `eq` stands for \"equals\", meaning the condition checks if `_toTokenId` equals zero.\n- **op**: Specifies that the operation should result in a \"throw\".\n\nThis configuration ensures that the function will throw an exception if `_toTokenId` is zero, adhering to the specified rule."
+        },
+        {
+            "rule": " throw if slots of _fromTokenId and _toTokenId do not match",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "getSlot",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "getSlot",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        },
+                        "op": "not_eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule that the function `transferFrom` should throw if the slots of `_fromTokenId` and `_toTokenId` do not match, we need to construct a JSON configuration that specifies this behavior. The rule can be represented using a comparison condition (`CompCondition`) where the slots of `_fromTokenId` and `_toTokenId` are compared for equality, and if they are not equal, the function should throw.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"getSlot\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            },\n            \"right\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"getSlot\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            },\n            \"op\": \"not_eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that the function should throw based on the condition provided.\n- **cond**: This is a comparison condition where:\n  - **left**: Represents the slot of `_fromTokenId`. It uses a `StateVarSelector` to select the slot associated with `_fromTokenId` (index 0 of the function parameters).\n  - **right**: Represents the slot of `_toTokenId`. It similarly uses a `StateVarSelector` to select the slot associated with `_toTokenId` (index 1 of the function parameters).\n  - **op**: The operation `not_eq` specifies that the function should throw if the slots are not equal.\n- **op**: The operation `throw` in `ThrowVerify` specifies that the function should throw if the condition is true.\n\nNote: The `anchor_fn` \"getSlot\" is assumed to be a function that retrieves the slot of a token ID. If such a function does not exist or is named differently, you will need to adjust the `anchor_fn` accordingly. This example assumes the existence of such a function for demonstration purposes."
+        },
+        {
+            "rule": " throw if _value exceeds the balance of _fromTokenId or its allowance to the operator",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "op": "throw",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "or",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "balanceOf",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "gt"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "allowance",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        },
+                                        {
+                                            "type": "MsgSenderSelector"
+                                        }
+                                    ]
+                                },
+                                "op": "gt"
+                            }
+                        ]
+                    }
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule for the function `transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value)`, we need to create a JSON configuration that verifies if the `_value` parameter exceeds the balance of `_fromTokenId` or its allowance to the operator. This should result in a throw according to the rule.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"op\": \"throw\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"or\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"balanceOf\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"gt\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"allowance\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"MsgSenderSelector\"\n                            }\n                        ]\n                    },\n                    \"op\": \"gt\"\n                }\n            ]\n        }\n    }\n}\n```\n\nExplanation:\n- The `ThrowVerify` object specifies that the function should throw under the conditions defined in `cond`.\n- The `LogicCondition` uses the logical operator `or` to combine two comparison conditions.\n- The first `CompCondition` checks if `_value` (`FuncParamSelector` with index 2) is greater than the balance of `_fromTokenId` (`FuncParamSelector` with index 0) using the `balanceOf` function.\n- The second `CompCondition` checks if `_value` is greater than the allowance of `_fromTokenId` for the message sender (`MsgSenderSelector`) using the `allowance` function.\n- Both conditions use the `gt` (greater than) operator to compare the `_value` against the balance and allowance respectively.\n\nThis configuration ensures that the function will throw if `_value` exceeds either the balance of `_fromTokenId` or its allowance to the operator, adhering to the specified rule."
+        },
+        {
+            "rule": "emit '['TransferValue']' if function is called successfully without reverting",
+            "type": "emit",
+            "interface": "function transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value) external payable",
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "transferFrom",
+                            "keys": []
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule that requires the emission of the 'TransferValue' event if the function `transferFrom(uint256 _fromTokenId,uint256 _toTokenId,uint256 _value)` is called successfully without reverting, the verification JSON would look like this:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"transferFrom\",\n                \"keys\": []\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the event that should be emitted, which is 'TransferValue'.\n- **sv_cond**: Defines a condition related to state variable changes. Here, it is used to indicate that the condition is linked to the function `transferFrom`. Since the rule does not specify any particular state variable or its value, the `keys` array is left empty.\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis JSON configuration ensures that the rule to emit the 'TransferValue' event upon successful execution of `transferFrom` without reverting is correctly set up for verification. Note that no `arg_verifiers` are included as the rule does not specify any conditions on the arguments of the function."
+        },
+        {
+            "rule": "The return value of the function `transferFrom(uint256 _fromTokenId, address _to, uint256 _value)` represents the identifier (ID) of the ERC-3525 token that receives the transferred value. This token ID corresponds to either a newly created token or an existing token that already belongs to the recipient (`_to`) and shares the same slot as the token from which the value is being transferred (`_fromTokenId`). The function ensures that the recipient receives the specified value (`_value`) in a token that is compatible in terms of its slot characteristics with the originating token.",
+            "type": "semantic_return",
+            "interface": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)"
+        },
+        {
+            "rule": " throw if `_fromTokenId` is zero token id or does not exist",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": 0
+                                },
+                                "op": "eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FnCallRetSelector",
+                                    "fn_name": "tokenExists"
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": false
+                                },
+                                "op": "eq"
+                            }
+                        ],
+                        "op": "or"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema, we need to construct a `ThrowVerify` object that checks if the `_fromTokenId` parameter of the `transferFrom` function is either zero or does not exist. The rule states that the function should throw under these conditions.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    },\n                    \"op\": \"eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FnCallRetSelector\",\n                        \"fn_name\": \"tokenExists\"\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": false\n                    },\n                    \"op\": \"eq\"\n                }\n            ],\n            \"op\": \"or\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n1. **LogicCondition**: This condition uses the logical \"or\" operator to combine two comparison conditions.\n2. **First CompCondition**: This checks if `_fromTokenId` (the first function parameter, hence `index: 0`) is equal to zero.\n3. **Second CompCondition**: This checks if the token corresponding to `_fromTokenId` does not exist. Assuming there is a function `tokenExists` that returns `true` if a token exists and `false` otherwise. This condition checks if the return value of `tokenExists` is `false`.\n4. **ThrowVerify**: This configuration specifies that the function should throw if either of the conditions in the `LogicCondition` is true.\n\nNote: The function `tokenExists` is assumed to be part of the contract's interface for checking token existence. If such a function does not exist, you would need to adjust the configuration accordingly, possibly using a different method or state variable to check token existence."
+        },
+        {
+            "rule": " throw if `_to` is zero address",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification that throws an error if the `_to` address parameter is the zero address in the function `transferFrom(uint256 _fromTokenId, address _to, uint256 _value)`, we will use the JSON schema provided. The rule specifically checks if the `_to` parameter is equal to the zero address (0x0), and if so, it should throw an error.\n\nHere is the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"0x0000000000000000000000000000000000000000\"\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that a condition should be checked and if true, an exception should be thrown.\n- **cond**: This is the condition that needs to be evaluated.\n  - **type**: \"CompCondition\" indicates a comparison condition.\n  - **left**: This selects the second parameter of the function (`_to`), which is at index 1.\n  - **right**: This is a constant selector that specifies the zero address (`0x0000000000000000000000000000000000000000`).\n  - **op**: \"eq\" specifies that the operation is an equality check.\n- **op**: \"throw\" specifies that the function should throw an error if the condition is true.\n\nThis configuration ensures that the function `transferFrom` will throw an error if the `_to` address is the zero address, adhering to the specified rule."
+        },
+        {
+            "rule": " throw if `_value` exceeds the balance of `_fromTokenId` or its allowance to the operator",
+            "type": "throw",
+            "interface": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "op": "throw",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "or",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getBalance",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                },
+                                "op": "gt"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getAllowance",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        },
+                                        {
+                                            "type": "MsgSenderSelector"
+                                        }
+                                    ]
+                                },
+                                "op": "gt"
+                            }
+                        ]
+                    }
+                }
+            },
+            "sym_debug": "Based on the rule provided and the JSON schema definitions, we need to create a JSON configuration that verifies the rule: \"throw if `_value` exceeds the balance of `_fromTokenId` or its allowance to the operator\". This involves checking two conditions using the `ThrowVerify` type:\n\n1. `_value` should not exceed the balance of `_fromTokenId`.\n2. `_value` should not exceed the allowance of `_fromTokenId` to the operator.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"op\": \"throw\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"or\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getBalance\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"op\": \"gt\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getAllowance\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"MsgSenderSelector\"\n                            }\n                        ]\n                    },\n                    \"op\": \"gt\"\n                }\n            ]\n        }\n    }\n}\n```\n\nExplanation:\n- The `ThrowVerify` object specifies that an exception should be thrown (`\"op\": \"throw\"`) if either of the conditions in the `LogicCondition` are true.\n- The `LogicCondition` uses the logical operator `\"or\"` to combine two comparison conditions.\n- The first `CompCondition` checks if `_value` (selected by `FuncParamSelector` at index 2) is greater than (`\"op\": \"gt\"`) the balance of `_fromTokenId` (selected by `StateVarSelector` with `anchor_fn` \"getBalance\" and key `_fromTokenId`).\n- The second `CompCondition` checks if `_value` is greater than the allowance of `_fromTokenId` to the operator (selected by `StateVarSelector` with `anchor_fn` \"getAllowance\" and keys `_fromTokenId` and the message sender).\n- The `StateVarSelector` uses keys to specify the parameters for the state variable functions `getBalance` and `getAllowance`. The `MsgSenderSelector` is used to select the address of the message sender for the allowance check."
+        },
+        {
+            "rule": "emit '['Transfer', 'TransferValue']' if `_fromTokenId` is not zero, exists, `_to` is not zero address, and `_value` does not exceed the balance of `_fromTokenId` or its allowance to the operator",
+            "type": "emit",
+            "interface": "function transferFrom(uint256 _fromTokenId,address _to,uint256 _value) external payable returns (uint256)",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "cond": {
+                        "type": "LogicCondition",
+                        "op": "and",
+                        "conds": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": 0
+                                },
+                                "op": "not_eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0000000000000000000000000000000000000000"
+                                },
+                                "op": "not_eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                "right": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "allowance",
+                                    "keys": [
+                                        {
+                                            "type": "FuncParamSelector",
+                                            "index": 0
+                                        },
+                                        {
+                                            "type": "MsgSenderSelector"
+                                        }
+                                    ]
+                                },
+                                "op": "lte"
+                            }
+                        ]
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule specified, we need to construct a JSON object that describes the conditions under which the 'Transfer' and 'TransferValue' events should be emitted. The rule states that these events should be emitted if `_fromTokenId` is not zero, exists, `_to` is not a zero address, and `_value` does not exceed the balance of `_fromTokenId` or its allowance to the operator.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"op\": \"and\",\n            \"conds\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    },\n                    \"op\": \"not_eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"0x0000000000000000000000000000000000000000\"\n                    },\n                    \"op\": \"not_eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    \"right\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"allowance\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"MsgSenderSelector\"\n                            }\n                        ]\n                    },\n                    \"op\": \"lte\"\n                }\n            ]\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nThis JSON configuration specifies that the 'Transfer' event should be emitted if the conditions are met. The conditions are defined using a combination of `CompCondition` and `LogicCondition` to ensure that `_fromTokenId` is not zero, `_to` is not a zero address, and `_value` does not exceed the balance or allowance. The `StateVarSelector` is used to access state variables like `balanceOf` and `allowance` with appropriate keys. The `FuncParamSelector` and `ConstantSelector` are used to specify function parameters and constant values respectively."
+        },
+        
+       
+        {
+            "rule": "emit 'TransferValue'",
+            "type": "emit",
+            "interface": "event TransferValue(uint256 indexed _fromTokenId, uint256 indexed _toTokenId, uint256 _value);",
+            "if": {
+                "if": "value of a token is transferred to another token with the same slot",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "The token id to transfer value from"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "The token id to transfer value to"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "The transferred value"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "transferTokenValue",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "EventParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "EventParamSelector",
+                            "index": 1
+                        },
+                        "op": "eq"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            },
+                            "type": "ArgVerify"
+                        },
+                        {
+                            "arg_index": 1,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            },
+                            "type": "ArgVerify"
+                        },
+                        {
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 2
+                                }
+                            },
+                            "type": "ArgVerify"
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "To generate the JSON verification for the rule specified, we need to create a JSON object that adheres to the schema provided and captures the rule's requirements. The rule states that the 'TransferValue' event should be emitted if the value of a token is transferred to another token with the same slot. Here's how the JSON verification object would look based on the schema and the rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"transferTokenValue\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"EventParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"EventParamSelector\",\n                \"index\": 1\n            },\n            \"op\": \"eq\"\n        },\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 2\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the event name 'TransferValue'.\n- **sv_cond**: Defines a condition related to state variable changes. Here, it's assumed that the function `transferTokenValue` is responsible for transferring value between tokens.\n- **cond**: A comparison condition that checks if the two token IDs (from `_fromTokenId` to `_toTokenId`) are the same, which is necessary for the transfer to occur within the same slot.\n- **arg_verifiers**: Verifies that the arguments passed to the event are the ones expected, based on their indices.\n\nThis JSON object is structured to ensure that the 'TransferValue' event is emitted under the correct conditions as specified by the rule. Adjustments may be needed based on the actual implementation details of the smart contract functions and state variables."
+        },
+        {
+            "rule": "emit 'TransferValue'",
+            "type": "emit",
+            "interface": "event TransferValue(uint256 indexed _fromTokenId, uint256 indexed _toTokenId, uint256 _value);",
+            "if": {
+                "if": "including zero value transfers (_value == 0)"
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "transfer",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 2
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description for the `TransferValue` event, we need to create a JSON configuration that specifies when the `TransferValue` event should be emitted, including when the `_value` parameter is zero. Since there are no specific conditions on `_fromTokenId` or `_toTokenId`, and no additional argument rules are specified, the JSON will focus on the condition related to `_value`.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"transfer\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 2\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the name of the event, `TransferValue`.\n- **sv_cond**: Defines the condition under which the event should be emitted. Here, it is tied to a state variable change.\n  - **type**: Indicates that this is a condition related to a state variable being written.\n  - **value**: Specifies how to select the value that triggers the event.\n    - **type**: `StateVarSelector` indicates that the value comes from a state variable.\n    - **anchor_fn**: `transfer` is assumed to be the function where the state variable change occurs that might trigger the event.\n    - **keys**: Specifies the parameters of the `transfer` function that are relevant. Here, it is the third parameter (`_value`), which is indexed as 2 (0-based index).\n      - **type**: `EventParamSelector` indicates that the value is selected from an event parameter.\n      - **index**: `2` points to the third parameter of the event, which is `_value`.\n\nThis configuration assumes that the `transfer` function is relevant and that the `_value` parameter is directly related to the condition for emitting the event. Adjustments might be necessary based on the actual implementation details of the smart contract functions and their parameters."
+        },
+        {
+            "rule": "emit 'TransferValue'",
+            "type": "emit",
+            "interface": "event TransferValue(uint256 indexed _fromTokenId, uint256 indexed _toTokenId, uint256 _value);",
+            "if": {
+                "if": "transfers when tokens are created (`_fromTokenId` == 0)"
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "TransferValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "createToken",
+                            "keys": [
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        "change_type": "token_creation"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "ConstantSelector",
+                                    "value": 0
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description for the `TransferValue` event, we need to create a JSON configuration that specifies the conditions under which the `TransferValue` event should be emitted. The rule states that the event should be emitted when tokens are created, which is indicated by `_fromTokenId` being equal to 0.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"TransferValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"createToken\",\n                \"keys\": [\n                    {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    }\n                ]\n            },\n            \"change_type\": \"token_creation\"\n        },\n        \"arg_verifiers\": [\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    }\n                }\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- **EmitVerify**: This is the main object that specifies the verification for the event emission.\n- **event**: Specifies the name of the event to verify, which is `TransferValue`.\n- **sv_cond**: Specifies the condition related to state variable changes. Here, it indicates that the event should be emitted during token creation (`change_type` is `token_creation`).\n  - **StateVarSelector**: This selector is used to specify the condition that triggers the event. Here, it is linked to the function `createToken` and checks if the token ID is 0.\n- **arg_verifiers**: This array contains conditions for the event arguments.\n  - **ArgVerify**: Specifies the verification for a specific argument of the event.\n    - **arg_index**: Indicates the index of the argument to verify, which is 0 (corresponding to `_fromTokenId`).\n    - **expected_value**: Specifies the expected value of the argument, which should be 0 to indicate token creation.\n\nThis configuration ensures that the `TransferValue` event is emitted only when a new token is created, as indicated by `_fromTokenId` being 0."
+        },
+        {
+            "rule": "emit 'TransferValue'",
+            "type": "emit",
+            "interface": "event TransferValue(uint256 indexed _fromTokenId, uint256 indexed _toTokenId, uint256 _value);",
+            "if": {
+                "if": "transfers when tokens are destroyed (`_toTokenId` == 0)"
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "transfer",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        },
+                        "change_type": "token_burn"
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "EventParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description, we need to create a JSON configuration that specifies the conditions under which the `TransferValue` event should be emitted. The rule states that the event should be emitted when tokens are destroyed, which is indicated by `_toTokenId` being equal to 0.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"transfer\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            },\n            \"change_type\": \"token_burn\"\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"EventParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the name of the event to verify, which is `TransferValue`.\n- **sv_cond**: Specifies the condition related to state variable changes. Here, it indicates that the event should be considered in the context of a token burn operation (`change_type` set to \"token_burn\").\n  - **value**: Specifies the selector for the state variable, which in this case is the second parameter (`_toTokenId`) of the `transfer` function.\n- **cond**: Specifies the condition that must be met for the event to be emitted. It checks if the second parameter (`_toTokenId`) of the event is equal to 0.\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis configuration ensures that the `TransferValue` event is only considered valid if it is emitted during a token burn operation where `_toTokenId` is 0."
+        },
+        {
+            "rule": "emit 'ApprovalValue'",
+            "type": "emit",
+            "interface": "event ApprovalValue(uint256 indexed _tokenId, address indexed _operator, uint256 _value);",
+            "if": {
+                "if": "the approval value of a token is set or changed",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "The token to approve"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "The operator to approve for"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "The maximum value that `_operator` is allowed to manage"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "ApprovalValue",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setApprovalValue",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify",
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            },
+                            "type": "ArgVerify"
+                        },
+                        {
+                            "arg_index": 1,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            },
+                            "type": "ArgVerify"
+                        },
+                        {
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 2
+                                }
+                            },
+                            "type": "ArgVerify"
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description for the `ApprovalValue` event, we need to create a JSON configuration that specifies when to emit this event. The rule states that the event should be emitted if the approval value of a token is set or changed. Here's the JSON configuration for this rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"ApprovalValue\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"setApprovalValue\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\",\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 1\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 2\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the name of the event to be emitted, which is `ApprovalValue`.\n- **sv_cond**: Defines the condition under which the state variable is written. It uses a `WrittenCondition` type, indicating that the condition is related to a write operation on a state variable. The `StateVarSelector` specifies that the state variable is related to the `setApprovalValue` function, and it uses the first two event parameters as keys.\n- **arg_verifiers**: An array of verifiers for each argument of the event. Each verifier ensures that the argument passed to the event matches the corresponding parameter passed to the function that triggers the event emission. This is crucial for ensuring that the event accurately reflects the changes made by the function call.\n\nThis configuration ensures that the `ApprovalValue` event is emitted correctly according to the specified rule when the approval value of a token is set or changed."
+        },
+        {
+            "rule": "emit 'SlotChanged'",
+            "type": "emit",
+            "interface": "event SlotChanged(uint256 indexed _tokenId, uint256 indexed _oldSlot, uint256 indexed _newSlot);",
+            "if": {
+                "if": "the slot of a token is set or changed",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "MUST be the token of which slot is set or changed"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "MUST be the previous slot of the token"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "MUST be the updated slot of the token"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "SlotChanged",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setSlot",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "arg_verifiers": [
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 1,
+                            "expected_value": {
+                                "value": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getPreviousSlot",
+                                    "keys": [
+                                        {
+                                            "type": "EventParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "StateVarSelector",
+                                    "anchor_fn": "getCurrentSlot",
+                                    "keys": [
+                                        {
+                                            "type": "EventParamSelector",
+                                            "index": 0
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "Based on the provided JSON schema and the rule description for the `SlotChanged` event, we can construct a JSON object that verifies the rule. The rule specifies that the `SlotChanged` event must be emitted when the slot of a token is set or changed, and the arguments of the event must adhere to specific conditions:\n\n1. The first argument (`_tokenId`) must be the token of which the slot is set or changed.\n2. The second argument (`_oldSlot`) must be the previous slot of the token.\n3. The third argument (`_newSlot`) must be the updated slot of the token.\n\nHere is the JSON object that verifies this rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"SlotChanged\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"setSlot\",\n                \"keys\": [\n                    {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"arg_verifiers\": [\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"EventParamSelector\",\n                        \"index\": 0\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getPreviousSlot\",\n                        \"keys\": [\n                            {\n                                \"type\": \"EventParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"getCurrentSlot\",\n                        \"keys\": [\n                            {\n                                \"type\": \"EventParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    }\n                }\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- The `sv_cond` specifies a `WrittenCondition` that checks if the slot of a token is set or changed. This is linked to a hypothetical function `setSlot` that would be responsible for setting or changing the slot.\n- The `arg_verifiers` array contains three `ArgVerify` objects:\n  - The first verifies that the first argument of the event (`_tokenId`) matches the token ID passed to the `setSlot` function.\n  - The second verifies that the second argument (`_oldSlot`) matches the previous slot of the token, which is retrieved by a hypothetical function `getPreviousSlot`.\n  - The third verifies that the third argument (`_newSlot`) matches the current slot of the token, which is retrieved by a hypothetical function `getCurrentSlot`.\n\nThis JSON object is structured according to the provided schema and should be used to verify that the `SlotChanged` event is emitted correctly according to the specified rules."
+        }
+    ]
+}

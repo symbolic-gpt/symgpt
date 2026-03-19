@@ -1,0 +1,456 @@
+{
+    "functions": [
+        {
+            "def": "function setUser(uint256 tokenId, address user, uint64 expires) external",
+            "raw_rules": "\n    /// @dev The zero address indicates there is no user\n    /// Throws if `tokenId` is not valid NFT\n    /// @param user  The new user of the NFT\n    /// @param expires  UNIX timestamp, The new user could use the NFT before expires\n",
+            "format": {
+                "name": "setUser",
+                "arg_types": [
+                    {
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "user",
+                        "type": "address"
+                    },
+                    {
+                        "name": "expires",
+                        "type": "uint64"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": null
+            },
+            "extracted": {
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "UpdateUser"
+                        ],
+                        "if": "tokenId is a valid NFT (the call does not revert); emitted on any successful setUser call, including when user is the zero address to clear the user"
+                    }
+                ],
+                "assign": [],
+                "call": [],
+                "order": [],
+                "throw": [
+                    {
+                        "if": "tokenId is not a valid NFT",
+                        "throw": true
+                    },
+                    {
+                        "if": "user is the zero address (indicates no user)",
+                        "throw": false
+                    }
+                ]
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"tokenId is not a valid NFT\",\n    \"throw\": true\n  },\n  {\n    \"if\": \"user is the zero address (indicates no user)\",\n    \"throw\": false\n  }\n]",
+                "emit": "[\n  {\n    \"emit\": [\"UpdateUser\"],\n    \"if\": \"tokenId is a valid NFT (the call does not revert); emitted on any successful setUser call, including when user is the zero address to clear the user\"\n  }\n]",
+                "assign": "[]",
+                "call": "[]",
+                "order": "[]"
+            }
+        },
+        {
+            "def": "function userOf(uint256 tokenId) external view returns(address)",
+            "raw_rules": "\n    /// @dev The zero address indicates that there is no user or the user is expired\n    /// @param tokenId The NFT to get the user address for\n    /// @return The user address for this NFT\n",
+            "format": {
+                "name": "userOf",
+                "arg_types": [
+                    {
+                        "name": "tokenId",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "address"
+                }
+            },
+            "extracted": {
+                "semantic_return": "The function returns the address of the current user of the given NFT. If it returns the zero address (0x000\u2026000), there is no active user for that token\u2014either none is set or any previous user assignment has expired.",
+                "return": [
+                    {
+                        "ret_value": "0x0000000000000000000000000000000000000000",
+                        "if": "there is no user or the user is expired"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null,
+                "throw": [
+                    {
+                        "if": "returned user address is the zero address (indicates there is no user or the user has expired)",
+                        "throw": false
+                    }
+                ]
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"returned user address is the zero address (indicates there is no user or the user has expired)\",\n    \"throw\": false\n  }\n]",
+                "semantic_return": "The function returns the address of the current user of the given NFT. If it returns the zero address (0x000\u2026000), there is no active user for that token\u2014either none is set or any previous user assignment has expired.",
+                "return": "[\n  {\n    \"ret_value\": \"0x0000000000000000000000000000000000000000\",\n    \"if\": \"there is no user or the user is expired\"\n  }\n]"
+            }
+        },
+        {
+            "def": "function userExpires(uint256 tokenId) external view returns(uint256)",
+            "raw_rules": "\n    /// @dev The zero value indicates that there is no user\n    /// @param tokenId The NFT to get the user expires for\n    /// @return The user expires for this NFT\n",
+            "format": {
+                "name": "userExpires",
+                "arg_types": [
+                    {
+                        "name": "tokenId",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "semantic_return": "It returns the expiration time for the current user of the given NFT (tokenId), expressed as a Unix timestamp in seconds. A value of 0 means no user is set for that token.",
+                "return": [
+                    {
+                        "ret_value": "0",
+                        "if": "there is no user"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null,
+                "throw": [
+                    {
+                        "if": "userExpires(tokenId) == 0 (zero value indicates there is no user)",
+                        "throw": false
+                    }
+                ]
+            },
+            "extract_debug": {
+                "throw": "[\n  {\n    \"if\": \"userExpires(tokenId) == 0 (zero value indicates there is no user)\",\n    \"throw\": false\n  }\n]",
+                "semantic_return": "It returns the expiration time for the current user of the given NFT (tokenId), expressed as a Unix timestamp in seconds. A value of 0 means no user is set for that token.",
+                "return": "[\n  {\n    \"ret_value\": \"0\",\n    \"if\": \"there is no user\"\n  }\n]"
+            }
+        }
+    ],
+    "events": [
+        {
+            "def": "event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires);",
+            "raw_rules": "\n    // Logged when the user of an NFT is changed or expires is changed\n    /// @notice Emitted when the `user` of an NFT or the `expires` of the `user` is changed\n    /// The zero address for user indicates that there is no user address\n",
+            "format": {
+                "name": "UpdateUser",
+                "arg_types": [
+                    {
+                        "name": "tokenId",
+                        "type": "uint256",
+                        "indexed": true
+                    },
+                    {
+                        "name": "user",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "expires",
+                        "type": "uint64",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "when the `user` of an NFT is changed"
+                    },
+                    {
+                        "if": "when the `expires` value of the `user` is changed"
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "[\n  {\n    \"if\": \"when the `user` of an NFT is changed\"\n  },\n  {\n    \"if\": \"when the `expires` value of the `user` is changed\"\n  }\n]",
+                "assign": "[]"
+            }
+        }
+    ],
+    "name": "IERC4907",
+    "rules": [
+        {
+            "rule": " throw if tokenId is not a valid NFT",
+            "type": "throw",
+            "interface": "function setUser(uint256 tokenId, address user, uint64 expires) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "ownerOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "{\n  \"ThrowVerify\": {\n    \"type\": \"ThrowVerify\",\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"ownerOf\",\n        \"keys\": [\n          {\n            \"type\": \"FuncParamSelector\",\n            \"index\": 0\n          }\n        ]\n      },\n      \"right\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": \"0x0000000000000000000000000000000000000000\"\n      },\n      \"op\": \"eq\"\n    },\n    \"op\": \"throw\"\n  }\n}"
+        },
+        {
+            "rule": "not throw if user is the zero address (indicates no user)",
+            "type": "throw",
+            "interface": "function setUser(uint256 tokenId, address user, uint64 expires) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "{\n  \"ThrowVerify\": {\n    \"type\": \"ThrowVerify\",\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"FuncParamSelector\",\n        \"index\": 1\n      },\n      \"right\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": \"0x0000000000000000000000000000000000000000\"\n      },\n      \"op\": \"eq\"\n    },\n    \"op\": \"not_throw\"\n  }\n}"
+        },
+        {
+            "rule": "emit '['UpdateUser']' if tokenId is a valid NFT (the call does not revert); emitted on any successful setUser call, including when user is the zero address to clear the user",
+            "type": "emit",
+            "interface": "function setUser(uint256 tokenId, address user, uint64 expires) external",
+            "sym": {
+                "EmitVerify": {
+                    "event": "UpdateUser",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setUser",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "within_call_fn": "setUser",
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "{\n  \"EmitVerify\": {\n    \"event\": \"UpdateUser\",\n    \"sv_cond\": {\n      \"type\": \"WrittenCondition\",\n      \"value\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"setUser\",\n        \"keys\": [\n          {\n            \"type\": \"FuncParamSelector\",\n            \"index\": 0\n          }\n        ]\n      }\n    },\n    \"within_call_fn\": \"setUser\",\n    \"type\": \"EmitVerify\"\n  }\n}"
+        },
+        {
+            "rule": "The function returns the address of the current user of the given NFT. If it returns the zero address (0x000\u2026000), there is no active user for that token\u2014either none is set or any previous user assignment has expired.",
+            "type": "semantic_return",
+            "interface": "function userOf(uint256 tokenId) external view returns(address)"
+        },
+        {
+            "rule": "not throw if returned user address is the zero address (indicates there is no user or the user has expired)",
+            "type": "throw",
+            "interface": "function userOf(uint256 tokenId) external view returns(address)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "userOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "{\n  \"ThrowVerify\": {\n    \"type\": \"ThrowVerify\",\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"userOf\",\n        \"keys\": [\n          {\n            \"type\": \"FuncParamSelector\",\n            \"index\": 0\n          }\n        ]\n      },\n      \"right\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": \"0x0000000000000000000000000000000000000000\"\n      },\n      \"op\": \"eq\"\n    },\n    \"op\": \"not_throw\"\n  }\n}"
+        },
+        {
+            "rule": "return 0x0000000000000000000000000000000000000000 if there is no user or the user is expired",
+            "type": "return",
+            "interface": "function userOf(uint256 tokenId) external view returns(address)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": 0
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "ConstantSelector",
+                            "value": true
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": true
+                        },
+                        "op": "eq"
+                    },
+                    "at_least_one": true
+                }
+            },
+            "sym_debug": "{\n  \"ReturnVerify\": {\n    \"type\": \"ReturnVerify\",\n    \"ret_val\": {\n      \"type\": \"ConstantSelector\",\n      \"value\": 0\n    },\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": true\n      },\n      \"right\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": true\n      },\n      \"op\": \"eq\"\n    },\n    \"at_least_one\": true\n  }\n}"
+        },
+        {
+            "rule": "It returns the expiration time for the current user of the given NFT (tokenId), expressed as a Unix timestamp in seconds. A value of 0 means no user is set for that token.",
+            "type": "semantic_return",
+            "interface": "function userExpires(uint256 tokenId) external view returns(uint256)"
+        },
+        {
+            "rule": "not throw if userExpires(tokenId) == 0 (zero value indicates there is no user)",
+            "type": "throw",
+            "interface": "function userExpires(uint256 tokenId) external view returns(uint256)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "userExpires",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "{\n  \"ThrowVerify\": {\n    \"type\": \"ThrowVerify\",\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"userExpires\",\n        \"keys\": [\n          {\n            \"type\": \"FuncParamSelector\",\n            \"index\": 0\n          }\n        ]\n      },\n      \"right\": {\n        \"type\": \"ConstantSelector\",\n        \"value\": 0\n      },\n      \"op\": \"eq\"\n    },\n    \"op\": \"not_throw\"\n  }\n}"
+        },
+        {
+            "rule": "return 0 if there is no user",
+            "type": "return",
+            "interface": "function userExpires(uint256 tokenId) external view returns(uint256)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": 0
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "op": "eq"
+                    },
+                    "at_least_one": true
+                }
+            },
+            "sym_debug": "{\n  \"ReturnVerify\": {\n    \"type\": \"ReturnVerify\",\n    \"ret_val\": {\n      \"type\": \"ConstantSelector\",\n      \"value\": 0\n    },\n    \"cond\": {\n      \"type\": \"CompCondition\",\n      \"left\": {\n        \"type\": \"FuncParamSelector\",\n        \"index\": 0\n      },\n      \"right\": {\n        \"type\": \"FuncParamSelector\",\n        \"index\": 0\n      },\n      \"op\": \"eq\"\n    },\n    \"at_least_one\": true\n  }\n}"
+        },
+        {
+            "rule": "emit 'UpdateUser'",
+            "type": "emit",
+            "interface": "event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires);",
+            "if": {
+                "if": "when the `user` of an NFT is changed"
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "UpdateUser",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "userOf",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "sym_debug": "{\n  \"EmitVerify\": {\n    \"type\": \"EmitVerify\",\n    \"event\": \"UpdateUser\",\n    \"sv_cond\": {\n      \"type\": \"WrittenCondition\",\n      \"value\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"userOf\",\n        \"keys\": [\n          {\n            \"type\": \"EventParamSelector\",\n            \"index\": 0\n          }\n        ]\n      }\n    }\n  }\n}"
+        },
+        {
+            "rule": "emit 'UpdateUser'",
+            "type": "emit",
+            "interface": "event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires);",
+            "if": {
+                "if": "when the `expires` value of the `user` is changed"
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "UpdateUser",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "_users",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "sym_debug": "{\n  \"EmitVerify\": {\n    \"type\": \"EmitVerify\",\n    \"event\": \"UpdateUser\",\n    \"sv_cond\": {\n      \"type\": \"WrittenCondition\",\n      \"value\": {\n        \"type\": \"StateVarSelector\",\n        \"anchor_fn\": \"_users\",\n        \"keys\": [\n          {\n            \"type\": \"EventParamSelector\",\n            \"index\": 0\n          }\n        ]\n      }\n    }\n  }\n}"
+        }
+    ]
+}
