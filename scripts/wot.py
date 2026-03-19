@@ -1,3 +1,5 @@
+import sys
+sys.path.append("./py")
 import asyncio
 from glob import glob
 from openai import AsyncOpenAI
