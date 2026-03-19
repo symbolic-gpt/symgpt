@@ -1170,7 +1170,7 @@ class ErcVerifier:
                                 to_add.append(curr_exec)
                 to_exec.extend(to_add)
             except Exception as ex:
-                # self.logger.error(f"Error: {ex}", exc_info=True)
+                # self.logger.debug(f"Error: {ex}", exc_info=True)
                 selected_exec.sym_error = str(ex)
                 selected_exec.exec_state = ExecutionState.SymError
             
@@ -1517,7 +1517,7 @@ class ErcVerifier:
                     if self._record_vars_used_in_throw:
                         self._handle_var_used_in_throw(exec, condition)
                     if condition not in exec.var2symbol:
-                        self.logger.error(f"cannot find {condition}")
+                        self.logger.debug(f"cannot find {condition}")
                         continue
                     expr = exec.var2symbol[condition]
                     # exec.solver.add(expr)
@@ -1542,7 +1542,7 @@ class ErcVerifier:
                     if self._record_vars_used_in_throw:
                         self._handle_var_used_in_throw(exec, condition)
                     if condition not in exec.var2symbol:
-                        self.logger.error(f"cannot find {condition}")
+                        self.logger.debug(f"cannot find {condition}")
                         continue
                     expr = exec.var2symbol[condition]
                     exec.solver.add(expr)
@@ -1575,7 +1575,7 @@ class ErcVerifier:
                 elif i.function.name == "abi.encodePacked()": 
                     exec.get_sym(i.lvalue)
                 else:
-                    # self.logger.error(f"not yet supported: {i.function.name}")
+                    # self.logger.debug(f"not yet supported: {i.function.name}")
                     pass
             elif isinstance(i, Assignment):
                 if self._record_vars_def_by:
@@ -1639,7 +1639,7 @@ class ErcVerifier:
                             for key_idx in exec.sv_written_key_should_be_tracked.get(sv, []):
                                 self.logger.debug(f"record key at {key_idx} of {sv} cnt {written_cnt}")
                                 if key_idx >= len(reversed_keys):
-                                    self.logger.error(f"key index {key_idx} is out of range for {sv.name}")
+                                    self.logger.debug(f"key index {key_idx} is out of range for {sv.name}")
                                     continue
                                 # get the key at current index
                                 key_expr = reversed_keys[key_idx]
@@ -1656,8 +1656,8 @@ class ErcVerifier:
                         exec.solver.add(exec.get_sym(i.lvalue, i.lvalue.name+f"_{exec.vars_rw_cnt[i.lvalue]}") == expr)
                     except Exception:
                         # FIXME: this is a workaround for the case that the variable is not properly defined in the solver
-                        # self.logger.error(f"error: {ex}", exc_info=True)
-                        self.logger.error(f"i.lvalue={i.lvalue}, expr={expr}")
+                        # self.logger.debug(f"error: {ex}", exc_info=True)
+                        self.logger.debug(f"i.lvalue={i.lvalue}, expr={expr}")
                         exec.var2symbol[i.lvalue] = create_z3var_for_sol_type(i.lvalue.type, i.lvalue.name+f"_{exec.vars_rw_cnt[i.lvalue]}")
                     # exec.var2symbol[i.lvalue] = expr
 
@@ -1719,7 +1719,7 @@ class ErcVerifier:
                 elif i.type == UnaryType.TILD:
                     expr = ~var
                 else:
-                    # self.logger.error(f"not yet supported: {i}")
+                    # self.logger.debug(f"not yet supported: {i}")
                     pass
                 if expr is not None:
                     # exec.var2symbol[i.lvalue] = expr
@@ -1744,7 +1744,7 @@ class ErcVerifier:
                         if i.name in exec.event_emitted_arg_should_be_tracked:
                             for arg_idx in exec.event_emitted_arg_should_be_tracked[i.name]:
                                 if arg_idx >= len(i.arguments):
-                                    self.logger.error(f"arg index {arg_idx} is out of range for {i.name}")
+                                    self.logger.debug(f"arg index {arg_idx} is out of range for {i.name}")
                                     continue
                                 arg = i.arguments[arg_idx]
                                 record = create_z3var_for_sol_type(arg.type, f"{i.name}#{emit_cnt}#{arg_idx}")
@@ -1838,7 +1838,7 @@ class ErcVerifier:
                             elif isinstance(value, int):
                                 left = value
                     if left is None:
-                        self.logger.error(f"cannot find {i.variable_left}")
+                        self.logger.debug(f"cannot find {i.variable_left}")
                         continue
                 else:
                     left = exec.var2symbol[i.variable_left]
@@ -1855,7 +1855,7 @@ class ErcVerifier:
                             elif isinstance(value, int):
                                 right = value
                     if right is None:
-                        self.logger.error(f"cannot find {i.variable_right}")
+                        self.logger.debug(f"cannot find {i.variable_right}")
                         continue
                 else:
                     right = exec.var2symbol[i.variable_right]
@@ -1886,6 +1886,12 @@ class ErcVerifier:
                         expr = left / right
                     elif i.type == BinaryType.AND:
                         expr = left & right
+                    elif i.type == BinaryType.OR:
+                        expr = left | right
+                    elif i.type == BinaryType.LEFT_SHIFT:
+                        expr = left << right
+                    elif i.type == BinaryType.RIGHT_SHIFT:
+                        expr = left >> right
                     elif i.type == BinaryType.MODULO:
                         expr = left % right
                     elif i.type == BinaryType.POWER:
@@ -1893,10 +1899,10 @@ class ErcVerifier:
                     elif i.type == BinaryType.OROR:
                         expr = Or(left, right)
                     else:
-                        self.logger.error(f"does not handle {i} type={i.type}")
+                        self.logger.debug(f"does not handle {i} type={i.type}")
                         continue  # Skip if operation type is not handled
                 except Exception:
-                    # self.logger.error(f"error: {ex}", exc_info=True)
+                    # self.logger.debug(f"error: {ex}", exc_info=True)
                     expr = create_z3var_for_sol_type(i.lvalue.type, i.lvalue.name)
 
                 
@@ -1910,7 +1916,7 @@ class ErcVerifier:
                         if i.type_str.find("(c)") != -1:
                             exec.solver.add(exec.var2symbol[i.lvalue] >= 0)
                     except Exception:
-                        # self.logger.error(f"orig_arr={orig_arr}, key={key}, expr={expr}.\nerror: {ex}", exc_info=True)
+                        # self.logger.debug(f"orig_arr={orig_arr}, key={key}, expr={expr}.\nerror: {ex}", exc_info=True)
                         exec.var2symbol[i.lvalue] = create_z3var_for_sol_type(i.lvalue.type, i.lvalue.name)
 
                 else:
@@ -1966,7 +1972,7 @@ class ErcVerifier:
                                 written_cnt = exec.sv_written_cnt[sv]
                                 for key_idx in exec.sv_written_key_should_be_tracked.get(sv, []):
                                     if key_idx >= len(reversed_keys):
-                                        self.logger.error(f"key index {key_idx} is out of range for {sv.name}")
+                                        self.logger.debug(f"key index {key_idx} is out of range for {sv.name}")
                                         continue
                                     # get the key at current index
                                     key_expr = reversed_keys[key_idx]
@@ -1977,7 +1983,7 @@ class ErcVerifier:
                         self.logger.debug(f"update z3 of sv={sv} to {subarr}")
                         exec.var2symbol[sv] = subarr
                     except Exception:
-                        # self.logger.error(f"orig_arr={orig_arr}, key={key}, expr={expr}.\nerror: {ex}", exc_info=True)
+                        # self.logger.debug(f"orig_arr={orig_arr}, key={key}, expr={expr}.\nerror: {ex}", exc_info=True)
                         exec.var2symbol[i.lvalue] = create_z3var_for_sol_type(i.lvalue.type, i.lvalue.name)
             elif isinstance(i, Delete):
                 if i.variable in exec.indexed_track:
@@ -1999,7 +2005,7 @@ class ErcVerifier:
                     # it does not effect the erc compliance check, do it later
                     exec.var2symbol[i.lvalue] = Int(i.lvalue.name)
                 else:
-                    # self.logger.error(f"not yet supported: {i}")
+                    # self.logger.debug(f"not yet supported: {i}")
                     pass
             elif isinstance(i, LowLevelCall):
                 # treat it as black box
@@ -2079,7 +2085,7 @@ class ErcVerifier:
                     if i.lvalue:
                         exec.solver.add(Int(f"{i.function.name}#ret") == exec.var2symbol[i.lvalue])
                     else:
-                        self.logger.error(f"return value of {i.function.name} should be tracked but it does not have a return value")
+                        self.logger.debug(f"return value of {i.function.name} should be tracked but it does not have a return value")
             elif isinstance(i, Member):
                 # Usually, the ERC related verification does not need to handle Member
                 # However, if usecases are extended, then Member need to be handled
@@ -2109,7 +2115,7 @@ class ErcVerifier:
             elif isinstance(i, CodeSize):
                 exec.get_sym(i.lvalue, f"{str(exec.get_sym(i.value))}.code.length")
             else:
-                # self.logger.error(f"not yet supported: {i} type={type(i)}")
+                # self.logger.debug(f"not yet supported: {i} type={type(i)}")
                 pass
             
             # self.logger.debug("debug", exec.solver, exec.solver.check())
@@ -2222,7 +2228,7 @@ def audit_by_llm(contract_path:str, to_exec: Execution, buggy:list, entryfunctio
         else:
             return True
     except Exception as e:
-        logger.error(f"failed to audit [{contract_path}]: {e}")
+        logger.debug(f"failed to audit [{contract_path}]: {e}")
         return True
 
 
@@ -2264,7 +2270,7 @@ def audit_by_llm_sliced(contract_path:str, to_exec: Execution, buggy:list, entry
             code = value
             break
     if code is None:
-        logger.error(f"Cannot find entry function {entryfunction} in {contract_path}")
+        logger.debug(f"Cannot find entry function {entryfunction} in {contract_path}")
         return True
     try:
         logger.info(f"audit [{contract_path}] by {init_constraints_str} {buggy_str}")
@@ -2292,5 +2298,5 @@ def audit_by_llm_sliced(contract_path:str, to_exec: Execution, buggy:list, entry
         else:
             return True
     except Exception as e:
-        logger.error(f"failed to audit [{contract_path}]: {e}")
+        logger.debug(f"failed to audit [{contract_path}]: {e}")
         return True

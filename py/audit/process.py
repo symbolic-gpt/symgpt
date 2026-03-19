@@ -38,6 +38,7 @@ def process_sol(sol_file:str,
     try:
         # Compile it into get slithir
         cu, ctx = init_sol_audit_context(sol_file, cname2ercs=cname2ercs, no_func_slice=True, solc_lock = solc_lock)
+        
         # logger.debug(f"{sol_file}: found {len(ctx.metadata.contracts)} final contracts")
         filename = os.path.basename(sol_file).split(".")[0]
         out = os.path.join(out_dir, f"{filename}.json")
@@ -128,8 +129,8 @@ def process_sol(sol_file:str,
             f.write(AuditReport.to_json(sol_report, indent=4))
         print(f"[+] {out}")
 
-    except Exception:
-        # # logger.error(f"failed to handle '{sol_file}': {ex}")
+    except Exception as ex:
+        logger.error(f"failed to handle '{sol_file}': {ex}")
         # traceback.print_exc() 
         pass
 

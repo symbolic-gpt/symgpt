@@ -39,7 +39,6 @@ interface ENS {
 
 // File: openzeppelin-solidity/contracts/introspection/IERC165.sol
 
-pragma solidity ^0.5.0;
 
 /**
  * @title IERC165
@@ -57,43 +56,43 @@ interface IERC165 {
 
 // File: openzeppelin-solidity/contracts/token/ERC721/IERC721.sol
 
-pragma solidity ^0.5.0;
+
 
 
 /**
  * @title ERC721 Non-Fungible Token Standard basic interface
  * @dev see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
  */
-contract IERC721 is IERC165 {
+interface IERC721 is IERC165 {
     event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
     event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
 
-    function balanceOf(address owner) public view returns (uint256 balance);
-    function ownerOf(uint256 tokenId) public view returns (address owner);
+    function balanceOf(address owner) external view returns (uint256 balance);
+    function ownerOf(uint256 tokenId) external view returns (address owner);
 
-    function approve(address to, uint256 tokenId) public;
-    function getApproved(uint256 tokenId) public view returns (address operator);
+    function approve(address to, uint256 tokenId) external;
+    function getApproved(uint256 tokenId) external view returns (address operator);
 
-    function setApprovalForAll(address operator, bool _approved) public;
-    function isApprovedForAll(address owner, address operator) public view returns (bool);
+    function setApprovalForAll(address operator, bool _approved) external;
+    function isApprovedForAll(address owner, address operator) external view returns (bool);
 
-    function transferFrom(address from, address to, uint256 tokenId) public;
-    function safeTransferFrom(address from, address to, uint256 tokenId) public;
+    function transferFrom(address from, address to, uint256 tokenId) external;
+    function safeTransferFrom(address from, address to, uint256 tokenId) external;
 
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public;
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) external;
 }
 
 // File: openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol
 
-pragma solidity ^0.5.0;
+
 
 /**
  * @title ERC721 token receiver interface
  * @dev Interface for any contract that wants to support safeTransfers
  * from ERC721 asset contracts.
  */
-contract IERC721Receiver {
+interface IERC721Receiver {
     /**
      * @notice Handle the receipt of an NFT
      * @dev The ERC721 smart contract calls this function on the recipient
@@ -109,12 +108,12 @@ contract IERC721Receiver {
      * @return `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
      */
     function onERC721Received(address operator, address from, uint256 tokenId, bytes memory data)
-    public returns (bytes4);
+    external returns (bytes4);
 }
 
 // File: openzeppelin-solidity/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+
 
 /**
  * @title SafeMath
@@ -182,7 +181,6 @@ library SafeMath {
 
 // File: openzeppelin-solidity/contracts/utils/Address.sol
 
-pragma solidity ^0.5.0;
 
 /**
  * Utility library of inline functions on addresses
@@ -211,7 +209,6 @@ library Address {
 
 // File: openzeppelin-solidity/contracts/introspection/ERC165.sol
 
-pragma solidity ^0.5.0;
 
 
 /**
@@ -235,14 +232,14 @@ contract ERC165 is IERC165 {
      * @dev A contract implementing SupportsInterfaceWithLookup
      * implement ERC165 itself
      */
-    constructor () internal {
+    constructor () {
         _registerInterface(_INTERFACE_ID_ERC165);
     }
 
     /**
      * @dev implement supportsInterface(bytes4) using a lookup table
      */
-    function supportsInterface(bytes4 interfaceId) external view returns (bool) {
+    function supportsInterface(bytes4 interfaceId) external view virtual override returns (bool) {
         return _supportedInterfaces[interfaceId];
     }
 
@@ -257,7 +254,6 @@ contract ERC165 is IERC165 {
 
 // File: openzeppelin-solidity/contracts/token/ERC721/ERC721.sol
 
-pragma solidity ^0.5.0;
 
 
 
@@ -302,7 +298,7 @@ contract ERC721 is ERC165, IERC721 {
      *     bytes4(keccak256('safeTransferFrom(address,address,uint256,bytes)'))
      */
 
-    constructor () public {
+    constructor () {
         // register the supported interfaces to conform to ERC721 via ERC165
         _registerInterface(_INTERFACE_ID_ERC721);
     }
@@ -312,7 +308,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param owner address to query the balance of
      * @return uint256 representing the amount owned by the passed address
      */
-    function balanceOf(address owner) public view returns (uint256) {
+    function balanceOf(address owner) public view override returns (uint256) {
         require(owner != address(0));
         return _ownedTokensCount[owner];
     }
@@ -322,7 +318,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param tokenId uint256 ID of the token to query the owner of
      * @return owner address currently marked as the owner of the given token ID
      */
-    function ownerOf(uint256 tokenId) public view returns (address) {
+    function ownerOf(uint256 tokenId) public view virtual override returns (address) {
         address owner = _tokenOwner[tokenId];
         require(owner != address(0));
         return owner;
@@ -336,7 +332,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param to address to be approved for the given token ID
      * @param tokenId uint256 ID of the token to be approved
      */
-    function approve(address to, uint256 tokenId) public {
+    function approve(address to, uint256 tokenId) public override {
         address owner = ownerOf(tokenId);
         require(to != owner);
         require(msg.sender == owner || isApprovedForAll(owner, msg.sender));
@@ -351,7 +347,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param tokenId uint256 ID of the token to query the approval of
      * @return address currently approved for the given token ID
      */
-    function getApproved(uint256 tokenId) public view returns (address) {
+    function getApproved(uint256 tokenId) public view override returns (address) {
         require(_exists(tokenId));
         return _tokenApprovals[tokenId];
     }
@@ -362,7 +358,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param to operator address to set the approval
      * @param approved representing the status of the approval to be set
      */
-    function setApprovalForAll(address to, bool approved) public {
+    function setApprovalForAll(address to, bool approved) public override {
         require(to != msg.sender);
         _operatorApprovals[msg.sender][to] = approved;
         emit ApprovalForAll(msg.sender, to, approved);
@@ -374,7 +370,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param operator operator address which you want to query the approval of
      * @return bool whether the given operator is approved by the given owner
      */
-    function isApprovedForAll(address owner, address operator) public view returns (bool) {
+    function isApprovedForAll(address owner, address operator) public view override returns (bool) {
         return _operatorApprovals[owner][operator];
     }
 
@@ -386,7 +382,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param to address to receive the ownership of the given token ID
      * @param tokenId uint256 ID of the token to be transferred
     */
-    function transferFrom(address from, address to, uint256 tokenId) public {
+    function transferFrom(address from, address to, uint256 tokenId) public override {
         require(_isApprovedOrOwner(msg.sender, tokenId));
 
         _transferFrom(from, to, tokenId);
@@ -404,7 +400,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param to address to receive the ownership of the given token ID
      * @param tokenId uint256 ID of the token to be transferred
     */
-    function safeTransferFrom(address from, address to, uint256 tokenId) public {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public override {
         safeTransferFrom(from, to, tokenId, "");
     }
 
@@ -420,7 +416,7 @@ contract ERC721 is ERC165, IERC721 {
      * @param tokenId uint256 ID of the token to be transferred
      * @param _data bytes data to send along with a safe transfer check
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public {
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public override {
         transferFrom(from, to, tokenId);
         require(_checkOnERC721Received(from, to, tokenId, _data));
     }
@@ -544,7 +540,6 @@ contract ERC721 is ERC165, IERC721 {
 
 // File: openzeppelin-solidity/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.5.0;
 
 /**
  * @title Ownable
@@ -560,7 +555,7 @@ contract Ownable {
      * @dev The Ownable constructor sets the original `owner` of the contract to the sender
      * account.
      */
-    constructor () internal {
+    constructor () {
         _owner = msg.sender;
         emit OwnershipTransferred(address(0), _owner);
     }
@@ -619,12 +614,12 @@ contract Ownable {
 
 // File: @ensdomains/ethregistrar/contracts/BaseRegistrar.sol
 
-pragma solidity >=0.4.24;
 
 
 
 
-contract BaseRegistrar is IERC721, Ownable {
+
+abstract contract BaseRegistrar is IERC721, Ownable {
     uint constant public GRACE_PERIOD = 90 days;
 
     event ControllerAdded(address indexed controller);
@@ -643,36 +638,35 @@ contract BaseRegistrar is IERC721, Ownable {
     mapping(address=>bool) public controllers;
 
     // Authorises a controller, who can register and renew domains.
-    function addController(address controller) external;
+    function addController(address controller) external virtual;
 
     // Revoke controller permission for an address.
-    function removeController(address controller) external;
+    function removeController(address controller) external virtual;
 
     // Set the resolver for the TLD this registrar manages.
-    function setResolver(address resolver) external;
+    function setResolver(address resolver) external virtual;
 
     // Returns the expiration timestamp of the specified label hash.
-    function nameExpires(uint256 id) external view returns(uint);
+    function nameExpires(uint256 id) external view virtual returns(uint);
 
     // Returns true iff the specified name is available for registration.
-    function available(uint256 id) public view returns(bool);
+    function available(uint256 id) public view virtual returns(bool);
 
     /**
      * @dev Register a name.
      */
-    function register(uint256 id, address owner, uint duration) external returns(uint);
+    function register(uint256 id, address owner, uint duration) external virtual returns(uint);
 
-    function renew(uint256 id, uint duration) external returns(uint);
+    function renew(uint256 id, uint duration) external virtual returns(uint);
 
     /**
      * @dev Reclaim ownership of a name in ENS, if you own it in the registrar.
      */
-    function reclaim(uint256 id, address owner) external;
+    function reclaim(uint256 id, address owner) external virtual;
 }
 
 // File: @ensdomains/ethregistrar/contracts/BaseRegistrarImplementation.sol
 
-pragma solidity ^0.5.0;
 
 
 
@@ -695,7 +689,7 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
     );
     bytes4 constant private RECLAIM_ID = bytes4(keccak256("reclaim(uint256,address)"));
 
-    constructor(ENS _ens, bytes32 _baseNode) public {
+    constructor(ENS _ens, bytes32 _baseNode) {
         ens = _ens;
         baseNode = _baseNode;
     }
@@ -716,37 +710,37 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
      * @param tokenId uint256 ID of the token to query the owner of
      * @return address currently marked as the owner of the given token ID
      */
-    function ownerOf(uint256 tokenId) public view returns (address) {
-        require(expiries[tokenId] > now);
+    function ownerOf(uint256 tokenId) public view override(ERC721, IERC721) returns (address) {
+        require(expiries[tokenId] > block.timestamp );
         return super.ownerOf(tokenId);
     }
 
     // Authorises a controller, who can register and renew domains.
-    function addController(address controller) external onlyOwner {
+    function addController(address controller) external override onlyOwner {
         controllers[controller] = true;
         emit ControllerAdded(controller);
     }
 
     // Revoke controller permission for an address.
-    function removeController(address controller) external onlyOwner {
+    function removeController(address controller) external override onlyOwner {
         controllers[controller] = false;
         emit ControllerRemoved(controller);
     }
 
     // Set the resolver for the TLD this registrar manages.
-    function setResolver(address resolver) external onlyOwner {
+    function setResolver(address resolver) external override onlyOwner {
         ens.setResolver(baseNode, resolver);
     }
 
     // Returns the expiration timestamp of the specified id.
-    function nameExpires(uint256 id) external view returns(uint) {
+    function nameExpires(uint256 id) external view override returns(uint) {
         return expiries[id];
     }
 
     // Returns true iff the specified name is available for registration.
-    function available(uint256 id) public view returns(bool) {
+    function available(uint256 id) public view override returns(bool) {
         // Not available if it's registered here or in its grace period.
-        return expiries[id] + GRACE_PERIOD < now;
+        return expiries[id] + GRACE_PERIOD < block.timestamp ;
     }
 
     /**
@@ -755,7 +749,7 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
      * @param owner The address that should own the registration.
      * @param duration Duration in seconds for the registration.
      */
-    function register(uint256 id, address owner, uint duration) external returns(uint) {
+        function register(uint256 id, address owner, uint duration) external override returns(uint) {
       return _register(id, owner, duration, true);
     }
 
@@ -771,9 +765,9 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
 
     function _register(uint256 id, address owner, uint duration, bool updateRegistry) internal live onlyController returns(uint) {
         require(available(id));
-        require(now + duration + GRACE_PERIOD > now + GRACE_PERIOD); // Prevent future overflow
+        require(block.timestamp + duration + GRACE_PERIOD > block.timestamp + GRACE_PERIOD); // Prevent future overflow
 
-        expiries[id] = now + duration;
+        expiries[id] = block.timestamp + duration;
         if(_exists(id)) {
             // Name was previously owned, and expired
             _burn(id);
@@ -783,13 +777,13 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
             ens.setSubnodeOwner(baseNode, bytes32(id), owner);
         }
 
-        emit NameRegistered(id, owner, now + duration);
+        emit NameRegistered(id, owner, block.timestamp + duration);
 
-        return now + duration;
+        return block.timestamp + duration;
     }
 
-    function renew(uint256 id, uint duration) external live onlyController returns(uint) {
-        require(expiries[id] + GRACE_PERIOD >= now); // Name must be registered here or in grace period
+    function renew(uint256 id, uint duration) external override live onlyController returns(uint) {
+        require(expiries[id] + GRACE_PERIOD >= block.timestamp ); // Name must be registered here or in grace period
         require(expiries[id] + duration + GRACE_PERIOD > duration + GRACE_PERIOD); // Prevent future overflow
 
         expiries[id] += duration;
@@ -800,12 +794,12 @@ contract BaseRegistrarImplementation is BaseRegistrar, ERC721 {
     /**
      * @dev Reclaim ownership of a name in ENS, if you own it in the registrar.
      */
-    function reclaim(uint256 id, address owner) external live {
+    function reclaim(uint256 id, address owner) external override live {
         require(_isApprovedOrOwner(msg.sender, id));
         ens.setSubnodeOwner(baseNode, bytes32(id), owner);
     }
 
-    function supportsInterface(bytes4 interfaceID) external view returns (bool) {
+    function supportsInterface(bytes4 interfaceID) external view override(ERC165, IERC165) returns (bool) {
         return interfaceID == INTERFACE_META_ID ||
                interfaceID == ERC721_ID ||
                interfaceID == RECLAIM_ID;

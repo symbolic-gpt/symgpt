@@ -557,7 +557,8 @@ $ ./scripts/run-achecker.sh
 ```
 ZepScope:
 ```bash
-$ cd ~/symgpt/ZepScope-Code
+# Due to ZepScope dependencies, following script has to be run under python 3.9
+$ cd ~/symgpt/third_party/ZepScope-Code/Checker
 $ python3 -m venv .venv
 $ source .venv/bin/activate
 $ pip install -r requirements.txt
