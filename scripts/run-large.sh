@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 OUT_DIR="local/large"
 mkdir -p "$OUT_DIR"
