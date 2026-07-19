@@ -1,0 +1,8 @@
+2025-08-17 19:17:23 - /home/szx5097/code/solgpt/py/audit/process.py:111 - ERROR - failed to handle 'benchmark/smallext/721_candidate_4.sol': Invalid compilation: 
+Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.20+commit.a1b79de6.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+  --> benchmark/smallext/721_candidate_4.sol:42:1:
+   |
+42 | pragma solidity ^0.5.0;
+   | ^^^^^^^^^^^^^^^^^^^^^^^
+
+

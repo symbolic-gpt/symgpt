@@ -1,0 +1,72 @@
+{
+    "sol_file": "benchmark/smallext/omg.sol",
+    "contract": {
+        "OMGToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "OMGToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transfer(address _to, uint256 _value) public returns (bool success)",
+                "contract": "OMGToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 5,
+                "severity": "medium",
+                "tags": [
+                    "incorrect_return"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "contract": "OMGToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 6,
+                "severity": "medium",
+                "tags": [
+                    "incorrect_return"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "contract": "OMGToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 7,
+                "severity": "medium",
+                "tags": [
+                    "incorrect_return"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "assign",
+                "rule": "allowance is reset to _value",
+                "contract": "OMGToken",
+                "interface": "ERC20",
+                "fn_interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "rid": 17,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

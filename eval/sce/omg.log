@@ -1,0 +1,62 @@
+'solc --version' running
+'solc ./benchmark/smallext/omg.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/omg.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/omg.sol
+
+Warning: This declaration shadows a builtin symbol.
+  --> benchmark/smallext/omg.sol:51:5:
+   |
+51 |     function assert(bool assertion) internal {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:17:5:
+   |
+17 |     function div(uint a, uint b) internal returns (uint) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:35:5:
+   |
+35 |     function max64(uint64 a, uint64 b) internal view returns (uint64) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:39:5:
+   |
+39 |     function min64(uint64 a, uint64 b) internal view returns (uint64) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:43:5:
+   |
+43 |     function max256(uint256 a, uint256 b) internal view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:47:5:
+   |
+47 |     function min256(uint256 a, uint256 b) internal view returns (uint256) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Function state mutability can be restricted to pure
+  --> benchmark/smallext/omg.sol:51:5:
+   |
+51 |     function assert(bool assertion) internal {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+INFO:Detectors:
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:StandardToken.transferFrom(address,address,uint256) (benchmark/smallext/omg.sol#139-154)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:StandardToken.approve(address,uint256) (benchmark/smallext/omg.sol#161-170)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:ERC20.transferFrom(address,address,uint256) (benchmark/smallext/omg.sol#116)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:ERC20.approve(address,uint256) (benchmark/smallext/omg.sol#118)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:ERC20Basic.transfer(address,uint256) (benchmark/smallext/omg.sol#68)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:BasicToken.transfer(address,uint256) (benchmark/smallext/omg.sol#97-101)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:PausableToken.transfer(address,uint256) (benchmark/smallext/omg.sol#313-315)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:PausableToken.transferFrom(address,address,uint256) (benchmark/smallext/omg.sol#317-324)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:OMGToken.transfer(address,uint256) (benchmark/smallext/omg.sol#392-394)
+OMGToken (benchmark/smallext/omg.sol#371-399) has incorrect ERC20 function interface:OMGToken.transferFrom(address,address,uint256) (benchmark/smallext/omg.sol#396-398)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Slither:./benchmark/smallext/omg.sol analyzed (11 contracts with 5 detectors), 10 result(s) found

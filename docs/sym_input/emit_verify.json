@@ -1,0 +1,300 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FuncParamSelector": {
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "const": "FuncParamSelector"
+        }
+      },
+      "required": [
+        "index",
+        "type"
+      ]
+    },
+    "StateVarSelector": {
+      "properties": {
+        "anchor_fn": {
+          "type": "string"
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/FuncParamSelector"
+              },
+              {
+                "$ref": "#/definitions/MsgSenderSelector"
+              },
+              {
+                "$ref": "#/definitions/ConstantSelector"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "anchor_fn",
+        "type"
+      ]
+    },
+    "ConstantSelector": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "ConstantSelector"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "WrittenCondition": {
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/StateVarSelector"
+        },
+        "type": {
+          "type": "string",
+          "const": "WrittenCondition"
+        },
+        "change_type": {
+          "type": "string",
+          "enum": [
+            "token_creation",
+            "token_burn"
+          ],
+          "default": null,
+          "description": "only required if the written condition is for token creation or token burning"
+        }
+      },
+      "required": [
+        "value",
+        "type"
+      ]
+    },
+    "CompCondition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "CompCondition"
+        },
+        "left": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            },
+            {
+              "$ref": "#/definitions/StateVarSelector"
+            }
+          ]
+        },
+        "right": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            },
+            {
+              "$ref": "#/definitions/StateVarSelector"
+            }
+          ]
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "not_eq",
+            "eq",
+            "gt",
+            "lt",
+            "gte",
+            "lte"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "left",
+        "right",
+        "op"
+      ]
+    },
+    "LogicCondition": {
+      "properties": {
+        "conds": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/CompCondition"
+              },
+              {
+                "$ref": "#/definitions/WrittenCondition"
+              },
+              {
+                "$ref": "#/definitions/LogicCondition"
+              }
+            ]
+          }
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "or",
+            "and"
+          ]
+        }
+      },
+      "required": [
+        "conds",
+        "op",
+        "type"
+      ]
+    },
+    "MsgSenderSelector": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "MsgSenderSelector"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "ArgVerifyExpectValue": {
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            },
+            {
+              "$ref": "#/definitions/MsgSenderSelector"
+            }
+          ]
+        },
+        "cond": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LogicCondition"
+            },
+            {
+              "$ref": "#/definitions/CompCondition"
+            }
+          ],
+          "description": "The field is optional. Only required for rule like 'emit event if <arg> MUST be something which <cond>', which has extra requirement for the argument"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ArgVerify": {
+      "properties": {
+        "arg_index": {
+          "type": "integer"
+        },
+        "expected_value": {
+          "$ref": "#/definitions/ArgVerifyExpectValue"
+        },
+        "type": {
+          "type": "string",
+          "const": "ArgVerify"
+        }
+      },
+      "required": [
+        "arg_index",
+        "expected_value",
+        "type"
+      ]
+    },
+    "EmitVerify": {
+      "properties": {
+        "event": {
+          "type": "string"
+        },
+        "sv_cond": {
+          "$ref": "#/definitions/WrittenCondition"
+        },
+        "cond": {
+          "description": "The field is optional. Skip if emit condition does not have concrete numeric value comparison",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LogicCondition"
+            },
+            {
+              "$ref": "#/definitions/CompCondition"
+            }
+          ]
+        },
+        "alternative_events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The field is optional. Only required for rule like 'emit event1 or event2'. Skip if emit condition does not have alternative events"
+        },
+        "arg_verifiers": {
+          "description": "The field is optional. Only required for rule like 'emit event if <arg> MUST be something'. Skip if emit condition does not have argument verification",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ArgVerify"
+          }
+        },
+        "within_call_fn": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The field is optional. Only required for rule like 'emit event if on call to <fn>'. Skip if emit condition does not have function call"
+        },
+        "type": {
+          "type": "string",
+          "const": "EmitVerify"
+        }
+      },
+      "required": [
+        "event",
+        "sv_cond",
+        "type"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "EmitVerify": {
+      "$ref": "#/definitions/EmitVerify"
+    }
+  }
+}

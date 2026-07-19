@@ -1,0 +1,392 @@
+{
+    "results": [
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success) throw if the message caller's account balance does not have enough tokens to spend",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if transfer is called",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) throw if the _from account has not deliberately authorized the sender of the message via some mechanism",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers _value amount of tokens from address _from to address _to",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers of 0 values",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)allowance is reset to _value",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)emit '['Approval']' if function successfully executes",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "upgrade(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setUpgradeAgent(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getUpgradeState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeMaster(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "canUpgrade():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "increaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decreaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(string,string,uint8,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setSale(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setFreeze(bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "thaw():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "upgrade(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeAgent(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getUpgradeState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeMaster(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "canUpgrade():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "increaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decreaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(string,string,uint8,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setSale(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setFreeze(bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "thaw():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "upgrade(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeAgent(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getUpgradeState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeMaster(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "canUpgrade():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "increaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decreaseApproval(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(string,string,uint8,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setSale(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setFreeze(bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "thaw():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "renounceOwnership():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "burn(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "upgrade(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeAgent(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getUpgradeState():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setUpgradeMaster(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "canUpgrade():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "increaseApproval(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "decreaseApproval(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(string,string,uint8,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setSale(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setFreeze(bool):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "thaw():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+1. ownerOf. Its state variable looks like:
+    // Mapping from token ID to owner address
+    mapping(uint256 => address) private _owners;
+2. getApproved. Its state variable looks like:
+    // Mapping from token ID to approved address
+    mapping(uint256 => address) private _tokenApprovals;
+3. isApprovedForAll. Its state variable looks like:
+    // Mapping from owner to operator approvals
+    mapping(address => mapping(address => bool)) private _operatorApprovals;
+4. balanceOf. Its state variable looks like:
+    // Mapping owner address to token count
+    mapping(address => uint256) private _balances;

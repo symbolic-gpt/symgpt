@@ -1,0 +1,49 @@
+{
+    "functions": [
+        {
+            "def": "function uri(uint256 _id) external view returns (string memory)",
+            "raw_rules": "    /**\n        @notice A distinct Uniform Resource Identifier (URI) for a given token.\n        @dev URIs are defined in RFC 3986.\n        The URI MUST point to a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".        \n        @return URI string\n    */\n",
+            "format": {
+                "name": "uri",
+                "arg_types": [
+                    {
+                        "name": "_id",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "memory",
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `uri(uint256 _id)` is a string that represents a Uniform Resource Identifier (URI). This URI is unique for each token identified by the `_id` parameter. The URI points to a JSON file that complies with the \"ERC-1155 Metadata URI JSON Schema.\" This JSON file contains metadata about the token, which can include properties like the token's name, description, image, and other attributes relevant to the token. The purpose of this URI is to provide a standardized way to access detailed information about the token in a decentralized manner.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `uri(uint256 _id)` is a string that represents a Uniform Resource Identifier (URI). This URI is unique for each token identified by the `_id` parameter. The URI points to a JSON file that complies with the \"ERC-1155 Metadata URI JSON Schema.\" This JSON file contains metadata about the token, which can include properties like the token's name, description, image, and other attributes relevant to the token. The purpose of this URI is to provide a standardized way to access detailed information about the token in a decentralized manner.",
+                "return": "```json\n[]\n```"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC1155Metadata_URI",
+    "rules": [
+        {
+            "rule": "The return value of the function `uri(uint256 _id)` is a string that represents a Uniform Resource Identifier (URI). This URI is unique for each token identified by the `_id` parameter. The URI points to a JSON file that complies with the \"ERC-1155 Metadata URI JSON Schema.\" This JSON file contains metadata about the token, which can include properties like the token's name, description, image, and other attributes relevant to the token. The purpose of this URI is to provide a standardized way to access detailed information about the token in a decentralized manner.",
+            "type": "semantic_return",
+            "interface": "function uri(uint256 _id) external view returns (string memory)",
+            "if": null
+        }
+    ]
+}

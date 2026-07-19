@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FuncParamSelector": {
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "const": "FuncParamSelector"
+        }
+      },
+      "required": [
+        "index",
+        "type"
+      ]
+    },
+    "ArgVerifyExpectValue": {
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            },
+            {
+              "$ref": "#/definitions/MsgSenderSelector"
+            }
+          ]
+        },
+        "cond": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LogicCondition"
+            },
+            {
+              "$ref": "#/definitions/CompCondition"
+            }
+          ]
+        }
+      }
+    },
+    "ArgVerify": {
+      "properties": {
+        "arg_index": {
+          "type": "integer"
+        },
+        "expected_value": {
+          "$ref": "#/definitions/ArgVerifyExpectValue"
+        },
+        "type": {
+          "type": "string",
+          "const": "ArgVerify"
+        }
+      },
+      "required": [
+        "arg_index",
+        "expected_value",
+        "type"
+      ]
+    },
+    "CallVerify": {
+      "properties": {
+        "callee": {
+          "type": "string"
+        },
+        "on": {
+          "$ref": "#/definitions/FuncParamSelector"
+        },
+        "cond": {
+          "type": "string",
+          "enum": [
+            "is_contract"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "const": "CallVerify"
+        },
+        "arg_verifiers": {
+          "description": "The field is optional. Only required for rule like 'emit event if <arg> MUST be something'. Skip if emit condition does not have argument verification",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ArgVerify"
+          }
+        }
+      },
+      "required": [
+        "callee",
+        "on",
+        "cond",
+        "type"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "callVerify": {
+      "$ref": "#/definitions/CallVerify"
+    }
+  },
+  "required": [
+    "callVerify"
+  ]
+}

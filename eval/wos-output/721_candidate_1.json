@@ -1,0 +1,98 @@
+{
+    "sol_file": "benchmark/smallext/721_candidate_1.sol",
+    "contract": {
+        "NonFungibleToken": [
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 3,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "function setApprovalForAll(address _operator, bool _approved) external",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 6,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "function isApprovedForAll(address _owner, address _operator) external view returns (bool)",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 8,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 0,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);",
+                "contract": "NonFungibleToken",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            }
+        ]
+    }
+}

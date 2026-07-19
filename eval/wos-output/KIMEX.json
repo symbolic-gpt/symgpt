@@ -1,0 +1,20 @@
+{
+    "sol_file": "benchmark/smallext/KIMEX.sol",
+    "contract": {
+        "KIMEX": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "KIMEX",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            }
+        ]
+    }
+}

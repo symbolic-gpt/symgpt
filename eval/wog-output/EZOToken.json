@@ -1,0 +1,304 @@
+{
+    "results": [
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success) throw if the message caller's account balance does not have enough tokens to spend",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if transfer is called",
+            "violated": false
+        },
+        {
+            "rule": "halt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unHalt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "addAllowedAddress(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCurrencyPricesContractAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "sendToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "cancelOrder(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "updateTxStatus(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "mint(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getPurchaseRecord(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTxStatus(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrencyPrice(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setEZOTokenPriceUSD(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "halt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unHalt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "addAllowedAddress(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setCurrencyPricesContractAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "sendToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "cancelOrder(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "updateTxStatus(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "mint(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getPurchaseRecord(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTxStatus(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrencyPrice(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setEZOTokenPriceUSD(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "halt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unHalt():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "addAllowedAddress(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCurrencyPricesContractAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "sendToken(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "cancelOrder(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "updateTxStatus(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "mint(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "burn(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getPurchaseRecord(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getTxStatus(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrencyPrice(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setEZOTokenPriceUSD(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "halt():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "unHalt():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferOwnership(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "addAllowedAddress(address,bool):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "setCurrencyPricesContractAddress(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "sendToken(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "cancelOrder(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "updateTxStatus(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "mint(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "burn(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getPurchaseRecord(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getTxStatus(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrencyPrice(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setEZOTokenPriceUSD(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+'solc --version' running
+'solc ./benchmark/smallext/idex.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/idex.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/idex.sol
+
+
+INFO:Detectors:
+MyToken (benchmark/smallext/idex.sol#12-89) has incorrect ERC20 function interface:MyToken.transfer(address,uint256) (benchmark/smallext/idex.sol#42-48)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Slither:./benchmark/smallext/idex.sol analyzed (2 contracts with 5 detectors), 1 result(s) found

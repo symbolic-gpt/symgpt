@@ -1,0 +1,38 @@
+'solc --version' running
+'solc ./benchmark/smallext/LUTOKEN.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/LUTOKEN.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/LUTOKEN.sol
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> benchmark/smallext/LUTOKEN.sol:29:5:
+   |
+29 |     constructor() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/LUTOKEN.sol:472:5:
+    |
+472 |     constructor(address _upgradeMaster) public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/LUTOKEN.sol:588:5:
+    |
+588 |     constructor(
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+   --> benchmark/smallext/LUTOKEN.sol:611:39:
+    |
+611 | whenNotPaused saleOrUnfrozen returns (bool) {
+    |                                       ^^^^
+
+Warning: Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+   --> benchmark/smallext/LUTOKEN.sol:626:39:
+    |
+626 | whenNotPaused saleOrUnfrozen returns (bool) {
+    |                                       ^^^^
+
+
+INFO:Slither:./benchmark/smallext/LUTOKEN.sol analyzed (13 contracts with 5 detectors), 0 result(s) found

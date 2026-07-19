@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/1155_candidate_2.sol",
+    "contract": {
+        "Capsule": [
+            {
+                "erc": "1155",
+                "type": "emit",
+                "rule": "emit '['TransferSingle', 'TransferBatch']' if all the balance changes are reflected and the transfer conditions are met",
+                "contract": "Capsule",
+                "interface": "ERC1155",
+                "fn_interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+                "rid": 9,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            },
+            {
+                "erc": "1155",
+                "type": "throw",
+                "rule": "not throw if caller must be approved to manage the tokens being transferred out of the `_from` account",
+                "contract": "Capsule",
+                "interface": "ERC1155",
+                "fn_interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+                "rid": 15,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

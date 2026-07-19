@@ -1,0 +1,16 @@
+click
+openai
+slither-analyzer==0.10.2
+solidity_parser
+zss
+numpy
+scikit-learn
+z3-solver
+semantic-version==2.10.0
+celery
+redis
+pytest
+pycryptodome
+dataclasses-json
+solc-select
+matplotlib

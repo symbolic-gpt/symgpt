@@ -1,0 +1,20 @@
+{
+    "sol_file": "benchmark/smallext/jntr.sol",
+    "contract": {
+        "JNTR": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "JNTR",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            }
+        ]
+    }
+}

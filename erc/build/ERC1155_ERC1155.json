@@ -1,0 +1,1418 @@
+{
+    "functions": [
+        {
+            "def": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "raw_rules": "\n    /**\n        @notice Transfers `_value` amount of an `_id` from the `_from` address to the `_to` address specified (with safety call).\n        @dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\n        MUST revert if `_to` is the zero address.\n        MUST revert if balance of holder for token `_id` is lower than the `_value` sent.\n        MUST revert on any other error.\n        MUST emit the `TransferSingle` event to reflect the balance change (see \"Safe Transfer Rules\" section of the standard).\n        After the above conditions are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call `onERC1155Received` on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).        \n        @param _from    Source address\n        @param _to      Target address\n        @param _id      ID of the token type\n        @param _value   Transfer amount\n        @param _data    Additional data with no specified format, MUST be sent unaltered in call to `onERC1155Received` on `_to`\n    */\n",
+            "format": {
+                "name": "safeTransferFrom",
+                "arg_types": [
+                    {
+                        "name": "_from",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    },
+                    {
+                        "name": "_data",
+                        "type": "bytes"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "`_to` is the zero address",
+                        "throw": true
+                    },
+                    {
+                        "if": "balance of holder for token `_id` is lower than the `_value` sent",
+                        "throw": true
+                    },
+                    {
+                        "if": "any other error",
+                        "throw": true
+                    },
+                    {
+                        "if": "`_to` is a smart contract (e.g. code size > 0)",
+                        "throw": false
+                    },
+                    {
+                        "if": "Caller must be approved to manage the tokens being transferred out of the `_from` account",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "TransferSingle"
+                        ],
+                        "if": "the balance change is reflected after the transfer"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "onERC1155Received",
+                        "if": "_to is a smart contract (e.g. code size > 0)",
+                        "arg_rules": [
+                            {
+                                "arg": 5,
+                                "rule": "_data MUST be sent unaltered"
+                            }
+                        ]
+                    }
+                ],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"`_to` is the zero address\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"balance of holder for token `_id` is lower than the `_value` sent\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"any other error\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"`_to` is a smart contract (e.g. code size > 0)\",\n        \"throw\": false\n    },\n    {\n        \"if\": \"Caller must be approved to manage the tokens being transferred out of the `_from` account\",\n        \"throw\": false\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"TransferSingle\"],\n        \"if\": \"the balance change is reflected after the transfer\"\n    }\n]\n```",
+                "assign": "[]\n",
+                "call": "```json\n[\n    {\n        \"call\": \"onERC1155Received\",\n        \"if\": \"_to is a smart contract (e.g. code size > 0)\",\n        \"arg_rules\": [\n            {\n                \"arg\": 5,\n                \"rule\": \"_data MUST be sent unaltered\"\n            }\n        ]\n    }\n]\n```",
+                "order": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+            "raw_rules": "\n    /**\n        @notice Transfers `_values` amount(s) of `_ids` from the `_from` address to the `_to` address specified (with safety call).\n        @dev Caller must be approved to manage the tokens being transferred out of the `_from` account (see \"Approval\" section of the standard).\n        MUST revert if `_to` is the zero address.\n        MUST revert if length of `_ids` is not the same as length of `_values`.\n        MUST revert if any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient.\n        MUST revert on any other error.        \n        MUST emit `TransferSingle` or `TransferBatch` event(s) such that all the balance changes are reflected (see \"Safe Transfer Rules\" section of the standard).\n        Balance changes and events MUST follow the ordering of the arrays (_ids[0]/_values[0] before _ids[1]/_values[1], etc).\n        After the above conditions for the transfer(s) in the batch are met, this function MUST check if `_to` is a smart contract (e.g. code size > 0). If so, it MUST call the relevant `ERC1155TokenReceiver` hook(s) on `_to` and act appropriately (see \"Safe Transfer Rules\" section of the standard).                      \n        @param _from    Source address\n        @param _to      Target address\n        @param _ids     IDs of each token type (order and length must match _values array)\n        @param _values  Transfer amounts per token type (order and length must match _ids array)\n        @param _data    Additional data with no specified format, MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\n    */\n",
+            "format": {
+                "name": "safeBatchTransferFrom",
+                "arg_types": [
+                    {
+                        "name": "_from",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_ids",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "name": "_values",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "name": "_data",
+                        "type": "bytes"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "`_to` is the zero address",
+                        "throw": true
+                    },
+                    {
+                        "if": "length of `_ids` is not the same as length of `_values`",
+                        "throw": true
+                    },
+                    {
+                        "if": "any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient",
+                        "throw": true
+                    },
+                    {
+                        "if": "on any other error",
+                        "throw": true
+                    },
+                    {
+                        "if": "`_to` is a smart contract (e.g. code size > 0)",
+                        "throw": false
+                    },
+                    {
+                        "if": "caller must be approved to manage the tokens being transferred out of the `_from` account",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "TransferSingle",
+                            "TransferBatch"
+                        ],
+                        "if": "all the balance changes are reflected and the transfer conditions are met"
+                    }
+                ],
+                "assign": [],
+                "call": [
+                    {
+                        "call": "ERC1155TokenReceiver",
+                        "if": "`_to` is a smart contract (e.g. code size > 0)",
+                        "arg_rules": [
+                            {
+                                "arg": 5,
+                                "rule": "`_data` MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`"
+                            }
+                        ]
+                    }
+                ],
+                "order": [
+                    {
+                        "subject": "Balance changes and events",
+                        "order_by": "_ids and _values arrays"
+                    }
+                ]
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"`_to` is the zero address\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"length of `_ids` is not the same as length of `_values`\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"any of the balance(s) of the holder(s) for token(s) in `_ids` is lower than the respective amount(s) in `_values` sent to the recipient\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"on any other error\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"`_to` is a smart contract (e.g. code size > 0)\",\n        \"throw\": false\n    },\n    {\n        \"if\": \"caller must be approved to manage the tokens being transferred out of the `_from` account\",\n        \"throw\": false\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"TransferSingle\", \"TransferBatch\"],\n        \"if\": \"all the balance changes are reflected and the transfer conditions are met\"\n    }\n]\n```",
+                "assign": "```json\n[]\n```",
+                "call": "```json\n[\n    {\n        \"call\": \"ERC1155TokenReceiver\",\n        \"if\": \"`_to` is a smart contract (e.g. code size > 0)\",\n        \"arg_rules\": [\n            {\n                \"arg\": 5,\n                \"rule\": \"`_data` MUST be sent unaltered in call to the `ERC1155TokenReceiver` hook(s) on `_to`\"\n            }\n        ]\n    }\n]\n```",
+                "order": "```json\n[\n    {\n        \"subject\": \"Balance changes and events\",\n        \"order_by\": \"_ids and _values arrays\"\n    }\n]\n```"
+            }
+        },
+        {
+            "def": "function balanceOf(address _owner, uint256 _id) external view returns (uint256)",
+            "raw_rules": "\n    /**\n        @notice Get the balance of an account's tokens.\n        @param _owner  The address of the token holder\n        @param _id     ID of the token\n        @return        The _owner's balance of the token type requested\n     */\n",
+            "format": {
+                "name": "balanceOf",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_id",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `balanceOf(address _owner, uint256 _id)` represents the quantity of tokens of a specific type (identified by `_id`) that are currently held by a particular account (specified by `_owner`). This function provides a way to check how many tokens of a certain type an account possesses at the time the function is called.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `balanceOf(address _owner, uint256 _id)` represents the quantity of tokens of a specific type (identified by `_id`) that are currently held by a particular account (specified by `_owner`). This function provides a way to check how many tokens of a certain type an account possesses at the time the function is called."
+            }
+        },
+        {
+            "def": "function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory)",
+            "raw_rules": "\n    /**\n        @notice Get the balance of multiple account/token pairs\n        @param _owners The addresses of the token holders\n        @param _ids    ID of the tokens\n        @return        The _owner's balance of the token types requested (i.e. balance for each (owner, id) pair)\n     */\n",
+            "format": {
+                "name": "balanceOfBatch",
+                "arg_types": [
+                    {
+                        "name": "_owners",
+                        "type": "address[]"
+                    },
+                    {
+                        "name": "_ids",
+                        "type": "uint256[]"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "memory",
+                    "type": "uint256[]"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids)` is an array of unsigned integers (`uint256[]`). Each element in this returned array represents the balance of a specific token held by a specific owner. The function takes two arrays as inputs: `_owners`, which contains the addresses of the token holders, and `_ids`, which contains the IDs of the tokens. The function returns the balances corresponding to each pair of owner and token ID provided in the input arrays.\n\nFor example, if the input arrays are `_owners = [address1, address2]` and `_ids = [token1, token2]`, the function will return an array where the first element is the balance of `token1` held by `address1`, the second element is the balance of `token2` held by `address1`, the third element is the balance of `token1` held by `address2`, and the fourth element is the balance of `token2` held by `address2`. Thus, the function systematically returns the balances for each combination of the provided owner addresses and token IDs.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids)` is an array of unsigned integers (`uint256[]`). Each element in this returned array represents the balance of a specific token held by a specific owner. The function takes two arrays as inputs: `_owners`, which contains the addresses of the token holders, and `_ids`, which contains the IDs of the tokens. The function returns the balances corresponding to each pair of owner and token ID provided in the input arrays.\n\nFor example, if the input arrays are `_owners = [address1, address2]` and `_ids = [token1, token2]`, the function will return an array where the first element is the balance of `token1` held by `address1`, the second element is the balance of `token2` held by `address1`, the third element is the balance of `token1` held by `address2`, and the fourth element is the balance of `token2` held by `address2`. Thus, the function systematically returns the balances for each combination of the provided owner addresses and token IDs."
+            }
+        },
+        {
+            "def": "function setApprovalForAll(address _operator, bool _approved) external",
+            "raw_rules": "\n    /**\n        @notice Enable or disable approval for a third party (\"operator\") to manage all of the caller's tokens.\n        @dev MUST emit the ApprovalForAll event on success.\n        @param _operator  Address to add to the set of authorized operators\n        @param _approved  True if the operator is approved, false to revoke approval\n    */\n",
+            "format": {
+                "name": "setApprovalForAll",
+                "arg_types": [
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_approved",
+                        "type": "bool"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": null
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": null,
+                "return": null,
+                "emit": [
+                    {
+                        "emit": [
+                            "ApprovalForAll"
+                        ],
+                        "if": "on success"
+                    }
+                ],
+                "assign": [],
+                "call": [],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"ApprovalForAll\"],\n        \"if\": \"on success\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "```json\n[]\n```",
+                "order": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function isApprovedForAll(address _owner, address _operator) external view returns (bool)",
+            "raw_rules": "\n    /**\n        @notice Queries the approval status of an operator for a given owner.\n        @param _owner     The owner of the tokens\n        @param _operator  Address of authorized operator\n        @return           True if the operator is approved, false if not\n    */\n",
+            "format": {
+                "name": "isApprovedForAll",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `isApprovedForAll(address _owner, address _operator)` returns a boolean value that indicates whether the specified `_operator` address is authorized to manage all tokens owned by the `_owner` address. If the function returns `true`, it means that the `_operator` is approved to handle all tokens of the `_owner`. Conversely, if it returns `false`, the `_operator` does not have approval to manage the tokens of `_owner`.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `isApprovedForAll(address _owner, address _operator)` returns a boolean value that indicates whether the specified `_operator` address is authorized to manage all tokens owned by the `_owner` address. If the function returns `true`, it means that the `_operator` is approved to handle all tokens of the `_owner`. Conversely, if it returns `false`, the `_operator` does not have approval to manage the tokens of `_owner`.",
+                "return": "```json\n[]\n```"
+            }
+        }
+    ],
+    "events": [
+        {
+            "def": "event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);",
+            "raw_rules": "    /**\n        @dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).\n        The `_operator` argument MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender).\n        The `_from` argument MUST be the address of the holder whose balance is decreased.\n        The `_to` argument MUST be the address of the recipient whose balance is increased.\n        The `_id` argument MUST be the token type being transferred.\n        The `_value` argument MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by.\n        When minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\n        When burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).        \n    */\n",
+            "format": {
+                "name": "TransferSingle",
+                "arg_types": [
+                    {
+                        "name": "_operator",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_from",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_id",
+                        "type": "uint256",
+                        "indexed": false
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "assign": [],
+                "emit": [
+                    {
+                        "if": "tokens are transferred, including zero value transfers as well as minting or burning",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "MUST be the address of the holder whose balance is decreased"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "MUST be the address of the recipient whose balance is increased"
+                            },
+                            {
+                                "arg": 3,
+                                "rule": "MUST be the token type being transferred"
+                            },
+                            {
+                                "arg": 4,
+                                "rule": "MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by"
+                            }
+                        ],
+                        "alternative_events": [
+                            "TransferBatch"
+                        ]
+                    },
+                    {
+                        "if": "minting/creating tokens",
+                        "arg_rules": [
+                            {
+                                "arg": 1,
+                                "rule": "MUST be set to `0x0` (i.e. zero address)"
+                            }
+                        ]
+                    },
+                    {
+                        "if": "burning/destroying tokens",
+                        "arg_rules": [
+                            {
+                                "arg": 2,
+                                "rule": "MUST be set to `0x0` (i.e. zero address)"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"tokens are transferred, including zero value transfers as well as minting or burning\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be the address of the holder whose balance is decreased\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"MUST be the address of the recipient whose balance is increased\"\n            },\n            {\n                \"arg\": 3,\n                \"rule\": \"MUST be the token type being transferred\"\n            },\n            {\n                \"arg\": 4,\n                \"rule\": \"MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by\"\n            }\n        ],\n        \"alternative_events\": [\"TransferBatch\"]\n    },\n    {\n        \"if\": \"minting/creating tokens\",\n        \"arg_rules\": [\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be set to `0x0` (i.e. zero address)\"\n            }\n        ]\n    },\n    {\n        \"if\": \"burning/destroying tokens\",\n        \"arg_rules\": [\n            {\n                \"arg\": 2,\n                \"rule\": \"MUST be set to `0x0` (i.e. zero address)\"\n            }\n        ]\n    }\n]\n```",
+                "assign": "```json\n[\n    \"The `_from` argument MUST be set to `0x0` when minting/creating tokens\",\n    \"The `_to` argument MUST be set to `0x0` when burning/destroying tokens\"\n]\n```"
+            }
+        },
+        {
+            "def": "event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);",
+            "raw_rules": "\n    /**\n        @dev Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see \"Safe Transfer Rules\" section of the standard).      \n        The `_operator` argument MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender).\n        The `_from` argument MUST be the address of the holder whose balance is decreased.\n        The `_to` argument MUST be the address of the recipient whose balance is increased.\n        The `_ids` argument MUST be the list of tokens being transferred.\n        The `_values` argument MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by.\n        When minting/creating tokens, the `_from` argument MUST be set to `0x0` (i.e. zero address).\n        When burning/destroying tokens, the `_to` argument MUST be set to `0x0` (i.e. zero address).                \n    */\n",
+            "format": {
+                "name": "TransferBatch",
+                "arg_types": [
+                    {
+                        "name": "_operator",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_from",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_ids",
+                        "type": "uint256[]",
+                        "indexed": false
+                    },
+                    {
+                        "name": "_values",
+                        "type": "uint256[]",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "assign": [],
+                "emit": [
+                    {
+                        "if": "tokens are transferred, including zero value transfers as well as minting or burning",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "MUST be the address of the holder whose balance is decreased"
+                            },
+                            {
+                                "arg": 2,
+                                "rule": "MUST be the address of the recipient whose balance is increased"
+                            },
+                            {
+                                "arg": 3,
+                                "rule": "MUST be the list of tokens being transferred"
+                            },
+                            {
+                                "arg": 4,
+                                "rule": "MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by"
+                            }
+                        ],
+                        "alternative_events": [
+                            "TransferSingle"
+                        ]
+                    },
+                    {
+                        "if": "minting/creating tokens",
+                        "arg_rules": [
+                            {
+                                "arg": 1,
+                                "rule": "MUST be set to `0x0` (i.e. zero address)"
+                            }
+                        ]
+                    },
+                    {
+                        "if": "burning/destroying tokens",
+                        "arg_rules": [
+                            {
+                                "arg": 2,
+                                "rule": "MUST be set to `0x0` (i.e. zero address)"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"tokens are transferred, including zero value transfers as well as minting or burning\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be the address of the holder whose balance is decreased\"\n            },\n            {\n                \"arg\": 2,\n                \"rule\": \"MUST be the address of the recipient whose balance is increased\"\n            },\n            {\n                \"arg\": 3,\n                \"rule\": \"MUST be the list of tokens being transferred\"\n            },\n            {\n                \"arg\": 4,\n                \"rule\": \"MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by\"\n            }\n        ],\n        \"alternative_events\": [\"TransferSingle\"]\n    },\n    {\n        \"if\": \"minting/creating tokens\",\n        \"arg_rules\": [\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be set to `0x0` (i.e. zero address)\"\n            }\n        ]\n    },\n    {\n        \"if\": \"burning/destroying tokens\",\n        \"arg_rules\": [\n            {\n                \"arg\": 2,\n                \"rule\": \"MUST be set to `0x0` (i.e. zero address)\"\n            }\n        ]\n    }\n]\n```",
+                "assign": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);",
+            "raw_rules": "\n    /**\n        @dev MUST emit when approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled (absence of an event assumes disabled).        \n    */\n",
+            "format": {
+                "name": "ApprovalForAll",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_operator",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_approved",
+                        "type": "bool",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled",
+                        "arg_rules": [],
+                        "emit": [
+                            "ApprovalForAll"
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled\",\n        \"arg_rules\": [],\n        \"emit\": [\"ApprovalForAll\"]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        },
+        {
+            "def": "event URI(string _value, uint256 indexed _id);",
+            "raw_rules": "\n    /**\n        @dev MUST emit when the URI is updated for a token ID.\n        URIs are defined in RFC 3986.\n        The URI MUST point to a JSON file that conforms to the \"ERC-1155 Metadata URI JSON Schema\".\n    */\n",
+            "format": {
+                "name": "URI",
+                "arg_types": [
+                    {
+                        "name": "_value",
+                        "type": "string",
+                        "indexed": false
+                    },
+                    {
+                        "name": "_id",
+                        "type": "uint256",
+                        "indexed": true
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "the URI is updated for a token ID",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "MUST point to a JSON file that conforms to the 'ERC-1155 Metadata URI JSON Schema'"
+                            },
+                            {
+                                "arg": 1,
+                                "rule": "MUST be the token ID for which the URI is updated"
+                            }
+                        ],
+                        "emit": [
+                            "URI"
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"the URI is updated for a token ID\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"MUST point to a JSON file that conforms to the 'ERC-1155 Metadata URI JSON Schema'\"\n            },\n            {\n                \"arg\": 1,\n                \"rule\": \"MUST be the token ID for which the URI is updated\"\n            }\n        ],\n        \"emit\": [\"URI\"]\n    }\n]\n```",
+                "assign": "```json\n[]\n```"
+            }
+        }
+    ],
+    "name": "ERC1155",
+    "rules": [
+        {
+            "rule": " throw if `_to` is the zero address",
+            "type": "throw",
+            "interface": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification that throws if `_to` is the zero address, we need to use the `ThrowVerify` schema defined in the JSON schema provided. The rule should check if the `_to` parameter of the `safeTransferFrom` function is equal to the zero address (typically represented as `0x0000000000000000000000000000000000000000` in Ethereum addresses). If `_to` is the zero address, the function should throw an error.\n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"0x0000000000000000000000000000000000000000\"\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This is the main object that specifies the type of verification (throwing an error under certain conditions).\n- **cond**: This is the condition under which the throw should occur.\n  - **type**: \"CompCondition\" specifies that this is a comparison condition.\n  - **left**: This selects the second parameter (`_to`) of the function `safeTransferFrom`. The index is 1 because parameter indexing starts from 0.\n  - **right**: This is a constant selector that specifies the zero address. The value is the zero address in hexadecimal format.\n  - **op**: \"eq\" specifies that the operation is an equality check.\n- **op**: \"throw\" specifies that the operation should result in a throw if the condition is true.\n\nThis configuration ensures that the `safeTransferFrom` function will throw an error if the `_to` address is the zero address, enforcing the rule as required."
+        },
+        {
+            "rule": " throw if balance of holder for token `_id` is lower than the `_value` sent",
+            "type": "throw",
+            "interface": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "FuncParamSelector",
+                            "index": 3
+                        },
+                        "op": "lt"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification, we need to construct a `ThrowVerify` object that checks if the balance of the holder for a given token `_id` is lower than the `_value` sent. This involves comparing the balance retrieved from the `balanceOf` function with the `_value` parameter of the `safeTransferFrom` function.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            },\n            \"right\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 3\n            },\n            \"op\": \"lt\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **`ThrowVerify`**: This object specifies that the condition should result in a throw if it evaluates to true.\n- **`CompCondition`**: This object compares two values using a specified operator.\n- **`left`**: This is a `StateVarSelector` that selects the balance of the token `_id` for the address `_from`. It uses the `balanceOf` function's state variable `_balances`. The `keys` array specifies that the first key is the token ID (`_id` from the function parameter at index 2) and the second key is the address (`_from` from the function parameter at index 0).\n- **`right`**: This is a `FuncParamSelector` that selects the `_value` parameter from the `safeTransferFrom` function (at index 3).\n- **`op`**: The operator \"lt\" stands for \"less than\", which checks if the balance is less than the value being transferred.\n- **`op` in `ThrowVerify`**: The operation \"throw\" specifies that the function should throw an error if the condition is true, enforcing the rule that the transfer should not proceed if the balance is insufficient.\n\nThis JSON configuration ensures that the smart contract function `safeTransferFrom` adheres to the specified rule by throwing an error if the balance of the token holder is less than the amount they are trying to transfer."
+        },
+        {
+            "rule": " throw if any other error",
+            "type": "throw",
+            "interface": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "sym_debug": "To generate the JSON configuration for the rule verification, we need to specify a condition that checks for any error during the execution of the `safeTransferFrom` function. Since the rule states \"throw if any other error,\" we need to define a condition that captures any unexpected or erroneous state changes or conditions that should lead to a throw.\n\nGiven the context of the `safeTransferFrom` function, typical errors might include insufficient balance, unauthorized transfers, or invalid addresses. However, since the rule is to throw on \"any other error,\" we need a generic condition that can capture any unexpected behavior.\n\nHere's a possible JSON configuration using the provided schema:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"balanceOf\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 2\n                            },\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            }\n                        ]\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": 0\n                    },\n                    \"op\": \"lt\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"StateVarSelector\",\n                        \"anchor_fn\": \"isApprovedForAll\",\n                        \"keys\": [\n                            {\n                                \"type\": \"FuncParamSelector\",\n                                \"index\": 0\n                            },\n                            {\n                                \"type\": \"MsgSenderSelector\"\n                            }\n                        ]\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": false\n                    },\n                    \"op\": \"eq\"\n                }\n            ],\n            \"op\": \"or\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- The first condition in the `LogicCondition` checks if the balance of the sender for the specified token ID is less than zero, which would be an error state.\n- The second condition checks if the sender is not approved for all operations by the message sender, which could be another source of error if the function requires such approval.\n- The `LogicCondition` uses an \"or\" operator, meaning if either of these conditions is true, the function should throw, indicating an error has occurred.\n- The `ThrowVerify` type is set to \"throw\" to enforce that the function should throw an exception under these conditions.\n\nThis configuration aims to capture generic error conditions based on balance and approval checks. Adjustments may be needed based on specific contract logic or additional error conditions."
+        },
+        {
+            "rule": "emit '['TransferSingle']' if the balance change is reflected after the transfer",
+            "type": "emit",
+            "interface": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferSingle",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule \"emit 'TransferSingle' if the balance change is reflected after the transfer\", we need to focus on the balance change in the `_balances` mapping after the `safeTransferFrom` function is called. Here's how the JSON configuration would look:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferSingle\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: We specify that the event to verify is `TransferSingle`.\n\n2. **sv_cond**:\n   - **type**: It's a `WrittenCondition`, meaning we are checking if a state variable was written.\n   - **value**:\n     - **type**: It's a `StateVarSelector`, indicating that we are selecting a state variable.\n     - **anchor_fn**: We use `balanceOf` as the anchor function, which indirectly refers to the `_balances` mapping.\n     - **keys**:\n       - The first key is a `FuncParamSelector` with `index: 2`, which corresponds to the `_id` parameter of `safeTransferFrom`, used to select the token ID in the `_balances` mapping.\n       - The second key is another `FuncParamSelector` with `index: 1`, which corresponds to the `_to` parameter of `safeTransferFrom`, used to select the recipient's address in the `_balances` mapping.\n\n3. **type**: This is set to `EmitVerify`, indicating the type of verification rule being defined.\n\nThis configuration ensures that the `TransferSingle` event is emitted if there is a write operation on the `_balances` mapping for the specified token ID and recipient address, reflecting a balance change as a result of the `safeTransferFrom` function call."
+        },
+        {
+            "rule": "call onERC1155Received if _to is a smart contract (e.g. code size > 0)",
+            "type": "call",
+            "interface": "function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes calldata _data) external",
+            "sym": {
+                "callVerify": {
+                    "callee": "onERC1155Received",
+                    "on": {
+                        "index": 1,
+                        "type": "FuncParamSelector"
+                    },
+                    "cond": "is_contract",
+                    "type": "CallVerify"
+             
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the `safeTransferFrom` function, we need to ensure that the function `onERC1155Received` is called if the `_to` address is a smart contract. The JSON schema provided outlines how to structure this verification rule.\n\nHere's the JSON configuration based on the schema and the rule:\n\n```json\n{\n    \"callVerify\": {\n        \"callee\": \"onERC1155Received\",\n        \"on\": {\n            \"index\": 1,\n            \"type\": \"FuncParamSelector\"\n        },\n        \"cond\": \"is_contract\",\n        \"type\": \"CallVerify\",\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"index\": 0,\n                        \"type\": \"FuncParamSelector\"\n                    },\n                    \"cond\": {\n                        \"type\": \"CompCondition\",\n                        \"operator\": \"==\",\n                        \"rhs\": {\n                            \"index\": 1,\n                            \"type\": \"FuncParamSelector\"\n                        }\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"index\": 2,\n                        \"type\": \"FuncParamSelector\"\n                    },\n                    \"cond\": {\n                        \"type\": \"CompCondition\",\n                        \"operator\": \"==\",\n                        \"rhs\": {\n                            \"index\": 2,\n                            \"type\": \"FuncParamSelector\"\n                        }\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"index\": 3,\n                        \"type\": \"FuncParamSelector\"\n                    },\n                    \"cond\": {\n                        \"type\": \"CompCondition\",\n                        \"operator\": \"==\",\n                        \"rhs\": {\n                            \"index\": 3,\n                            \"type\": \"FuncParamSelector\"\n                        }\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            },\n            {\n                \"arg_index\": 3,\n                \"expected_value\": {\n                    \"value\": {\n                        \"index\": 4,\n                        \"type\": \"FuncParamSelector\"\n                    },\n                    \"cond\": {\n                        \"type\": \"CompCondition\",\n                        \"operator\": \"==\",\n                        \"rhs\": {\n                            \"index\": 4,\n                            \"type\": \"FuncParamSelector\"\n                        }\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            }\n        ]\n    }\n}\n```\n\nExplanation:\n- The `callVerify` object specifies that the `onERC1155Received` function should be called.\n- The `on` property uses a `FuncParamSelector` to select the `_to` parameter (index 1) of the `safeTransferFrom` function.\n- The `cond` property specifies that this call should only happen if `_to` is a contract (`is_contract`).\n- The `arg_verifiers` array contains verifiers for each argument passed to `onERC1155Received`, ensuring they match the corresponding arguments passed to `safeTransferFrom`.\n\nThis configuration ensures that the `onERC1155Received` function is called with the correct arguments when `_to` is a smart contract, adhering to the ERC1155 standard for safe transfers."
+        },
+        {
+            "rule": " throw if `_to` is the zero address",
+            "type": "throw",
+            "interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": "0x0000000000000000000000000000000000000000"
+                        },
+                        "op": "eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification that throws if `_to` is the zero address in the `safeBatchTransferFrom` function, we need to define a condition that checks if the `_to` parameter is equal to the zero address. The zero address in Ethereum is typically represented as `0x0000000000000000000000000000000000000000`.\n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": \"0x0000000000000000000000000000000000000000\"\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that we are defining a condition for throwing an exception.\n- **cond**: This is the condition under which the throw will occur.\n  - **type**: \"CompCondition\" indicates that this is a comparison condition.\n  - **left**: This selects the function parameter to compare. The `\"index\": 1` refers to the second parameter of the function, which is `_to` (indexing starts from 0).\n  - **right**: This is a constant selector that specifies the value to compare against, which is the zero address.\n  - **op**: \"eq\" specifies that the operation is an equality check.\n- **op**: \"throw\" indicates that the operation should result in a throw if the condition is true.\n\nThis JSON configuration ensures that the smart contract function `safeBatchTransferFrom` will throw an exception if the `_to` address is the zero address, adhering to the specified rule."
+        },
+        {
+            "rule": " throw if length of `_ids` is not the same as length of `_values`",
+            "type": "throw",
+            "interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "ArrLengthSelector",
+                            "value": {
+                                "type": "FuncParamSelector",
+                                "index": 2
+                            }
+                        },
+                        "right": {
+                            "type": "ArrLengthSelector",
+                            "value": {
+                                "type": "FuncParamSelector",
+                                "index": 3
+                            }
+                        },
+                        "op": "not_eq"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification, we need to define a `ThrowVerify` object that checks if the lengths of the `_ids` and `_values` arrays are not equal and throws an error if this condition is true. We will use the `ArrLengthSelector` to select the lengths of these arrays and a `CompCondition` to compare them.\n\nHere is the JSON configuration for the rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"ArrLengthSelector\",\n                \"value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 2\n                }\n            },\n            \"right\": {\n                \"type\": \"ArrLengthSelector\",\n                \"value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 3\n                }\n            },\n            \"op\": \"not_eq\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- The `ThrowVerify` object specifies that an exception should be thrown (`\"op\": \"throw\"`) if the condition specified in `\"cond\"` is met.\n- The condition (`\"cond\"`) is a `CompCondition` that compares the lengths of two arrays.\n- The `\"left\"` selector uses an `ArrLengthSelector` to get the length of the `_ids` array, which is the third parameter of the function (`\"index\": 2`).\n- The `\"right\"` selector uses an `ArrLengthSelector` to get the length of the `_values` array, which is the fourth parameter of the function (`\"index\": 3`).\n- The comparison operator `\"op\": \"not_eq\"` checks if the lengths are not equal.\n\nThis configuration ensures that the function will throw an error if the lengths of the `_ids` and `_values` arrays do not match, enforcing the rule specified."
+        },
+        {
+            "rule": " throw if on any other error",
+            "type": "throw",
+            "interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external"
+        },
+        {
+            "rule": "emit '['TransferSingle', 'TransferBatch']' if all the balance changes are reflected and the transfer conditions are met",
+            "type": "emit",
+            "interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferBatch",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "alternative_events": [
+                        "TransferSingle"
+                    ],
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule specified, we need to ensure that the `safeBatchTransferFrom` function emits either the `TransferSingle` or `TransferBatch` events when all balance changes are reflected and the transfer conditions are met. We will focus on the balance changes using the `balanceOf` function and its associated state variable `_balances`.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferBatch\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"alternative_events\": [\n            \"TransferSingle\"\n        ],\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **EmitVerify**: This is the main object that specifies the conditions under which specific events should be emitted.\n2. **event**: Specifies the primary event to check for, which is `TransferBatch`.\n3. **sv_cond**: Specifies the condition related to state variable changes.\n   - **WrittenCondition**: Indicates that we are checking for a write operation on a state variable.\n   - **StateVarSelector**: Selects the state variable to check. Here, it's the `_balances` mapping from the `balanceOf` function.\n   - **keys**: Specifies the keys used in the mapping. We use `FuncParamSelector` to select the token IDs (`_ids`) and the recipient address (`_to`) from the function parameters.\n4. **alternative_events**: Lists alternative events that can also satisfy the condition, which includes `TransferSingle`.\n5. **type**: Specifies the type of verification object, which is `EmitVerify`.\n\nThis configuration ensures that the rule checks for the emission of either `TransferBatch` or `TransferSingle` events when the `_balances` mapping is updated correctly during the execution of `safeBatchTransferFrom`."
+        },
+        {
+            "rule": "The return value of the function `balanceOf(address _owner, uint256 _id)` represents the quantity of tokens of a specific type (identified by `_id`) that are currently held by a particular account (specified by `_owner`). This function provides a way to check how many tokens of a certain type an account possesses at the time the function is called.",
+            "type": "semantic_return",
+            "interface": "function balanceOf(address _owner, uint256 _id) external view returns (uint256)"
+        },
+        {
+            "rule": "The return value of the function `balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids)` is an array of unsigned integers (`uint256[]`). Each element in this returned array represents the balance of a specific token held by a specific owner. The function takes two arrays as inputs: `_owners`, which contains the addresses of the token holders, and `_ids`, which contains the IDs of the tokens. The function returns the balances corresponding to each pair of owner and token ID provided in the input arrays.\n\nFor example, if the input arrays are `_owners = [address1, address2]` and `_ids = [token1, token2]`, the function will return an array where the first element is the balance of `token1` held by `address1`, the second element is the balance of `token2` held by `address1`, the third element is the balance of `token1` held by `address2`, and the fourth element is the balance of `token2` held by `address2`. Thus, the function systematically returns the balances for each combination of the provided owner addresses and token IDs.",
+            "type": "semantic_return",
+            "interface": "function balanceOfBatch(address[] calldata _owners, uint256[] calldata _ids) external view returns (uint256[] memory)"
+        },
+        {
+            "rule": "emit '['ApprovalForAll']' if on success",
+            "type": "emit",
+            "interface": "function setApprovalForAll(address _operator, bool _approved) external",
+            "sym": {
+                "EmitVerify": {
+                    "event": "ApprovalForAll",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "setApprovalForAll",
+                            "keys": [
+                                {
+                                    "type": "MsgSenderSelector"
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the function `setApprovalForAll(address _operator, bool _approved)`, we need to ensure that the event `ApprovalForAll` is emitted when the function is successfully executed. The state variable relevant to this function is `_operatorApprovals`, which maps from an account to operator approvals.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"ApprovalForAll\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"setApprovalForAll\",\n                \"keys\": [\n                    {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: We specify that the event `ApprovalForAll` should be emitted.\n2. **sv_cond**: This is a `WrittenCondition` indicating that the state variable `_operatorApprovals` should be written to when the function is called.\n   - **StateVarSelector**: This selector points to the state variable `_operatorApprovals`.\n   - **anchor_fn**: The function that triggers this condition is `setApprovalForAll`.\n   - **keys**: The keys for the mapping are:\n     - The message sender (`MsgSenderSelector`), which represents the account that is setting the approval.\n     - The first function parameter (`FuncParamSelector` with `index` 0), which represents the operator address being approved or disapproved.\n3. **type**: The type of verification is `EmitVerify`, which checks for the emission of a specific event under certain conditions.\n\nThis configuration ensures that the rule \"emit 'ApprovalForAll' if on success\" is adhered to by verifying that the `_operatorApprovals` mapping is appropriately modified when `setApprovalForAll` is called, and that the `ApprovalForAll` event is emitted as a result."
+        },
+        {
+            "rule": "The function `isApprovedForAll(address _owner, address _operator)` returns a boolean value that indicates whether the specified `_operator` address is authorized to manage all tokens owned by the `_owner` address. If the function returns `true`, it means that the `_operator` is approved to handle all tokens of the `_owner`. Conversely, if it returns `false`, the `_operator` does not have approval to manage the tokens of `_owner`.",
+            "type": "semantic_return",
+            "interface": "function isApprovedForAll(address _owner, address _operator) external view returns (bool)"
+        },
+        {
+            "rule": "not throw if caller must be approved to manage the tokens being transferred out of the `_from` account",
+            "type": "throw",
+            "interface": "function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) external",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "LogicCondition",
+                        "cond": [
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "right": {
+                                    "type": "MsgSenderSelector"
+                                },
+                                "op": "eq"
+                            },
+                            {
+                                "type": "CompCondition",
+                                "left": {
+                                    "type": "FnCallRetSelector",
+                                    "fn_name": "isApprovedForAll"
+                                },
+                                "right": {
+                                    "type": "ConstantSelector",
+                                    "value": true
+                                },
+                                "op": "eq"
+                            }
+                        ],
+                        "op": "or"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "To create a JSON configuration for the rule verification that the function `safeBatchTransferFrom` should not throw if the caller is approved to manage the tokens being transferred out of the `_from` account, we need to ensure that the caller (msg.sender) is either the `_from` address itself or is an approved operator for the `_from` address. This can be verified using the `isApprovedForAll` function, which checks if one address is an approved operator for another.\n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"LogicCondition\",\n            \"cond\": [\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"right\": {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    \"op\": \"eq\"\n                },\n                {\n                    \"type\": \"CompCondition\",\n                    \"left\": {\n                        \"type\": \"FnCallRetSelector\",\n                        \"fn_name\": \"isApprovedForAll\"\n                    },\n                    \"right\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": true\n                    },\n                    \"op\": \"eq\"\n                }\n            ],\n            \"op\": \"or\"\n        },\n        \"op\": \"not_throw\"\n    }\n}\n```\n\nExplanation:\n1. **LogicCondition**: This uses an \"or\" operation to combine two conditions:\n   - The first condition checks if the `_from` address (first function parameter, index 0) is equal to `msg.sender`. This is done using a `CompCondition` with an equality operation (`eq`).\n   - The second condition checks if `isApprovedForAll` returns `true` for the `_from` address and `msg.sender`. This is done using another `CompCondition` where the left side is a `FnCallRetSelector` selecting the return value of `isApprovedForAll`, and the right side is a `ConstantSelector` with the value `true`, also using an equality operation (`eq`).\n\n2. **ThrowVerify**: This specifies that the function should not throw (`not_throw`) if either of the conditions in the `LogicCondition` is true.\n\nThis configuration ensures that the function `safeBatchTransferFrom` does not throw an exception if the caller is either the owner of the tokens or an approved operator, thus adhering to the specified rule."
+        },
+        {
+            "rule": "emit 'TransferSingle'",
+            "type": "emit",
+            "interface": "event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);",
+            "if": {
+                "if": "tokens are transferred, including zero value transfers as well as minting or burning",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "MUST be the address of the holder whose balance is decreased"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "MUST be the address of the recipient whose balance is increased"
+                    },
+                    {
+                        "arg": 3,
+                        "rule": "MUST be the token type being transferred"
+                    },
+                    {
+                        "arg": 4,
+                        "rule": "MUST be the number of tokens the holder balance is decreased by and match what the recipient balance is increased by"
+                    }
+                ],
+                "alternative_events": [
+                    "TransferBatch"
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferSingle",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 3
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 0,
+                            "expected_value": {
+                                "type": "MsgSenderSelector"
+                            }
+                        },
+                        {
+                            "arg_index": 1,
+                            "expected_value": {
+                                "type": "FuncParamSelector",
+                                "index": 1
+                            }
+                        },
+                        {
+                            "arg_index": 2,
+                            "expected_value": {
+                                "type": "FuncParamSelector",
+                                "index": 2
+                            }
+                        },
+                        {
+                            "arg_index": 3,
+                            "expected_value": {
+                                "type": "FuncParamSelector",
+                                "index": 3
+                            }
+                        },
+                        {
+                            "arg_index": 4,
+                            "expected_value": {
+                                "type": "FuncParamSelector",
+                                "index": 4
+                            }
+                        }
+                    ],
+                    "alternative_events": [
+                        "TransferBatch"
+                    ],
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule associated with the `TransferSingle` event, we need to consider the conditions under which this event should be emitted. The event should be emitted when tokens are transferred, including zero value transfers as well as minting or burning. The arguments of the event must meet specific criteria as outlined in the rule.\n\nHere's the JSON configuration for verifying the `TransferSingle` event:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferSingle\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 3\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"type\": \"MsgSenderSelector\"\n                }\n            },\n            {\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 1\n                }\n            },\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 2\n                }\n            },\n            {\n                \"arg_index\": 3,\n                \"expected_value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 3\n                }\n            },\n            {\n                \"arg_index\": 4,\n                \"expected_value\": {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 4\n                }\n            }\n        ],\n        \"alternative_events\": [\"TransferBatch\"],\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: Specifies the event name `TransferSingle`.\n2. **sv_cond**: Specifies the condition under which the state variable `_balances` is written. This condition is linked to the `balanceOf` function, which is used to check balances of token IDs for specific addresses.\n3. **arg_verifiers**: Specifies the rules for each argument:\n   - `_operator` (index 0) must be the message sender.\n   - `_from` (index 1) must match the function's first argument.\n   - `_to` (index 2) must match the function's second argument.\n   - `_id` (index 3) must match the function's third argument.\n   - `_value` (index 4) must match the function's fourth argument.\n4. **alternative_events**: Specifies that `TransferBatch` can be an alternative event emitted under similar conditions.\n5. **type**: Specifies the type of verification object, which is `EmitVerify`.\n\nThis configuration ensures that the `TransferSingle` event is emitted following the specified rules and conditions, including the correct handling of arguments and state changes."
+        },
+        {
+            "rule": "emit 'TransferSingle'",
+            "type": "emit",
+            "interface": "event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);",
+            "if": {
+                "if": "minting/creating tokens",
+                "arg_rules": [
+                    {
+                        "arg": 1,
+                        "rule": "MUST be set to `0x0` (i.e. zero address)"
+                    }
+                ]
+            },
+            "sym": {
+                    "event": "TransferSingle",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0"
+                                }
+                            ]
+                        },
+                        "change_type": "token_creation"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 1,
+                            "value": {
+                                "type": "ConstantSelector",
+                                "value": "0x0"
+                            },
+                            
+                            "type": "ArgVerify"
+                        }
+                    ],
+                    "type": "EmitVerify"
+                }
+            
+        },
+        {
+            "rule": "emit 'TransferSingle'",
+            "type": "emit",
+            "interface": "event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value);",
+            "if": {
+                "if": "burning/destroying tokens",
+                "arg_rules": [
+                    {
+                        "arg": 2,
+                        "rule": "MUST be set to `0x0` (i.e. zero address)"
+                    }
+                ]
+            },
+            "sym": {
+                    "event": "TransferSingle",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0"
+                                }
+                            ]
+                        },
+                        "change_type": "token_burn"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 2,
+                            "value": {
+                                "type": "ConstantSelector",
+                                "value": "0x0"
+                            },
+                            
+                            "type": "ArgVerify"
+                        }
+                    ],
+                    "type": "EmitVerify"
+            
+            }
+        },
+        {
+            "rule": "emit 'TransferBatch'",
+            "type": "emit",
+            "interface": "event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);",
+            "if": {
+                "if": "tokens are transferred, including zero value transfers as well as minting or burning",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender)"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "MUST be the address of the holder whose balance is decreased"
+                    },
+                    {
+                        "arg": 2,
+                        "rule": "MUST be the address of the recipient whose balance is increased"
+                    },
+                    {
+                        "arg": 3,
+                        "rule": "MUST be the list of tokens being transferred"
+                    },
+                    {
+                        "arg": 4,
+                        "rule": "MUST be the list of number of tokens (matching the list and order of tokens specified in _ids) the holder balance is decreased by and match what the recipient balance is increased by"
+                    }
+                ],
+                "alternative_events": [
+                    "TransferSingle"
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferBatch",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 3
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                }
+                            ]
+                        }
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "MsgSenderSelector"
+                                }
+                            }
+                        },
+                        {
+                            "arg_index": 1,
+                            "expected_value": {
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            }
+                        },
+                        {
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 2
+                                }
+                            }
+                        },
+                        {
+                            "arg_index": 3,
+                            "expected_value": {
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 3
+                                }
+                            }
+                        },
+                        {
+                            "arg_index": 4,
+                            "expected_value": {
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 4
+                                }
+                            }
+                        }
+                    ],
+                    "alternative_events": [
+                        "TransferSingle"
+                    ],
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification schema for the rule associated with the `TransferBatch` event, we need to consider the conditions under which this event should be emitted. The event should be emitted when tokens are transferred, including zero value transfers as well as minting or burning. The arguments of the event must meet specific conditions as outlined in the rule.\n\nHere's the JSON schema for verifying the `TransferBatch` event:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferBatch\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 3\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    }\n                ]\n            }\n        },\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"MsgSenderSelector\"\n                    }\n                }\n            },\n            {\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                }\n            },\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 2\n                    }\n                }\n            },\n            {\n                \"arg_index\": 3,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 3\n                    }\n                }\n            },\n            {\n                \"arg_index\": 4,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 4\n                    }\n                }\n            }\n        ],\n        \"alternative_events\": [\"TransferSingle\"],\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the event name `TransferBatch`.\n- **sv_cond**: Specifies the condition related to state variable changes. Here, it checks if the balance of the recipient has been written to, which is a necessary condition for the `TransferBatch` event.\n- **arg_verifiers**: Specifies the conditions for each argument:\n  - **arg_index 0**: The operator must be the message sender (`msg.sender`).\n  - **arg_index 1**: The `_from` address must match the function's second argument.\n  - **arg_index 2**: The `_to` address must match the function's third argument.\n  - **arg_index 3**: The `_ids` list must match the function's fourth argument.\n  - **arg_index 4**: The `_values` list must match the function's fifth argument.\n- **alternative_events**: Specifies alternative events that could also be emitted under similar conditions, such as `TransferSingle`.\n- **type**: Specifies the type of verification object, which is `EmitVerify`.\n\nThis schema ensures that the `TransferBatch` event is emitted correctly according to the specified rules and conditions."
+        },
+        {
+            "rule": "emit 'TransferBatch'",
+            "type": "emit",
+            "interface": "event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);",
+            "if": {
+                "if": "minting/creating tokens",
+                "arg_rules": [
+                    {
+                        "arg": 1,
+                        "rule": "MUST be set to `0x0` (i.e. zero address)"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "TransferBatch",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0"
+                                }
+                            ]
+                        },
+                        "change_type": "token_creation"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 1,
+                            "expected_value": {
+                                "type": "ConstantSelector",
+                                "value": "0x0"
+                            }
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule description, we need to focus on the event `TransferBatch` and the condition that it should be emitted when tokens are being minted or created. The rule specifies that the `_from` argument (which is the second argument in the event, hence index 1) must be set to the zero address (`0x0`) during minting.\n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"TransferBatch\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"0x0\"\n                    }\n                ]\n            },\n            \"change_type\": \"token_creation\"\n        },\n        \"arg_verifiers\": [\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"type\": \"ConstantSelector\",\n                    \"value\": \"0x0\"\n                }\n            }\n        ]\n    }\n}\n```\n\n### Explanation:\n1. **EmitVerify**: This is the main object that specifies the verification of the `TransferBatch` event emission.\n2. **event**: Specifies the name of the event to verify, which is `TransferBatch`.\n3. **sv_cond**: Specifies the condition under which the event should be emitted. Here, it's a `WrittenCondition` indicating that the event should be emitted when tokens are being created.\n   - **StateVarSelector**: Points to the state variable relevant to the condition. In this case, it's the `balanceOf` function's mapping, which tracks token balances.\n   - **keys**: Specifies the keys used in the mapping. The first key is a `FuncParamSelector` pointing to the token ID (index 0), and the second key is a `ConstantSelector` with a value of `0x0` (zero address), indicating the creation of tokens.\n   - **change_type**: Specifies that this condition is related to token creation.\n4. **arg_verifiers**: An array of conditions that must be met by the arguments of the event.\n   - **ArgVerify**: Specifies the verification for an argument.\n   - **arg_index**: Indicates the index of the argument to verify, which is 1 (`_from`).\n   - **expected_value**: Specifies the expected value of the argument, which is the zero address (`0x0`).\n\nThis configuration ensures that the `TransferBatch` event is only considered valid if it is emitted during the creation of tokens and if the `_from` address is the zero address, as per the rule."
+        },
+        {
+            "rule": "emit 'TransferBatch'",
+            "type": "emit",
+            "interface": "event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values);",
+            "if": {
+                "if": "burning/destroying tokens",
+                "arg_rules": [
+                    {
+                        "arg": 2,
+                        "rule": "MUST be set to `0x0` (i.e. zero address)"
+                    }
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "TransferSingle",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 3
+                                },
+                                {
+                                    "type": "EventParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        },
+                        "change_type": "token_burn"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 2,
+                            "expected_value": {
+                                "value": {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0"
+                                }
+                            },
+                            "type": "ArgVerify"
+                        }
+                    ],
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule description, we need to focus on the event `TransferBatch` and the condition that it should be emitted when tokens are being burned or destroyed. The rule specifies that the `_to` argument (which is the third argument in the event, hence index 2) must be set to the zero address (`0x0`) when tokens are being burned.\n\nHere's the JSON configuration for this rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"TransferBatch\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 3\n                    },\n                    {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"0x0\"\n                    }\n                ]\n            },\n            \"change_type\": \"token_burn\"\n        },\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 2,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"0x0\"\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            }\n        ],\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **event**: Specifies the event name `TransferBatch` that needs to be verified.\n2. **sv_cond**: Specifies the condition under which the event should be emitted. Here, it's a `WrittenCondition` indicating a token burn scenario.\n   - **value**: Uses a `StateVarSelector` to select the state variable `_balances` from the `balanceOf` function. It checks if the balance of the token ID (from `_ids` which is the fourth argument in the event, hence index 3) for the zero address (`0x0`) is being written to, indicating a burn.\n3. **arg_verifiers**: Contains the rules for verifying the arguments of the event.\n   - **arg_index**: Specifies the index of the argument to verify, which is 2 for `_to`.\n   - **expected_value**: Specifies the expected value for the `_to` argument, which must be the zero address (`0x0`).\n\nThis configuration ensures that the `TransferBatch` event is only considered valid if it is emitted in the context of burning tokens and the `_to` address is set to `0x0`."
+        },
+        {
+            "rule": "emit 'ApprovalForAll'",
+            "type": "emit",
+            "interface": "event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);",
+            "if": {
+                "if": "approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled",
+                "arg_rules": [],
+                "emit": [
+                    "ApprovalForAll"
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "ApprovalForAll",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "isApprovedForAll",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule that emits the `ApprovalForAll` event when approval for a second party/operator address to manage all tokens for an owner address is enabled or disabled, we need to focus on the `isApprovedForAll` function and its associated state variable `_operatorApprovals`. This state variable directly relates to the condition described in the rule.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"ApprovalForAll\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"isApprovedForAll\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the event to be emitted, which is `ApprovalForAll`.\n- **sv_cond**: Specifies the condition under which the event should be emitted. It is a `WrittenCondition` indicating that the event should be emitted when there is a write operation on the state variable.\n  - **value**: Specifies the state variable that should be written to trigger the event. It uses a `StateVarSelector` to select the `_operatorApprovals` state variable.\n    - **anchor_fn**: The function associated with the state variable, which is `isApprovedForAll`.\n    - **keys**: Specifies the keys used in the mapping of the state variable. It uses `FuncParamSelector` to select the function parameters at index 0 and 1, which correspond to the owner address and the operator address, respectively.\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis configuration ensures that the `ApprovalForAll` event is emitted whenever there is a write operation to the `_operatorApprovals` mapping in the `isApprovedForAll` function, reflecting changes in the approval status of an operator for an owner."
+        },
+        {
+            "rule": "emit 'URI'",
+            "type": "emit",
+            "interface": "event URI(string _value, uint256 indexed _id);",
+            "if": {
+                "if": "the URI is updated for a token ID",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "MUST point to a JSON file that conforms to the 'ERC-1155 Metadata URI JSON Schema'"
+                    },
+                    {
+                        "arg": 1,
+                        "rule": "MUST be the token ID for which the URI is updated"
+                    }
+                ],
+                "emit": [
+                    "URI"
+                ]
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "URI",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                },
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": "address(this)"
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify",
+                    "arg_verifiers": [
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 0,
+                            "expected_value": {
+                                "type": "ArgVerifyExpectValue",
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                "cond": {
+                                    "type": "CompCondition",
+                                    "left": {
+                                        "type": "FuncParamSelector",
+                                        "index": 0
+                                    },
+                                    "right": {
+                                        "type": "ConstantSelector",
+                                        "value": "URL to JSON conforming to ERC-1155 Metadata URI JSON Schema"
+                                    },
+                                    "op": "eq"
+                                }
+                            }
+                        },
+                        {
+                            "type": "ArgVerify",
+                            "arg_index": 1,
+                            "expected_value": {
+                                "type": "ArgVerifyExpectValue",
+                                "value": {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule description, we need to focus on the event `URI` which should be emitted when the URI for a token ID is updated. The rule specifies that the URI must point to a JSON file conforming to the 'ERC-1155 Metadata URI JSON Schema' and the second argument must be the token ID for which the URI is updated.\n\nGiven the schema and the rule, we can construct the JSON configuration as follows:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"URI\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    },\n                    {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"address(this)\"\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\",\n        \"arg_verifiers\": [\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"type\": \"ArgVerifyExpectValue\",\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    \"cond\": {\n                        \"type\": \"CompCondition\",\n                        \"left\": {\n                            \"type\": \"FuncParamSelector\",\n                            \"index\": 0\n                        },\n                        \"right\": {\n                            \"type\": \"ConstantSelector\",\n                            \"value\": \"URL to JSON conforming to ERC-1155 Metadata URI JSON Schema\"\n                        },\n                        \"op\": \"eq\"\n                    }\n                }\n            },\n            {\n                \"type\": \"ArgVerify\",\n                \"arg_index\": 1,\n                \"expected_value\": {\n                    \"type\": \"ArgVerifyExpectValue\",\n                    \"value\": {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                }\n            }\n        ]\n    }\n}\n```\n\n### Explanation:\n1. **Event**: Specifies the event `URI` that needs to be emitted.\n2. **sv_cond**: Specifies a condition related to state variable changes. Here, it checks if there's a write to the `_balances` mapping for the token ID (second function parameter) and the contract itself (`address(this)`).\n3. **arg_verifiers**: Contains rules for verifying the arguments of the event:\n   - The first argument (index 0) must be a URL pointing to a JSON file conforming to the ERC-1155 Metadata URI JSON Schema.\n   - The second argument (index 1) must be the token ID for which the URI is updated.\n\nNote: The actual comparison for the URL to conform to the ERC-1155 Metadata URI JSON Schema is represented symbolically here as `\"URL to JSON conforming to ERC-1155 Metadata URI JSON Schema\"`. In practice, this would require a more complex validation mechanism possibly involving external tools or libraries to validate the URL against the schema."
+        }
+    ]
+}

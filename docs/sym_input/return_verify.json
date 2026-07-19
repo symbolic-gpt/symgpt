@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FuncParamSelector": {
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "const": "FuncParamSelector"
+        }
+      },
+      "required": [
+        "index",
+        "type"
+      ]
+    },
+    "ConstantSelector": {
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "integer"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "const": "ConstantSelector"
+        }
+      },
+      "required": [
+        "value",
+        "type"
+      ]
+    },
+    "CompCondition": {
+      "properties": {
+        "left": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            }
+          ]
+        },
+        "right": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FuncParamSelector"
+            },
+            {
+              "$ref": "#/definitions/ConstantSelector"
+            }
+          ]
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "not_eq",
+            "eq",
+            "gt",
+            "lt",
+            "gte",
+            "lte"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "const": "CompCondition"
+        }
+      },
+      "required": [
+        "left",
+        "right",
+        "op",
+        "type"
+      ]
+    },
+    "ReturnVerify": {
+      "properties": {
+        "ret_val": {
+          "$ref": "#/definitions/ConstantSelector"
+        },
+        "cond": {
+          "$ref": "#/definitions/CompCondition"
+        },
+        "type": {
+          "type": "string",
+          "const": "ReturnVerify"
+        },
+        "at_least_one": {
+          "type": "boolean",
+          "description": "This is optional. It requires only one of the control flow paths instead of every situation satisfy the condition instead of all."
+        }
+      },
+      "required": [
+        "ret_val",
+        "cond",
+        "type"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "ReturnVerify": {
+      "$ref": "#/definitions/ReturnVerify"
+    }
+  }
+}

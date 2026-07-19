@@ -1,0 +1,50 @@
+'solc --version' running
+'solc ./benchmark/smallext/EZOToken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/EZOToken.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/EZOToken.sol
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> benchmark/smallext/EZOToken.sol:84:5:
+   |
+84 |     constructor() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/EZOToken.sol:112:5:
+    |
+112 |     constructor() public {}
+    |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/EZOToken.sol:157:5:
+    |
+157 |     constructor(uint256 _value, address _sender) public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/EZOToken.sol:223:5:
+    |
+223 |     constructor() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> benchmark/smallext/EZOToken.sol:32:34:
+   |
+32 |     function safeMull(uint256 a, uint256 b) internal pure returns (uint256) {
+   |                                  ^^^^^^^^^
+
+Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> benchmark/smallext/EZOToken.sol:48:34:
+   |
+48 |     function safeDivv(uint256 a, uint256 b) internal pure returns (uint256) {
+   |                                  ^^^^^^^^^
+
+Warning: Unused local variable.
+   --> benchmark/smallext/EZOToken.sol:318:13:
+    |
+318 |             uint256 senderBalance = 0;
+    |             ^^^^^^^^^^^^^^^^^^^^^
+
+
+INFO:Slither:./benchmark/smallext/EZOToken.sol analyzed (8 contracts with 5 detectors), 0 result(s) found

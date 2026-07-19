@@ -1,0 +1,984 @@
+{
+    "functions": [
+        {
+            "def": "function name() public view returns (string)",
+            "raw_rules": "\nToken\n\nMethods\n\nNOTES:\nThe following specifications use syntax from Solidity 0.4.17 (or above). \nCallers MUST handle false from returns (bool success). Callers MUST NOT assume that false is never returned!\n\nname\nReturns the name of the token - e.g. \"MyToken\". OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.\n",
+            "format": {
+                "name": "name",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The `name` function, when called, returns a string that represents the name of the token. This name is typically a human-readable identifier or title for the token, such as \"MyToken\". The purpose of this function is primarily to enhance the usability and recognizability of the token within user interfaces or other applications that interact with the token. However, it is important to note that the presence of this name is optional, meaning that not all tokens are required to implement this function. Additionally, other contracts and interfaces should not rely on this function always being available or returning a valid result, as its implementation is not mandatory.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The `name` function, when called, returns a string that represents the name of the token. This name is typically a human-readable identifier or title for the token, such as \"MyToken\". The purpose of this function is primarily to enhance the usability and recognizability of the token within user interfaces or other applications that interact with the token. However, it is important to note that the presence of this name is optional, meaning that not all tokens are required to implement this function. Additionally, other contracts and interfaces should not rely on this function always being available or returning a valid result, as its implementation is not mandatory.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function symbol() public view returns (string)",
+            "raw_rules": "\nsymbol\nReturns the symbol of the token. E.g. \"HIX\". OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.\n",
+            "format": {
+                "name": "symbol",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "string"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The `symbol()` function in a smart contract, typically associated with token contracts such as those following the ERC-20 standard, is designed to return the symbol of the token. The symbol is a short, usually abbreviated string that represents the token, similar to a stock ticker. For example, the symbol for Bitcoin is \"BTC\", and for Ethereum, it is \"ETH\".\n\nThe purpose of the `symbol()` function is primarily to provide a recognizable and easy-to-use shorthand for the token when displayed in user interfaces like wallets or trading platforms. It helps users quickly identify the token without needing to refer to its full name or other details.\n\nThe return value of the `symbol()` function is a string that contains the token's symbol. This symbol is generally a few characters long, and it is used to represent the token succinctly in various applications and interfaces.\n\nIt is important to note that while the `symbol()` function enhances usability by providing a familiar and concise identifier for the token, it is optional. This means that not all token contracts are required to implement this function, and interfaces or other contracts should not rely on its presence to function correctly. They must handle cases where the `symbol()` function might not be implemented.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The `symbol()` function in a smart contract, typically associated with token contracts such as those following the ERC-20 standard, is designed to return the symbol of the token. The symbol is a short, usually abbreviated string that represents the token, similar to a stock ticker. For example, the symbol for Bitcoin is \"BTC\", and for Ethereum, it is \"ETH\".\n\nThe purpose of the `symbol()` function is primarily to provide a recognizable and easy-to-use shorthand for the token when displayed in user interfaces like wallets or trading platforms. It helps users quickly identify the token without needing to refer to its full name or other details.\n\nThe return value of the `symbol()` function is a string that contains the token's symbol. This symbol is generally a few characters long, and it is used to represent the token succinctly in various applications and interfaces.\n\nIt is important to note that while the `symbol()` function enhances usability by providing a familiar and concise identifier for the token, it is optional. This means that not all token contracts are required to implement this function, and interfaces or other contracts should not rely on its presence to function correctly. They must handle cases where the `symbol()` function might not be implemented.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function decimals() public view returns (uint8)",
+            "raw_rules": "\ndecimals\nReturns the number of decimals the token uses - e.g. 8, means to divide the token amount by 100000000 to get its user representation. OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.\n",
+            "format": {
+                "name": "decimals",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint8"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The `decimals()` function in a smart contract, typically associated with token standards like ERC-20, returns a uint8 value that indicates the number of decimal places used by the token. This value specifies how many decimal places are considered when dealing with the smallest unit of the token. For example, if the function returns 8, it means that each token can be divided down to 0.00000001 tokens. To convert from the smallest unit back to a standard user representation, you would divide the token amount by 10 raised to the power of the number of decimals (in this case, 10^8 or 100,000,000). This function is optional and is primarily used to enhance user interface experiences by providing more precise value representations of the token amounts. However, it is important for developers to note that not all contracts will implement this function, and it should not be assumed to always be present in a token contract.",
+                "return": [],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The `decimals()` function in a smart contract, typically associated with token standards like ERC-20, returns a uint8 value that indicates the number of decimal places used by the token. This value specifies how many decimal places are considered when dealing with the smallest unit of the token. For example, if the function returns 8, it means that each token can be divided down to 0.00000001 tokens. To convert from the smallest unit back to a standard user representation, you would divide the token amount by 10 raised to the power of the number of decimals (in this case, 10^8 or 100,000,000). This function is optional and is primarily used to enhance user interface experiences by providing more precise value representations of the token amounts. However, it is important for developers to note that not all contracts will implement this function, and it should not be assumed to always be present in a token contract.",
+                "return": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function totalSupply() public view returns (uint256)",
+            "raw_rules": "\ntotalSupply\nReturns the total token supply.\n",
+            "format": {
+                "name": "totalSupply",
+                "arg_types": [],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `totalSupply()` when called, returns the total number of tokens that currently exist in the system. This value is represented as an unsigned integer (uint256), indicating the complete count of all tokens issued under this contract.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `totalSupply()` when called, returns the total number of tokens that currently exist in the system. This value is represented as an unsigned integer (uint256), indicating the complete count of all tokens issued under this contract."
+            }
+        },
+        {
+            "def": "function balanceOf(address _owner) public view returns (uint256 balance)",
+            "raw_rules": "\nbalanceOf\nReturns the account balance of another account with address _owner.\n",
+            "format": {
+                "name": "balanceOf",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "balance",
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `balanceOf(address _owner)` represents the total balance or the number of tokens that the specified account, identified by the address `_owner`, currently holds in the context of a particular smart contract, typically within a blockchain environment like Ethereum. This function is commonly used in token-based systems, such as those following the ERC-20 standard, to query and retrieve the token balance of any given user or contract address.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `balanceOf(address _owner)` represents the total balance or the number of tokens that the specified account, identified by the address `_owner`, currently holds in the context of a particular smart contract, typically within a blockchain environment like Ethereum. This function is commonly used in token-based systems, such as those following the ERC-20 standard, to query and retrieve the token balance of any given user or contract address."
+            }
+        },
+        {
+            "def": "function transfer(address _to, uint256 _value) public returns (bool success)",
+            "raw_rules": "\ntransfer\nTransfers _value amount of tokens to address _to, and MUST fire the Transfer event. The function SHOULD throw if the message caller\u2019s account balance does not have enough tokens to spend. \nNote Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.\n",
+            "format": {
+                "name": "transfer",
+                "arg_types": [
+                    {
+                        "name": "_to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "success",
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "the message caller's account balance does not have enough tokens to spend",
+                        "throw": true
+                    },
+                    {
+                        "if": "Transfers of 0 values",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": "The return value of the function `transfer(address _to, uint256 _value) public returns (bool success)` indicates whether the token transfer was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the sender's account to the recipient's account (`_to`). If the function returns `false`, it indicates that the transfer did not succeed, which could be due to reasons such as the sender not having enough tokens in their balance to complete the transfer.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "Transfers of 0 values"
+                    }
+                ],
+                "emit": [
+                    {
+                        "emit": [
+                            "Transfer"
+                        ],
+                        "if": "transfer is called"
+                    }
+                ],
+                "assign": [],
+                "call": [],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"the message caller's account balance does not have enough tokens to spend\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"Transfers of 0 values\",\n        \"throw\": false\n    }\n]\n```",
+                "semantic_return": "The return value of the function `transfer(address _to, uint256 _value) public returns (bool success)` indicates whether the token transfer was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the sender's account to the recipient's account (`_to`). If the function returns `false`, it indicates that the transfer did not succeed, which could be due to reasons such as the sender not having enough tokens in their balance to complete the transfer.",
+                "return": "```json\n[\n    {\n        \"ret_value\": true,\n        \"if\": \"Transfers of 0 values\"\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"Transfer\"],\n        \"if\": \"transfer is called\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "[]",
+                "order": "The provided function description for `transfer` does not explicitly mention any conditions that need to be ordered based on a function parameter, especially not an array type parameter. The description focuses on the conditions under which the function operates (e.g., balance checks, event firing) but does not specify a sequence that depends on the ordering of an array-type parameter or any other parameter.\n\nGiven this, the correct JSON response indicating no order conditions based on the description provided would be an empty array:\n\n```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "raw_rules": "\ntransferFrom\nTransfers _value amount of tokens from address _from to address _to, and MUST fire the Transfer event. The transferFrom method is used for a withdraw workflow, allowing contracts to transfer tokens on your behalf. This can be used for example to allow a contract to transfer tokens on your behalf and/or to charge fees in sub-currencies. The function SHOULD throw unless the _from account has deliberately authorized the sender of the message via some mechanism. \nNote Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.\n",
+            "format": {
+                "name": "transferFrom",
+                "arg_types": [
+                    {
+                        "name": "_from",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "success",
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [
+                    {
+                        "if": "the _from account has not deliberately authorized the sender of the message via some mechanism",
+                        "throw": true
+                    },
+                    {
+                        "if": "Transfers of 0 values",
+                        "throw": false
+                    }
+                ],
+                "semantic_return": "The return value of the function `transferFrom(address _from, address _to, uint256 _value) public returns (bool success)` indicates whether the operation of transferring tokens was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the `_from` address to the `_to` address. Conversely, if the function returns `false`, it indicates that the transfer did not succeed. This could be due to various reasons such as insufficient balance in the `_from` account, lack of authorization for the sender to manage tokens on behalf of `_from`, or other constraints specified in the contract's logic.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "Transfers of 0 values"
+                    }
+                ],
+                "emit": [
+                    {
+                        "emit": [
+                            "Transfer"
+                        ],
+                        "if": "Transfers _value amount of tokens from address _from to address _to"
+                    },
+                    {
+                        "emit": [
+                            "Transfer"
+                        ],
+                        "if": "Transfers of 0 values"
+                    }
+                ],
+                "assign": [],
+                "call": [],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"the _from account has not deliberately authorized the sender of the message via some mechanism\",\n        \"throw\": true\n    },\n    {\n        \"if\": \"Transfers of 0 values\",\n        \"throw\": false\n    }\n]\n```",
+                "semantic_return": "The return value of the function `transferFrom(address _from, address _to, uint256 _value) public returns (bool success)` indicates whether the operation of transferring tokens was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the `_from` address to the `_to` address. Conversely, if the function returns `false`, it indicates that the transfer did not succeed. This could be due to various reasons such as insufficient balance in the `_from` account, lack of authorization for the sender to manage tokens on behalf of `_from`, or other constraints specified in the contract's logic.",
+                "return": "```json\n[\n    {\n        \"ret_value\": true,\n        \"if\": \"Transfers of 0 values\"\n    }\n]\n```",
+                "emit": "```json\n[\n    {\n        \"emit\": [\"Transfer\"],\n        \"if\": \"Transfers _value amount of tokens from address _from to address _to\"\n    },\n    {\n        \"emit\": [\"Transfer\"],\n        \"if\": \"Transfers of 0 values\"\n    }\n]\n```",
+                "assign": "[]",
+                "call": "```json\n[]\n```",
+                "order": "The description provided for the `transferFrom` function does not explicitly mention any conditions that need to be ordered based on a function parameter, especially not one of an array type. The description focuses on the requirements for the function to execute successfully, such as authorization checks and event firing, but does not specify a sequence that depends on the ordering of an array parameter or similar.\n\nGiven this, the JSON array reflecting the order conditions based on the provided description would be empty, as follows:\n\n```json\n[]\n```\n\nThis indicates that there are no specific \"order\" rules based on array parameters or similar in the description of the `transferFrom` function."
+            }
+        },
+        {
+            "def": "function approve(address _spender, uint256 _value) public returns (bool success)",
+            "raw_rules": "\napprove\nAllows _spender to withdraw from your account multiple times, up to the _value amount. If this function is called again it overwrites the current allowance with _value. \nNOTE: To prevent attack vectors like the one described here and discussed here, clients SHOULD make sure to create user interfaces in such a way that they set the allowance first to 0 before setting it to another value for the same spender. THOUGH The contract itself shouldn\u2019t enforce it, to allow backwards compatibility with contracts deployed before.\n",
+            "format": {
+                "name": "approve",
+                "arg_types": [
+                    {
+                        "name": "_spender",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256"
+                    }
+                ],
+                "optional": null,
+                "view": false,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "success",
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The return value of the function `approve(address _spender, uint256 _value)` indicates whether the operation of setting the allowance was successful or not. If the function returns `true`, it means that the allowance was successfully set, allowing the specified `_spender` to withdraw up to the `_value` amount from your account multiple times. If it returns `false`, the operation failed, and the allowance was not set as intended.",
+                "return": [],
+                "emit": [
+                    {
+                        "emit": [
+                            "Approval"
+                        ],
+                        "if": "function successfully executes"
+                    }
+                ],
+                "assign": [
+                    "allowance is reset to _value"
+                ],
+                "call": [],
+                "order": []
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The return value of the function `approve(address _spender, uint256 _value)` indicates whether the operation of setting the allowance was successful or not. If the function returns `true`, it means that the allowance was successfully set, allowing the specified `_spender` to withdraw up to the `_value` amount from your account multiple times. If it returns `false`, the operation failed, and the allowance was not set as intended.",
+                "return": "```json\n[]\n```",
+                "emit": "Based on the provided description of the `approve` function, there is no explicit mention of any events being emitted directly within the function's description. However, in typical implementations of the ERC-20 token standard, an event named `Approval` is emitted when the `approve` function is successfully executed. This event typically indicates that an approval has been granted by the owner of the tokens to a spender to use a specific amount of tokens.\n\nGiven this common practice, and assuming the standard behavior of the `approve` function in the context of ERC-20, the condition to trigger the event would be the successful execution of the function. The JSON representation of this condition, assuming the standard `Approval` event, would be:\n\n```json\n[\n    {\n        \"emit\": [\"Approval\"],\n        \"if\": \"function successfully executes\"\n    }\n]\n```\n\nThis JSON array indicates that the `Approval` event should be emitted if the `approve` function successfully executes. Note that the specific condition \"function successfully executes\" is a simplification to indicate that the function completes without reverting or throwing an error, and that the internal state changes (i.e., the allowance is set or updated) are successfully made.",
+                "assign": "```json\n[\n    \"allowance is reset to _value\"\n]\n```",
+                "call": "[]",
+                "order": "```json\n[]\n```"
+            }
+        },
+        {
+            "def": "function allowance(address _owner, address _spender) public view returns (uint256 remaining)",
+            "raw_rules": "\nallowance\nReturns the amount which _spender is still allowed to withdraw from _owner.\n",
+            "format": {
+                "name": "allowance",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address"
+                    },
+                    {
+                        "name": "_spender",
+                        "type": "address"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "name": "remaining",
+                    "type": "uint256"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `allowance(address _owner, address _spender)` returns the value `remaining`, which represents the maximum amount of tokens that the `_spender` is authorized to withdraw from the `_owner`'s account. This authorization is typically set through a previous transaction where the `_owner` specifies how many tokens the `_spender` is allowed to use on their behalf. The returned value indicates the remaining balance of this allowance that the `_spender` can still utilize.",
+                "return": null,
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[]\n```",
+                "semantic_return": "The function `allowance(address _owner, address _spender)` returns the value `remaining`, which represents the maximum amount of tokens that the `_spender` is authorized to withdraw from the `_owner`'s account. This authorization is typically set through a previous transaction where the `_owner` specifies how many tokens the `_spender` is allowed to use on their behalf. The returned value indicates the remaining balance of this allowance that the `_spender` can still utilize."
+            }
+        }
+    ],
+    "events": [
+        {
+            "def": "event Transfer(address indexed _from, address indexed _to, uint256 _value)",
+            "raw_rules": "\nEvents\n\nTransfer\nMUST trigger when tokens are transferred, including zero value transfers. A token contract which creates new tokens SHOULD trigger a Transfer event with the _from address set to 0x0 when tokens are created.\n",
+            "format": {
+                "name": "Transfer",
+                "arg_types": [
+                    {
+                        "name": "_from",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_to",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "tokens are transferred",
+                        "arg_rules": []
+                    },
+                    {
+                        "if": "zero value transfers",
+                        "arg_rules": []
+                    },
+                    {
+                        "if": "tokens are created",
+                        "arg_rules": [
+                            {
+                                "arg": 0,
+                                "rule": "MUST be set to 0x0"
+                            }
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"tokens are transferred\",\n        \"arg_rules\": [],\n        \"emit\": [\"Transfer\"]\n    },\n    {\n        \"if\": \"zero value transfers\",\n        \"arg_rules\": [],\n        \"emit\": [\"Transfer\"]\n    },\n    {\n        \"if\": \"tokens are created\",\n        \"arg_rules\": [\n            {\n                \"arg\": 0,\n                \"rule\": \"MUST be set to 0x0\"\n            }\n        ],\n        \"emit\": [\"Transfer\"]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        },
+        {
+            "def": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+            "raw_rules": "\nApproval\nMUST trigger on any successful call to approve(address _spender, uint256 _value).\n",
+            "format": {
+                "name": "Approval",
+                "arg_types": [
+                    {
+                        "name": "_owner",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_spender",
+                        "type": "address",
+                        "indexed": true
+                    },
+                    {
+                        "name": "_value",
+                        "type": "uint256",
+                        "indexed": false
+                    }
+                ]
+            },
+            "extracted": {
+                "emit": [
+                    {
+                        "if": "on any successful call to approve(address _spender, uint256 _value)",
+                        "arg_rules": [],
+                        "emit": [
+                            "Approval"
+                        ]
+                    }
+                ],
+                "assign": []
+            },
+            "extract_debug": {
+                "emit": "```json\n[\n    {\n        \"if\": \"on any successful call to approve(address _spender, uint256 _value)\",\n        \"arg_rules\": [],\n        \"emit\": [\"Approval\"]\n    }\n]\n```",
+                "assign": "[]"
+            }
+        }
+    ],
+    "name": "ERC20",
+    "rules": [
+        {
+            "rule": "The `name` function, when called, returns a string that represents the name of the token. This name is typically a human-readable identifier or title for the token, such as \"MyToken\". The purpose of this function is primarily to enhance the usability and recognizability of the token within user interfaces or other applications that interact with the token. However, it is important to note that the presence of this name is optional, meaning that not all tokens are required to implement this function. Additionally, other contracts and interfaces should not rely on this function always being available or returning a valid result, as its implementation is not mandatory.",
+            "type": "semantic_return",
+            "interface": "function name() public view returns (string)"
+        },
+        {
+            "rule": "The `symbol()` function in a smart contract, typically associated with token contracts such as those following the ERC-20 standard, is designed to return the symbol of the token. The symbol is a short, usually abbreviated string that represents the token, similar to a stock ticker. For example, the symbol for Bitcoin is \"BTC\", and for Ethereum, it is \"ETH\".\n\nThe purpose of the `symbol()` function is primarily to provide a recognizable and easy-to-use shorthand for the token when displayed in user interfaces like wallets or trading platforms. It helps users quickly identify the token without needing to refer to its full name or other details.\n\nThe return value of the `symbol()` function is a string that contains the token's symbol. This symbol is generally a few characters long, and it is used to represent the token succinctly in various applications and interfaces.\n\nIt is important to note that while the `symbol()` function enhances usability by providing a familiar and concise identifier for the token, it is optional. This means that not all token contracts are required to implement this function, and interfaces or other contracts should not rely on its presence to function correctly. They must handle cases where the `symbol()` function might not be implemented.",
+            "type": "semantic_return",
+            "interface": "function symbol() public view returns (string)"
+        },
+        {
+            "rule": "The `decimals()` function in a smart contract, typically associated with token standards like ERC-20, returns a uint8 value that indicates the number of decimal places used by the token. This value specifies how many decimal places are considered when dealing with the smallest unit of the token. For example, if the function returns 8, it means that each token can be divided down to 0.00000001 tokens. To convert from the smallest unit back to a standard user representation, you would divide the token amount by 10 raised to the power of the number of decimals (in this case, 10^8 or 100,000,000). This function is optional and is primarily used to enhance user interface experiences by providing more precise value representations of the token amounts. However, it is important for developers to note that not all contracts will implement this function, and it should not be assumed to always be present in a token contract.",
+            "type": "semantic_return",
+            "interface": "function decimals() public view returns (uint8)"
+        },
+        {
+            "rule": "The function `totalSupply()` when called, returns the total number of tokens that currently exist in the system. This value is represented as an unsigned integer (uint256), indicating the complete count of all tokens issued under this contract.",
+            "type": "semantic_return",
+            "interface": "function totalSupply() public view returns (uint256)"
+        },
+        {
+            "rule": "The return value of the function `balanceOf(address _owner)` represents the total balance or the number of tokens that the specified account, identified by the address `_owner`, currently holds in the context of a particular smart contract, typically within a blockchain environment like Ethereum. This function is commonly used in token-based systems, such as those following the ERC-20 standard, to query and retrieve the token balance of any given user or contract address.",
+            "type": "semantic_return",
+            "interface": "function balanceOf(address _owner) public view returns (uint256 balance)"
+        },
+        {
+            "rule": "The return value of the function `transfer(address _to, uint256 _value) public returns (bool success)` indicates whether the token transfer was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the sender's account to the recipient's account (`_to`). If the function returns `false`, it indicates that the transfer did not succeed, which could be due to reasons such as the sender not having enough tokens in their balance to complete the transfer.",
+            "type": "semantic_return",
+            "interface": "function transfer(address _to, uint256 _value) public returns (bool success)"
+        },
+        {
+            "rule": " throw if the message caller's account balance does not have enough tokens to spend",
+            "type": "throw",
+            "interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "MsgSenderSelector"
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "op": "lt"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the function `transfer(address _to, uint256 _value)`, we need to ensure that the function throws if the message caller's account balance does not have enough tokens to spend. This involves checking that the balance of the message sender is greater than or equal to the value they wish to transfer.\n\nGiven the JSON schema provided, we will use the `ThrowVerify` object to define this rule. We will use a `CompCondition` to compare the balance of the message sender (retrieved using a `StateVarSelector` from the `balanceOf` function) with the `_value` parameter of the `transfer` function (retrieved using a `FuncParamSelector`).\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"MsgSenderSelector\"\n                    }\n                ]\n            },\n            \"right\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"op\": \"lt\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that we are defining a condition under which the function should throw an error.\n- **cond**: This is the condition that needs to be met for the function to throw.\n  - **type**: \"CompCondition\" specifies that we are comparing two values.\n  - **left**: This selects the balance of the message sender. It uses a `StateVarSelector` to select the balance from the `_balances` mapping, using the message sender's address (`MsgSenderSelector`).\n  - **right**: This selects the `_value` parameter of the `transfer` function, which is the amount the sender wants to transfer.\n  - **op**: \"lt\" (less than) specifies that the throw should happen if the left side (sender's balance) is less than the right side (transfer value).\n- **op**: \"throw\" specifies that the function should throw an error if the condition is true.\n\nThis configuration ensures that the `transfer` function will throw an error if the sender does not have enough tokens to complete the transfer, adhering to the rule specified."
+        },
+        {
+            "rule": "not throw if Transfers of 0 values",
+            "type": "throw",
+            "interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification that the function `transfer(address _to, uint256 _value)` should not throw when transferring a value of 0, we need to construct a `ThrowVerify` object that specifies the condition under which the function should not throw an exception.\n\nGiven the rule and the JSON schema provided, we need to create a condition that checks if the `_value` parameter of the `transfer` function is equal to 0. If this condition is true, the function should not throw an exception.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"not_throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This is the main object that specifies the verification rule.\n- **type**: Set to \"ThrowVerify\" to indicate the type of verification.\n- **cond**: This is the condition under which the rule applies.\n  - **type**: Set to \"CompCondition\" to indicate a comparison condition.\n  - **left**: Specifies the left operand of the comparison, which is the second parameter (`_value`) of the `transfer` function. It uses a `FuncParamSelector` with an `index` of 1 (0-based index, where 0 is `_to` and 1 is `_value`).\n  - **right**: Specifies the right operand of the comparison, which is a constant value of 0. It uses a `ConstantSelector`.\n  - **op**: The operation \"eq\" stands for \"equals\", checking if `_value` equals 0.\n- **op**: Set to \"not_throw\" to specify that the function should not throw an exception when the condition is true.\n\nThis JSON configuration ensures that the `transfer` function adheres to the rule of not throwing an exception when attempting to transfer a value of 0."
+        },
+        {
+            "rule": "return True if Transfers of 0 values",
+            "type": "return",
+            "interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 1
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema, we need to define a `ReturnVerify` object that checks if the function `transfer(address _to, uint256 _value)` returns `true` when `_value` is `0`. \n\nHere's the JSON configuration for the rule:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 1\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **ReturnVerify**: This is the main object that specifies the rule for verifying the return value of the function.\n- **ret_val**: This specifies the expected return value of the function. In this case, it is `true`.\n- **cond**: This is the condition that needs to be satisfied for the rule to apply. It checks if the second parameter (`_value`, index 1) of the `transfer` function is equal to `0`.\n  - **left**: This selects the second parameter of the function using `FuncParamSelector` with `index` 1.\n  - **right**: This uses a `ConstantSelector` to specify the constant value `0`.\n  - **op**: This specifies the operation to compare the left and right values. Here, `eq` stands for \"equals\".\n\nThis configuration ensures that the `transfer` function should return `true` when the `_value` parameter is `0`, according to the rule specified."
+        },
+        {
+            "rule": "emit '['Transfer']' if transfer is called",
+            "type": "emit",
+            "interface": "function transfer(address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "transfer",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "within_call_fn": "transfer"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule \"emit 'Transfer' if transfer is called\", we need to focus on the `EmitVerify` definition. The rule does not specify conditions based on state variable changes or specific argument values, so we will not include conditions related to state variable changes (`sv_cond`) or argument verifications (`arg_verifiers`). The rule simply requires that the 'Transfer' event is emitted whenever the 'transfer' function is called.\n\nHere is the JSON configuration for the rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"transfer\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"within_call_fn\": \"transfer\"\n    }\n}\n```\n\nExplanation:\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n- **event**: Specifies the name of the event that should be emitted, which is 'Transfer'.\n- **sv_cond**: This is a condition that checks if a state variable is written. In this case, we assume that the 'transfer' function modifies the balance of an address, which is a simplification for the purpose of this example. The `StateVarSelector` is used to select the balance of the address passed as the first parameter to the 'transfer' function.\n  - **type**: Specifies the type of condition, which is `WrittenCondition`.\n  - **value**: Specifies the state variable to check. It uses a `StateVarSelector` to point to the balance mapping modified in the 'transfer' function.\n    - **anchor_fn**: The function in which the state variable is anchored, here assumed to be 'transfer'.\n    - **keys**: Specifies the keys used in the mapping. It uses a `FuncParamSelector` to indicate that the first function parameter (address `_to`) is used as the key.\n- **within_call_fn**: Specifies that the event should be emitted within the call to the 'transfer' function.\n\nThis configuration assumes that the 'transfer' function modifies the balance of the address passed as the first parameter, which is typical in token transfer functions. Adjustments might be needed based on the actual implementation details of the 'transfer' function in the smart contract."
+        },
+        {
+            "rule": "The return value of the function `transferFrom(address _from, address _to, uint256 _value) public returns (bool success)` indicates whether the operation of transferring tokens was successful or not. If the function returns `true`, it means that the specified amount of tokens (`_value`) was successfully transferred from the `_from` address to the `_to` address. Conversely, if the function returns `false`, it indicates that the transfer did not succeed. This could be due to various reasons such as insufficient balance in the `_from` account, lack of authorization for the sender to manage tokens on behalf of `_from`, or other constraints specified in the contract's logic.",
+            "type": "semantic_return",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)"
+        },
+        {
+            "rule": " throw if the _from account has not deliberately authorized the sender of the message via some mechanism",
+            "type": "throw",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "allowance",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "MsgSenderSelector"
+                                }
+                            ]
+                        },
+                        "right": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "op": "lt"
+                    },
+                    "op": "throw"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the `transferFrom` function, we need to ensure that the `_from` account has authorized the sender of the message (`msg.sender`) to transfer tokens on its behalf. This authorization is typically managed through the `_allowances` mapping in ERC-20 token contracts, where `_allowances[_from][msg.sender]` should be greater than or equal to `_value` for the transfer to be valid.\n\nGiven the JSON schema provided and the rule to be verified, we will construct a JSON object that checks if the allowance for `msg.sender` from `_from` is not less than `_value`. If this condition is not met, the function should throw an error.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"allowance\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"MsgSenderSelector\"\n                    }\n                ]\n            },\n            \"right\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"op\": \"lt\"\n        },\n        \"op\": \"throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies that the function should throw based on the condition provided.\n- **CompCondition**: This object compares two values using the specified operator.\n  - **left**: This selects the allowance value for `_from` and `msg.sender` from the `_allowances` mapping.\n    - **StateVarSelector**: This selects a state variable.\n    - **anchor_fn**: \"allowance\" indicates that we are selecting from the `_allowances` mapping.\n    - **keys**: Specifies the keys to access the correct value in the mapping. The first key is `_from` (the first function parameter), and the second key is `msg.sender`.\n  - **right**: This selects the `_value` parameter of the `transferFrom` function.\n  - **op**: \"lt\" stands for \"less than\", checking if the allowance is less than the value to be transferred.\n- **op**: \"throw\" specifies that the function should throw an error if the condition is true (i.e., if the allowance is less than the required value).\n\nThis configuration ensures that the `transferFrom` function throws an error if the sender is not authorized to transfer the specified amount of tokens from the `_from` account."
+        },
+        {
+            "rule": "not throw if Transfers of 0 values",
+            "type": "throw",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ThrowVerify": {
+                    "type": "ThrowVerify",
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "op": "not_throw"
+                }
+            },
+            "sym_debug": "To create a JSON configuration for the rule verification that the `transferFrom` function should not throw when transferring a value of 0, we need to define a condition that checks if the `_value` parameter of the `transferFrom` function is equal to 0. If this condition is true, the function should not throw an exception.\n\nHere's the JSON configuration based on the provided schema:\n\n```json\n{\n    \"ThrowVerify\": {\n        \"type\": \"ThrowVerify\",\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        },\n        \"op\": \"not_throw\"\n    }\n}\n```\n\nExplanation:\n- **ThrowVerify**: This object specifies the verification rule related to throwing exceptions.\n- **cond**: This is the condition under which the rule applies.\n  - **CompCondition**: This specifies a comparison condition.\n  - **left**: This selects the third parameter (`_value`) of the `transferFrom` function (parameters are zero-indexed, so index 2 corresponds to the third parameter).\n  - **right**: This specifies a constant value of 0.\n  - **op**: The operation `eq` checks for equality between the left and right values.\n- **op**: The operation `not_throw` specifies that the function should not throw an exception when the condition is true.\n\nThis configuration ensures that the `transferFrom` function does not throw an exception when the transfer amount `_value` is 0, adhering to the specified rule."
+        },
+        {
+            "rule": "return True if Transfers of 0 values",
+            "type": "return",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema, we need to define a `ReturnVerify` object that checks if the `_value` parameter of the `transferFrom` function is zero and, if so, ensures that the function returns `true`. \n\nHere's the JSON configuration for the rule:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **ReturnVerify**: This is the main object that specifies the rule for verifying the return value of the function.\n- **ret_val**: This specifies the expected return value when the condition is met. Here, it is set to `true` (boolean).\n- **cond**: This is the condition that needs to be satisfied for the rule to apply. It checks if the third parameter (`_value`, index 2) of the `transferFrom` function is equal to `0`.\n  - **left**: This selects the third parameter of the function using `FuncParamSelector` with `index` set to `2`.\n  - **right**: This uses a `ConstantSelector` to specify the constant value `0`.\n  - **op**: The operation `eq` checks for equality between the left and right values.\n\nThis configuration ensures that the function should return `true` when the `_value` parameter is `0`, as per the rule specified."
+        },
+        {
+            "rule": "emit '['Transfer']' if Transfers _value amount of tokens from address _from to address _to",
+            "type": "emit",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        },
+                        "change_type": "increase"
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the `transferFrom` function, we need to ensure that the `Transfer` event is emitted when the `_value` amount of tokens is transferred from `_from` to `_to`. The JSON schema provided outlines how to structure this verification.\n\nGiven the rule and the schema, we need to focus on the `EmitVerify` definition, particularly ensuring that the `Transfer` event is emitted when the balance of `_to` increases by `_value`. We will use the `balanceOf` state variable for this purpose.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            },\n            \"change_type\": \"increase\"\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: We specify that the event to verify is `Transfer`.\n2. **sv_cond**:\n   - **type**: It's a `WrittenCondition`, meaning we are checking a condition based on a write operation to a state variable.\n   - **value**:\n     - **type**: `StateVarSelector` selects a state variable.\n     - **anchor_fn**: `balanceOf` is the function associated with the state variable we are interested in.\n     - **keys**: We use a `FuncParamSelector` to dynamically select the second function parameter (`_to`), which is at index 1 (0-based index).\n   - **change_type**: We specify `increase` to check that the balance of `_to` increases.\n3. **type**: This is set to `EmitVerify` to indicate the type of verification being configured.\n\nThis configuration ensures that the `Transfer` event must be emitted when the balance of the `_to` address increases, which corresponds to the transfer of `_value` tokens from `_from` to `_to` as per the `transferFrom` function's behavior."
+        },
+        {
+            "rule": "emit '['Transfer']' if Transfers of 0 values",
+            "type": "emit",
+            "interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "anchor_fn": "balanceOf",
+                            "type": "StateVarSelector",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule \"emit 'Transfer' if transfers of 0 values\" using the provided JSON schema, we need to specify conditions that check if the `_value` parameter of the `transferFrom` function is zero. When this condition is met, the `Transfer` event should be emitted. Here's how you can structure the JSON configuration:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"anchor_fn\": \"balanceOf\",\n                \"type\": \"StateVarSelector\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **event**: Specifies the event to be emitted, which is `Transfer`.\n2. **sv_cond**: Specifies a condition related to state variable changes. Here, it checks the `_balances` mapping, which is modified in the `transferFrom` function.\n   - **anchor_fn**: `balanceOf` is used as the anchor function since it directly relates to the `_balances` mapping.\n   - **keys**: Uses a `FuncParamSelector` to select the `_to` address (index 1 of the function parameters) as the key for the `_balances` mapping.\n3. **cond**: Specifies a comparison condition.\n   - **left**: Selects the third parameter (`_value`) of the `transferFrom` function.\n   - **right**: A constant selector with a value of 0, to compare against the `_value`.\n   - **op**: The operation is `eq` (equals), to check if `_value` is equal to 0.\n4. **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis configuration ensures that the `Transfer` event is emitted if the `_value` parameter in the `transferFrom` function is zero, adhering to the rule specified."
+        },
+        {
+            "rule": "The return value of the function `approve(address _spender, uint256 _value)` indicates whether the operation of setting the allowance was successful or not. If the function returns `true`, it means that the allowance was successfully set, allowing the specified `_spender` to withdraw up to the `_value` amount from your account multiple times. If it returns `false`, the operation failed, and the allowance was not set as intended.",
+            "type": "semantic_return",
+            "interface": "function approve(address _spender, uint256 _value) public returns (bool success)"
+        },
+        {
+            "rule": "allowance is reset to _value",
+            "type": "assign",
+            "interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+            "sym_debug": "To generate the JSON configuration for verifying the rule that the `allowance` function resets the allowance to `_value`, we need to specify that the state variable `_allowances` is set to the value of the `_value` parameter of the `approve` function. Here's how you can structure the JSON configuration based on the provided schema:\n\n1. **Function**: `approve(address _spender, uint256 _value)`\n2. **State Variable**: `_allowances`\n3. **Operation**: Overwrite the value of `_allowances[msg.sender][_spender]` with `_value`.\n\nGiven the schema and the rule, the JSON configuration would look like this:\n\n```json\n{\n    \"StateAssignVerify\": {\n        \"type\": \"StateAssignVerify\",\n        \"state\": {\n            \"type\": \"StateVarSelector\",\n            \"anchor_fn\": \"approve\",\n            \"keys\": [\n                \"msg.sender\",\n                {\n                    \"type\": \"FuncParamSelector\",\n                    \"index\": 0\n                }\n            ]\n        },\n        \"value\": {\n            \"type\": \"FuncParamSelector\",\n            \"index\": 1\n        },\n        \"op\": \"overwrite\"\n    }\n}\n```\n\n### Explanation:\n- **StateAssignVerify**: This is the main verification object.\n- **state**: This selects the state variable `_allowances` to be verified.\n  - **anchor_fn**: `approve` is the function where the state variable is being modified.\n  - **keys**: This specifies the keys used in the mapping. `msg.sender` is the sender of the transaction, and the first function parameter (`_spender`) is accessed using a `FuncParamSelector` with an index of 0.\n- **value**: This specifies the value that `_allowances[msg.sender][_spender]` should be set to, which is the second parameter of the `approve` function (`_value`), accessed using a `FuncParamSelector` with an index of 1.\n- **op**: \"overwrite\" specifies that the operation performed on the state variable should be an overwrite, which aligns with setting the allowance to a new value.\n\nThis JSON configuration ensures that the rule \"allowance is reset to _value\" is correctly verified for the `approve` function in a smart contract.",
+            "sym": {
+                "StateAssignVerify": {
+                    "type": "StateAssignVerify",
+                    "state": {
+                        "type": "StateVarSelector",
+                        "anchor_fn": "approve",
+                        "keys": [
+                            "msg.sender",
+                            {
+                                "type": "FuncParamSelector",
+                                "index": 0
+                            }
+                        ]
+                    },
+                    "value": {
+                        "type": "FuncParamSelector",
+                        "index": 1
+                    },
+                    "op": "overwrite"
+                }
+            }
+        },
+        {
+            "rule": "emit '['Approval']' if function successfully executes",
+            "type": "emit",
+            "interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Approval",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "allowance",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification of the function `approve(address _spender, uint256 _value) public returns (bool success)` which requires the emission of the `Approval` event upon successful execution, we need to define the conditions under which this event should be emitted. The rule states that the event should be emitted if the function executes successfully.\n\nGiven the schema and the possible anchor functions, we can infer that the `Approval` event is likely related to the allowance state variable (`_allowances`). The `approve` function typically modifies this mapping to set the allowance of `_spender` by the caller (`msg.sender`) to `_value`.\n\nHere is the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Approval\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"allowance\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the name of the event to be verified, which is `Approval`.\n- **sv_cond**: Specifies the condition related to state variable writing.\n  - **type**: Indicates that this is a condition related to writing to a state variable (`WrittenCondition`).\n  - **value**: Specifies the state variable selector.\n    - **type**: Indicates that this is a state variable selector (`StateVarSelector`).\n    - **anchor_fn**: Specifies the function associated with the state variable, which is `allowance` in this case.\n    - **keys**: Specifies the keys used in the mapping. Here, the first key is the `_spender` (index 0 of function parameters) and the second key is the `msg.sender` (index 1 of function parameters, inferred from typical usage of `approve`).\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis configuration assumes that the `Approval` event is emitted whenever the `_allowances` mapping is written to during the execution of the `approve` function, reflecting a change in allowance settings. Note that additional conditions or verifications might be required based on the specific implementation details of the smart contract and the `Approval` event parameters."
+        },
+        {
+            "rule": "The function `allowance(address _owner, address _spender)` returns the value `remaining`, which represents the maximum amount of tokens that the `_spender` is authorized to withdraw from the `_owner`'s account. This authorization is typically set through a previous transaction where the `_owner` specifies how many tokens the `_spender` is allowed to use on their behalf. The returned value indicates the remaining balance of this allowance that the `_spender` can still utilize.",
+            "type": "semantic_return",
+            "interface": "function allowance(address _owner, address _spender) public view returns (uint256 remaining)"
+        },
+        {
+            "rule": "emit 'Transfer'",
+            "type": "emit",
+            "interface": "event Transfer(address indexed _from, address indexed _to, uint256 _value)",
+            "if": {
+                "if": "tokens are transferred",
+                "arg_rules": []
+            },
+            "sym": {
+                "EmitVerify": {
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        },
+                        "change_type": "change"
+                    },
+                    "type": "EmitVerify"
+                }
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule \"emit 'Transfer' if tokens are transferred,\" we need to specify the conditions under which the `Transfer` event should be emitted. According to the rule, the event should be emitted whenever tokens are transferred, which typically involves a change in the `_balances` mapping state variable.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            },\n            \"change_type\": \"change\"\n        },\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: Specifies the event to be verified, which is `Transfer`.\n2. **sv_cond**:\n   - **type**: Indicates that this is a condition based on a state variable being written to.\n   - **value**:\n     - **type**: Specifies that we are selecting a state variable.\n     - **anchor_fn**: The function associated with the state variable, which is `balanceOf` in this case.\n     - **keys**: Specifies the keys used to access the state variable. Here, it uses the first function parameter (index 0) of the `balanceOf` function, which corresponds to the address whose balance is being checked.\n   - **change_type**: Specifies that the condition is triggered by any change in the state variable.\n3. **type**: Specifies that this is an `EmitVerify` configuration.\n\nThis configuration asserts that the `Transfer` event should be emitted whenever there is a change in the `_balances` mapping, which aligns with the typical behavior of a token transfer in a smart contract."
+        },
+        {
+            "rule": "emit 'Transfer'",
+            "type": "emit",
+            "interface": "event Transfer(address indexed _from, address indexed _to, uint256 _value)",
+            "if": {
+                "if": "zero value transfers",
+                "arg_rules": []
+            },
+            "sym": {
+                "EmitVerify": {
+                    "type": "EmitVerify",
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "balanceOf",
+                            "keys": [
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 1
+                                }
+                            ]
+                        }
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 2
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 0
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule \"emit 'Transfer' if {'if': 'zero value transfers', 'arg_rules': []}\", we need to construct a JSON object that specifies the conditions under which the `Transfer` event should be emitted. The rule specifies that the event should be emitted for zero value transfers, which means we need to check if the `_value` parameter of the `Transfer` event is zero.\n\nHere's the JSON configuration for the rule:\n\n```json\n{\n    \"EmitVerify\": {\n        \"type\": \"EmitVerify\",\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"balanceOf\",\n                \"keys\": [\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 1\n                    }\n                ]\n            }\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 2\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 0\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **EmitVerify**: This is the main object that specifies the verification for the `Transfer` event emission.\n- **event**: Specifies the name of the event, which is `Transfer`.\n- **sv_cond**: Specifies a condition related to state variables. Here, it's used to select the balance of the `_to` address (second parameter of the `Transfer` event) from the `balanceOf` function. This is not directly necessary for checking zero value transfers but is included to demonstrate the use of `StateVarSelector`.\n- **cond**: This is the condition that checks if the `_value` (third parameter of the `Transfer` event) is equal to zero. This is the core condition for the rule \"emit 'Transfer' if zero value transfers\".\n  - **left**: Selects the third parameter (`_value`) of the `Transfer` event.\n  - **right**: A constant selector with a value of 0.\n  - **op**: The operation \"eq\" stands for \"equals\", checking if `_value` equals 0.\n\nThis JSON configuration should be validated and possibly adjusted based on the actual implementation details and the specific requirements of the system where it will be used."
+        },
+        {
+            "rule": "emit 'Transfer'",
+            "type": "emit",
+            "interface": "event Transfer(address indexed _from, address indexed _to, uint256 _value)",
+            "if": {
+                "if": "tokens are created",
+                "arg_rules": [
+                    {
+                        "arg": 0,
+                        "rule": "MUST be set to 0x0"
+                    }
+                ]
+            },
+            "sym_debug": "To generate the JSON verification configuration for the rule specified, we need to focus on the event `Transfer` and the condition that it should be emitted when tokens are created, with the `_from` argument set to `0x0`. Here's how the JSON configuration would look based on the schema provided:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Transfer\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"totalSupply\",\n                \"keys\": [\n                    {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"_tTotal\"\n                    }\n                ]\n            },\n            \"written_type\": \"token_creation\"\n        },\n        \"arg_verifiers\": [\n            {\n                \"arg_index\": 0,\n                \"expected_value\": {\n                    \"value\": {\n                        \"type\": \"ConstantSelector\",\n                        \"value\": \"0x0\"\n                    }\n                },\n                \"type\": \"ArgVerify\"\n            }\n        ],\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\n### Explanation:\n1. **Event**: We specify the event name `Transfer` which needs to be verified.\n2. **sv_cond**: This is the condition under which the event should be emitted. We use a `WrittenCondition` to specify that the event should be emitted when tokens are created. The `value` field uses a `StateVarSelector` to link to the `totalSupply` function, which is related to token creation.\n   - **anchor_fn**: `totalSupply` is used as it directly relates to the total tokens available.\n   - **keys**: We use a `ConstantSelector` to specify the constant `_tTotal` which represents the total supply of tokens.\n   - **written_type**: Set to `token_creation` to specify that this condition is related to the creation of tokens.\n3. **arg_verifiers**: This array contains conditions for the arguments of the event.\n   - **arg_index**: `0` indicates the first argument `_from`.\n   - **expected_value**: Specifies that the value of `_from` must be `0x0` when tokens are created. This is done using a `ConstantSelector`.\n4. **type**: Set to `EmitVerify` to indicate the type of verification being defined.\n\nThis JSON configuration ensures that the `Transfer` event is only considered valid if it is emitted in the context of token creation, specifically when the `_from` address is `0x0`.",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Transfer",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "totalSupply",
+                            "keys": [
+                                {
+                                    "type": "ConstantSelector",
+                                    "value": "_tTotal"
+                                }
+                            ]
+                        },
+                        "written_type": "token_creation"
+                    },
+                    "arg_verifiers": [
+                        {
+                            "arg_index": 0,
+                            "expected_value": {
+                                "value": {
+                                    "type": "ConstantSelector",
+                                    "value": "0x0"
+                                }
+                            },
+                            "type": "ArgVerify"
+                        }
+                    ],
+                    "type": "EmitVerify"
+                }
+            }
+        },
+        {
+            "rule": "emit 'Approval'",
+            "type": "emit",
+            "interface": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+            "if": {
+                "if": "on any successful call to approve(address _spender, uint256 _value)",
+                "arg_rules": [],
+                "emit": [
+                    "Approval"
+                ]
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema and the rule description, we need to focus on the event `Approval` which should be emitted on any successful call to the `approve(address _spender, uint256 _value)` function. Since the rule does not specify any conditions on the arguments or state variables, the JSON will primarily focus on the event emission tied to the function call.\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"EmitVerify\": {\n        \"event\": \"Approval\",\n        \"sv_cond\": {\n            \"type\": \"WrittenCondition\",\n            \"value\": {\n                \"type\": \"StateVarSelector\",\n                \"anchor_fn\": \"approve\",\n                \"keys\": [\n                    {\n                        \"type\": \"MsgSenderSelector\"\n                    },\n                    {\n                        \"type\": \"FuncParamSelector\",\n                        \"index\": 0\n                    }\n                ]\n            }\n        },\n        \"within_call_fn\": \"approve\",\n        \"type\": \"EmitVerify\"\n    }\n}\n```\n\nExplanation:\n- **event**: Specifies the name of the event to be verified, which is `Approval`.\n- **sv_cond**: Specifies the condition related to state variable changes. Here, it's a `WrittenCondition` indicating that the state variable `_allowances` should be written to during the function call. The `anchor_fn` is set to `approve`, and the keys indicate that the mapping is accessed using the message sender and the first function parameter (spender).\n- **within_call_fn**: Indicates that the event emission should be verified within the context of the `approve` function call.\n- **type**: Specifies the type of verification, which is `EmitVerify`.\n\nThis configuration assumes that the `approve` function modifies the `_allowances` mapping, and the `Approval` event should be emitted whenever this happens. The JSON schema provided is used to ensure that the configuration adheres to the expected structure for rule verification.",
+            "sym": {
+                "EmitVerify": {
+                    "event": "Approval",
+                    "sv_cond": {
+                        "type": "WrittenCondition",
+                        "value": {
+                            "type": "StateVarSelector",
+                            "anchor_fn": "approve",
+                            "keys": [
+                                {
+                                    "type": "MsgSenderSelector"
+                                },
+                                {
+                                    "type": "FuncParamSelector",
+                                    "index": 0
+                                }
+                            ]
+                        }
+                    },
+                    "within_call_fn": "approve",
+                    "type": "EmitVerify"
+                }
+            }
+        }
+    ]
+}

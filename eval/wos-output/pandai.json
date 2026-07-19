@@ -1,0 +1,6 @@
+{
+    "sol_file": "benchmark/smallext/pandai.sol",
+    "contract": {
+        "PandAIToken": []
+    }
+}

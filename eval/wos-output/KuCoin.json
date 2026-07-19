@@ -1,0 +1,59 @@
+{
+    "sol_file": "benchmark/smallext/KuCoin.sol",
+    "contract": {
+        "MyToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transfer(address _to, uint256 _value) public returns (bool success)",
+                "contract": "MyToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 5,
+                "severity": "medium",
+                "tags": [
+                    "incorrect_return"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "contract": "MyToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 6,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "contract": "MyToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 7,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _spender, uint256 _value)",
+                "contract": "MyToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            }
+        ]
+    }
+}

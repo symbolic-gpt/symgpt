@@ -1,0 +1,58 @@
+'solc --version' running
+'solc ./benchmark/smallext/organicco.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/szx5097/code/solgpt/benchmark/smallext' running
+Compilation warnings/errors on ./benchmark/smallext/organicco.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmark/smallext/organicco.sol
+
+Warning: This declaration shadows an existing declaration.
+  --> benchmark/smallext/organicco.sol:56:9:
+   |
+56 |         string memory symbol,
+   |         ^^^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> benchmark/smallext/organicco.sol:71:5:
+   |
+71 |     function symbol() public view virtual returns (string memory) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: This declaration shadows an existing declaration.
+  --> benchmark/smallext/organicco.sol:57:9:
+   |
+57 |         string memory name,
+   |         ^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> benchmark/smallext/organicco.sol:67:5:
+   |
+67 |     function name() public view virtual returns ( string memory) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: This declaration shadows an existing declaration.
+  --> benchmark/smallext/organicco.sol:58:9:
+   |
+58 |         uint8 decimals,
+   |         ^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> benchmark/smallext/organicco.sol:75:5:
+   |
+75 |     function decimals() public view virtual returns (uint8) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: This declaration shadows an existing declaration.
+  --> benchmark/smallext/organicco.sol:59:9:
+   |
+59 |         uint totalSupply
+   |         ^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+  --> benchmark/smallext/organicco.sol:79:5:
+   |
+79 |     function totalSupply() public view virtual returns (uint) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> benchmark/smallext/organicco.sol:131:5:
+    |
+131 |     constructor() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+INFO:Slither:./benchmark/smallext/organicco.sol analyzed (6 contracts with 5 detectors), 0 result(s) found

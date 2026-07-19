@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/myth", line 5, in <module>
+    from mythril.interfaces.cli import main
+  File "/usr/local/lib/python3.10/site-packages/mythril/__init__.py", line 8, in <module>
+    from mythril.plugin.loader import MythrilPluginLoader
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/__init__.py", line 1, in <module>
+    from mythril.plugin.interface import MythrilPlugin, MythrilCLIPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/plugin/interface.py", line 2, in <module>
+    from mythril.laser.plugin.builder import PluginBuilder as LaserPluginBuilder
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/builder.py", line 1, in <module>
+    from mythril.laser.plugin.interface import LaserPlugin
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/plugin/interface.py", line 1, in <module>
+    from mythril.laser.ethereum.svm import LaserEVM
+  File "/usr/local/lib/python3.10/site-packages/mythril/laser/ethereum/svm.py", line 5, in <module>
+    from datetime import datetime, timedelta
+KeyboardInterrupt
+
+got 3 SIGTERM/SIGINTs, forcefully exiting

@@ -1,0 +1,472 @@
+{
+    "results": [
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success) throw if the message caller's account balance does not have enough tokens to spend",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):function transfer(address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if transfer is called",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) throw if the _from account has not deliberately authorized the sender of the message via some mechanism",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)not throw if Transfers of 0 values",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers _value amount of tokens from address _from to address _to",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)emit '['Transfer']' if Transfers of 0 values",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)allowance is reset to _value",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _spender, uint256 _value) public returns (bool success)emit '['Approval']' if function successfully executes",
+            "violated": false
+        },
+        {
+            "rule": "changeOwner(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "loadFund():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "modifyWhiteList(address[],bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "startICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "endICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setICOPrice(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "activate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "deActivate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "enableTokenTransfer():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeWallet(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeAdminAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeFounderAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeTeamAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateTokensForFounder():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateTokensForTeam():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateReservedTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateSalesTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrentState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSoftCapReached():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeOwner(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "loadFund():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "modifyWhiteList(address[],bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "startICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "endICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setICOPrice(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "activate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "deActivate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "enableTokenTransfer():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeWallet(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeAdminAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeFounderAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeTeamAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateTokensForFounder():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateTokensForTeam():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateReservedTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateSalesTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrentState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSoftCapReached():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeOwner(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "loadFund():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "modifyWhiteList(address[],bool):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "startICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "endICO():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setICOPrice(uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "activate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "deActivate():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "enableTokenTransfer():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeWallet(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeAdminAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeFounderAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeTeamAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateTokensForFounder():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateTokensForTeam():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allocateReservedTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "allocateSalesTokens(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "allowance(address,address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrentState():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSoftCapReached():event Transfer(address indexed _from, address indexed _to, uint256 _value)emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "changeOwner(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor(address,address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "receive():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "loadFund():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "modifyWhiteList(address[],bool):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "startICO():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "endICO():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setICOPrice(uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "activate():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "deActivate():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "enableTokenTransfer():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "changeWallet(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "changeAdminAddress(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "changeFounderAddress(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "changeTeamAddress(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allocateTokensForFounder():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allocateTokensForTeam():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allocateReservedTokens(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allocateSalesTokens(address,uint256):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "allowance(address,address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getCurrentState():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isSoftCapReached():event Approval(address indexed _owner, address indexed _spender, uint256 _value)emit 'Approval'",
+            "violated": false
+        }
+    ]
+}

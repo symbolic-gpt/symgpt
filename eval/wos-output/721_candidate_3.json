@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/721_candidate_3.sol",
+    "contract": {
+        "LicenseCore": [
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);",
+                "contract": "LicenseCore",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 0,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            },
+            {
+                "erc": "721",
+                "type": "interface",
+                "rule": "event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);",
+                "contract": "LicenseCore",
+                "interface": "ERC721",
+                "fn_interface": null,
+                "rid": 1,
+                "severity": "low",
+                "tags": [
+                    "event"
+                ]
+            }
+        ]
+    }
+}

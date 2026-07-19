@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/iostoken.sol",
+    "contract": {
+        "IOSToken": [
+            {
+                "erc": "20",
+                "type": "throw",
+                "rule": "not throw if Transfers of 0 values",
+                "contract": "IOSToken",
+                "interface": "ERC20",
+                "fn_interface": "function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)",
+                "rid": 12,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "emit",
+                "rule": "emit '['Approval']' if function successfully executes",
+                "contract": "IOSToken",
+                "interface": "ERC20",
+                "fn_interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "rid": 18,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,2484 @@
+{
+    "results": [
+        {
+            "rule": "balanceOf(address):function balanceOf(address _owner) external view returns (uint256) throw if _owner is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):function ownerOf(uint256 _tokenId) external view returns (address) throw if NFTs assigned to zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payablenot throw if `_to` is a smart contract (code size > 0)",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable throw if the return value of `onERC721Received` is not `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payableemit '['Transfer']' if `msg.sender` is the current owner, an authorized operator, or the approved address for this NFT, `_from` is the current owner, `_to` is not the zero address, and `_tokenId` is a valid NFT",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payableemit '['Approval']' if the ownership of the NFT is transferred",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payablecall onERC721Received if `_to` is a smart contract (code size > 0)",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payablenot throw if `_to` is a smart contract (code size > 0)",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable throw if the return value of `onERC721Received` is not `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Transfer']' if `_from` is the current owner, an authorized operator, or the approved address for this NFT, `_to` is not the zero address, `_tokenId` is a valid NFT",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Approval']' if the approved address for this NFT is reset (commonly to address(0))",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['ERC721Received']' if `_to` is a smart contract and `onERC721Received` is successfully called on `_to`",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payablecall onERC721Received if `_to` is a smart contract (code size > 0)",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `msg.sender` is not the current owner, an authorized operator, or the approved address for this NFT",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_from` is not the current owner",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_to` is the zero address",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payable throw if `_tokenId` is not a valid NFT",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):function transferFrom(address _from, address _to, uint256 _tokenId) external payableemit '['Transfer']' if msg.sender is the current owner, an authorized operator, or the approved address for this NFT, `_from` is the current owner, `_to` is not the zero address, and `_tokenId` is a valid NFT",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _approved, uint256 _tokenId) external payable throw if `msg.sender` is not the current NFT owner and not an authorized operator of the current owner",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):function approve(address _approved, uint256 _tokenId) external payableemit '['Approval']' if `msg.sender` is the current NFT owner or an authorized operator of the current owner",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):function setApprovalForAll(address _operator, bool _approved) externalemit '['ApprovalForAll']' if always",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):function getApproved(uint256 _tokenId) external view returns (address) throw if _tokenId is not a valid NFT",
+            "violated": true
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": true
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);emit 'Transfer'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT (if any) is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": true
+        },
+        {
+            "rule": "renew(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);emit 'Approval'",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "renew(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "implementsERC721():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "tokenByIndex(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "tokensOf(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "ownerOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "getApproved(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "transfer(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "approveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "disapproveAll(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "takeOwnership(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "licenseInfo(uint256):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "setCEO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "pause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": true
+        },
+        {
+            "rule": "constructor():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)the approved address for that NFT is reset to none",
+            "violated": false
+        },
+        {
+            "rule": "setAffiliateProgramAddress(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewalsCreditAffiliatesFor(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalPurchase(uint256,uint256,address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "createPromotionalRenewal(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "purchase(uint256,uint256,address,address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "renew(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "implementsERC721():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "tokenURI(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "supportsInterface(bytes4):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setTokenMetadataBaseURI(string):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupply():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "tokenByIndex(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "balanceOf(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "tokensOf(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "tokenOfOwnerByIndex(address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "ownerOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "getApproved(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "isApprovedForAll(address,address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "transfer(address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "approve(address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "setApprovalForAll(address,bool):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "approveAll(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "disapproveAll(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "takeOwnership(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": true
+        },
+        {
+            "rule": "transferFrom(address,address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256,bytes):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "safeTransferFrom(address,address,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "createProduct(uint256,uint256,uint256,uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "incrementInventory(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "decrementInventory(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "clearInventory(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setPrice(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setRenewable(uint256,bool):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "priceOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "availableInventoryOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "totalSupplyOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "totalSold(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "intervalOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "renewableOf(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "productInfo(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "getAllProductIds():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "costForProductCycles(uint256,uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "isSubscriptionProduct(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseProductId(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAttributes(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseIssuedTime(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseExpirationTime(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseAffiliate(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "licenseInfo(uint256):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setCEO(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setCFO(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setCOO(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setWithdrawalAddress(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "withdrawBalance():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "pause():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "unpause():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "constructor():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "setNewAddress(address):event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        },
+        {
+            "rule": "fallback():event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);emit 'ApprovalForAll'",
+            "violated": false
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "functions": [
+        {
+            "def": "function supportsInterface(bytes4 interfaceID) external view returns (bool)",
+            "raw_rules": "    /// @notice Query if a contract implements an interface\n    /// @param interfaceID The interface identifier, as specified in ERC-165\n    /// @dev Interface identification is specified in ERC-165. This function\n    ///  uses less than 30,000 gas.\n    /// @return `true` if the contract implements `interfaceID` and\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\n",
+            "format": {
+                "name": "supportsInterface",
+                "arg_types": [
+                    {
+                        "name": "interfaceID",
+                        "type": "bytes4"
+                    }
+                ],
+                "optional": null,
+                "view": true,
+                "pure": false,
+                "payable": false,
+                "return_type": {
+                    "type": "bool"
+                }
+            },
+            "extracted": {
+                "throw": [],
+                "semantic_return": "The function `supportsInterface(bytes4 interfaceID)` checks whether a contract supports a specific interface, identified by the `interfaceID` parameter. The return value of the function has the following meanings:\n\n- It returns `true` if the contract indeed implements the specified interface identified by `interfaceID`, and the `interfaceID` is not equal to `0xffffffff`.\n- It returns `false` if the contract does not implement the specified interface, or if the `interfaceID` provided is `0xffffffff`.\n\nThe special case where `interfaceID` is `0xffffffff` is treated as an exception, likely used as a sentinel value to ensure that the input is valid and intentional, rather than a default or error value. This function is part of the ERC-165 standard, which provides a standardized method to determine if a contract implements a certain interface, thus enhancing interoperability between contracts in the Ethereum ecosystem.",
+                "return": [
+                    {
+                        "ret_value": true,
+                        "if": "the contract implements `interfaceID` and `interfaceID` is not 0xffffffff"
+                    },
+                    {
+                        "ret_value": false,
+                        "if": "`interfaceID` is 0xffffffff or the contract does not implement `interfaceID`"
+                    }
+                ],
+                "emit": null,
+                "assign": null,
+                "call": null,
+                "order": null
+            },
+            "extract_debug": {
+                "throw": "```json\n[\n    {\n        \"if\": \"interfaceID is 0xffffffff\",\n        \"throw\": true\n    }\n]\n```",
+                "semantic_return": "The function `supportsInterface(bytes4 interfaceID)` checks whether a contract supports a specific interface, identified by the `interfaceID` parameter. The return value of the function has the following meanings:\n\n- It returns `true` if the contract indeed implements the specified interface identified by `interfaceID`, and the `interfaceID` is not equal to `0xffffffff`.\n- It returns `false` if the contract does not implement the specified interface, or if the `interfaceID` provided is `0xffffffff`.\n\nThe special case where `interfaceID` is `0xffffffff` is treated as an exception, likely used as a sentinel value to ensure that the input is valid and intentional, rather than a default or error value. This function is part of the ERC-165 standard, which provides a standardized method to determine if a contract implements a certain interface, thus enhancing interoperability between contracts in the Ethereum ecosystem.",
+                "return": "```json\n[\n    {\n        \"ret_value\": true,\n        \"if\": \"the contract implements `interfaceID` and `interfaceID` is not 0xffffffff\"\n    },\n    {\n        \"ret_value\": false,\n        \"if\": \"`interfaceID` is 0xffffffff or the contract does not implement `interfaceID`\"\n    }\n]\n```"
+            }
+        }
+    ],
+    "events": [],
+    "name": "ERC165",
+    "rules": [
+        {
+            "rule": "The function `supportsInterface(bytes4 interfaceID)` checks whether a contract supports a specific interface, identified by the `interfaceID` parameter. The return value of the function has the following meanings:\n\n- It returns `true` if the contract indeed implements the specified interface identified by `interfaceID`, and the `interfaceID` is not equal to `0xffffffff`.\n- It returns `false` if the contract does not implement the specified interface, or if the `interfaceID` provided is `0xffffffff`.\n\nThe special case where `interfaceID` is `0xffffffff` is treated as an exception, likely used as a sentinel value to ensure that the input is valid and intentional, rather than a default or error value. This function is part of the ERC-165 standard, which provides a standardized method to determine if a contract implements a certain interface, thus enhancing interoperability between contracts in the Ethereum ecosystem.",
+            "type": "semantic_return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)"
+        },
+        {
+            "rule": "return True if the contract implements `interfaceID` and `interfaceID` is not 0xffffffff",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": true
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 4294967295
+                        },
+                        "op": "not_eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided schema, we need to define a `ReturnVerify` object that checks if the function `supportsInterface(bytes4 interfaceID)` returns `true` when the `interfaceID` is not equal to `0xffffffff`. Here's how the JSON configuration would look:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": true\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 4294967295\n            },\n            \"op\": \"not_eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **ReturnVerify**: This is the main object that specifies the rule.\n- **ret_val**: This specifies that the return value should be `true`.\n- **cond**: This is the condition that needs to be satisfied for the rule to apply.\n  - **left**: This selects the first parameter of the function (`interfaceID`), which is at index 0.\n  - **right**: This specifies the constant value `0xffffffff`, which in integer form is `4294967295`.\n  - **op**: The operation `not_eq` checks that `interfaceID` is not equal to `0xffffffff`.\n\nThis configuration ensures that the function returns `true` only if it implements the interface identified by `interfaceID`, and `interfaceID` is not `0xffffffff`."
+        },
+        {
+            "rule": "return False if `interfaceID` is 0xffffffff or the contract does not implement `interfaceID`",
+            "type": "return",
+            "interface": "function supportsInterface(bytes4 interfaceID) external view returns (bool)",
+            "sym": {
+                "ReturnVerify": {
+                    "type": "ReturnVerify",
+                    "ret_val": {
+                        "type": "ConstantSelector",
+                        "value": false
+                    },
+                    "cond": {
+                        "type": "CompCondition",
+                        "left": {
+                            "type": "FuncParamSelector",
+                            "index": 0
+                        },
+                        "right": {
+                            "type": "ConstantSelector",
+                            "value": 4294967295
+                        },
+                        "op": "eq"
+                    }
+                }
+            },
+            "sym_debug": "To generate the JSON configuration for the rule verification based on the provided JSON schema, we need to define a `ReturnVerify` object that specifies the conditions under which the function should return `false`. According to the rule, the function should return `false` if `interfaceID` is `0xffffffff` or the contract does not implement `interfaceID`. For simplicity, we'll focus on the first condition (checking if `interfaceID` is `0xffffffff`).\n\nHere's the JSON configuration for the rule verification:\n\n```json\n{\n    \"ReturnVerify\": {\n        \"type\": \"ReturnVerify\",\n        \"ret_val\": {\n            \"type\": \"ConstantSelector\",\n            \"value\": false\n        },\n        \"cond\": {\n            \"type\": \"CompCondition\",\n            \"left\": {\n                \"type\": \"FuncParamSelector\",\n                \"index\": 0\n            },\n            \"right\": {\n                \"type\": \"ConstantSelector\",\n                \"value\": 4294967295\n            },\n            \"op\": \"eq\"\n        }\n    }\n}\n```\n\nExplanation:\n- **ReturnVerify**: This is the main object that specifies the verification rule.\n- **ret_val**: This specifies the value that should be returned by the function (`false` in this case).\n- **cond**: This is the condition under which the specified return value should be used.\n  - **left**: This selects the first parameter of the function (`interfaceID`), which is at index 0.\n  - **right**: This is a constant value `4294967295`, which is the hexadecimal value `0xffffffff` in decimal.\n  - **op**: The operation `eq` checks for equality between the left and right values.\n\nThis configuration ensures that the function returns `false` when the `interfaceID` parameter is `0xffffffff`. Additional conditions and logic would be needed to handle the case where the contract does not implement `interfaceID`, which typically involves more complex state or behavior checks not directly representable in this simple JSON schema."
+        }
+    ]
+}

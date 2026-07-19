@@ -1,0 +1,33 @@
+{
+    "sol_file": "benchmark/smallext/battoken.sol",
+    "contract": {
+        "BAToken": [
+            {
+                "erc": "20",
+                "type": "interface",
+                "rule": "function decimals() public view returns (uint8)",
+                "contract": "BAToken",
+                "interface": "ERC20",
+                "fn_interface": null,
+                "rid": 2,
+                "severity": "medium",
+                "tags": [
+                    "no_function"
+                ]
+            },
+            {
+                "erc": "20",
+                "type": "emit",
+                "rule": "emit '['Approval']' if function successfully executes",
+                "contract": "BAToken",
+                "interface": "ERC20",
+                "fn_interface": "function approve(address _spender, uint256 _value) public returns (bool success)",
+                "rid": 18,
+                "severity": "-",
+                "tags": [
+                    "function"
+                ]
+            }
+        ]
+    }
+}
