@@ -17,7 +17,7 @@ over current smart contract analysis methods.
 
 ## Artifact Expectation
 
-The information of our study is released in an google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM. The VM can be downloaded from https://doi.org/10.5281/zenodo.18502262. 
+The information of our study is released in an google sheet. The the dataset and code are released in a virtual machine that is created using Virtual Box 7.2.6, We expect users to use a Virtual Box of this version or higher to start the VM. The VM can be downloaded from https://doi.org/10.5281/zenodo.21431839. 
 
 
 ## Artifact Overview
